@@ -32,7 +32,7 @@ while ($comment = $comments->fetch())
 
 <!-- ... -->
 
-<h2>Commentaires</h2>
+<h2>Ajouter un Commentaire</h2>
 
 <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
     <div>

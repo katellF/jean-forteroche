@@ -1,39 +1,9 @@
 <?php
 
-require_once('controller/ControllerPost.php');
-require_once('controller/ControllerComment.php');
-require_once('view/View.php');
+//require_once('controller/ControllerPost.php');
+//require_once('controller/ControllerComment.php');
+//require_once('view/View.php');
 
-//class Router
-//{
-//    private $ctrlPost;
-//
-//    public function __construct()
-//    {
-//        $this->ctrlPost = new ControllerPost();
-//    }
-//
-//    public function routerRequest()
-//    {
-//        try {
-//            if (isset($_GET['action'])) {
-//
-//                if ($_GET['action'] == 'listPosts') {
-//                    $this->ctrlPost->listPosts();
-//                }
-//
-//            } else {
-//
-//                $this->ctrlPost->listPosts();
-//            }
-//
-//        } catch (Exception $e) {
-//
-//            echo 'Erreur : ' . $e->getMessage();
-//        }
-//
-//    }
-//}
 
 class Router
 {
@@ -46,10 +16,8 @@ class Router
         $this->ctrlComment = new ControllerComment();
     }
 
-
     public function routerRequest()
     {
-
         try {
             if (isset($_GET['action'])) {
                 if ($_GET['action'] == 'listPosts') {
@@ -57,7 +25,6 @@ class Router
                 } elseif ($_GET['action'] == 'post') {
                     if (isset($_GET['id']) && $_GET['id'] > 0) {
                         $this->ctrlPost->post();
-
                     } else {
                         // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
                         throw new Exception('Aucun identifiant de billet envoyé');
@@ -77,6 +44,8 @@ class Router
                         throw new Exception('Aucun identifiant de billet envoyé');
                     }
                 }
+            }else {
+                $this->ctrlPost->listPosts();
             }
         } catch (Exception $e) {
 
