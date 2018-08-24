@@ -14,8 +14,6 @@ class Router
 
     public function routerRequest()
     {
-
-
         try {
             if (isset($_GET['action'])) {
 
