@@ -17,6 +17,11 @@ while ($data = $posts->fetch()) {
             <em>le <?= $data['creation_date_fr'] ?></em>
         </h3>
     </div>
+    <p>
+        <?= nl2br(htmlspecialchars($data['content'])) ?>
+        <br />
+        <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
+    </p>
     <?php
 }
 $posts->closeCursor();
