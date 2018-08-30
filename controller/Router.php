@@ -1,10 +1,5 @@
 <?php
 
-//require_once('controller/ControllerPost.php');
-//require_once('controller/ControllerComment.php');
-//require_once('view/View.php');
-
-
 class Router
 {
     private $ctrlPost;
