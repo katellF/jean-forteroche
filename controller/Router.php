@@ -9,6 +9,7 @@ class Router
     {
         $this->ctrlPost = new ControllerPost();
         $this->ctrlComment = new ControllerComment();
+        $this->ctrlNotification = new ControllerNotification();
     }
 
     public function routerRequest()
@@ -37,9 +38,14 @@ class Router
                     } else {
                         // Autre exception
                         throw new Exception('Aucun identifiant de billet envoyé');
-                    }
-                }
-            }else {
+                    }}
+                elseif ($_GET['action'] == 'notification') {
+                 $this->ctrlNotification-> notification();
+            }
+//                 elseif ($_GET['action'] == 'addnotification') {
+//                    $this->ctrlNotification->addNotification($_GET['Id'], $_POST['author'], $_POST['comment']);
+//                }
+            } else {
                 $this->ctrlPost->listPosts();
             }
         } catch (Exception $e) {
