@@ -15,7 +15,6 @@ class NotificationManager extends Manager
     {
         $db = $this->dbConnect();
         $notifications = $db->prepare('INSERT INTO notifications(comment_id, reason, content, email, submission_date) VALUES(?,?, ?, ?, NOW())');
-        //$notifications = $db->prepare('INSERT INTO notifications(comment_id, reason, content, email, submission_date) VALUES(1,?, "content 1", "email 1", NOW())');
         $affectedLines = $notifications->execute(array($commentId, $content, $notificationReason,$email));
 
         return $affectedLines;

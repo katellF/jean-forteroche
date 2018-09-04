@@ -1,8 +1,5 @@
 <?php $this->title = 'Mon blog';
 
-session_start();
-
-
 ?>
 
 <h1>Mon super blog !</h1>

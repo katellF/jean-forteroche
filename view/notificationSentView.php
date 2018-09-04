@@ -6,4 +6,4 @@ $this->title = htmlspecialchars('Notifier un commentaire');
 
 
 <p>Votre notification a bien été envoyée.</p>
-<p> Merci pour votre vigilance.</p>
+<p>Merci pour votre vigilance.</p>
