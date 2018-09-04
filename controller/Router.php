@@ -37,13 +37,8 @@ class Router
                         throw new Exception('Aucun identifiant de billet envoyé');
                     }
                 } elseif ($_GET['action'] == 'notification') {
-                    if (isset($_GET['commentid']) && $_GET['commentid'] > 0) {
-                        if (!empty($_POST['reason']) && !empty($_POST['email']) && !empty($_POST['content'])) {
+
                             $this->ctrlNotification->notification();
-                        }else {
-                            throw new Exception('Tous les champs ne sont pas remplis');
-                        }
-                    }
                 }
             } else {
                 $this->ctrlPost->listPosts();

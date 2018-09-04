@@ -12,18 +12,17 @@ class ControllerNotification
 
     public function notification()
     {
-
-       // var_dump($_POST);
-
         if (isset ($_POST) && !empty($_POST)) {
+            if (!empty($_POST['email']) && !empty($_POST['reason'])) {
+                $this->addNotification();
 
-          //  var_dump('ADD NOTIFICATION!!!');
-            $this->addNotification();
+            }else {
+
+                throw new Exception('Tous les champs ne sont pas remplis !');}
 
         } else {
 
             $view = new View("notification");
-            //  $view->generate(array('notification' => $notification,'comments' => $comments));
             $view->generate(array());
 
         }
@@ -31,12 +30,9 @@ class ControllerNotification
 
     public function addNotification()
     {
-        // var_dump($_POST);
         $notificationManager = new NotificationManager();
         $content = $notificationManager->insertNotification($_GET['commentid'], $_POST['email'], $_POST['reason'], $_POST['content']);
-        $view = new View("notification");
+        $view = new View("notificationSent");
         $view->generate(array("data" => $content));
-        echo "Ca marche";
-
     }
 }
