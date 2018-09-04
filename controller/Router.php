@@ -22,7 +22,6 @@ class Router
                     if (isset($_GET['id']) && $_GET['id'] > 0) {
                         $this->ctrlPost->post();
                     } else {
-                        // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
                         throw new Exception('Aucun identifiant de billet envoyé');
                     }
                 } elseif ($_GET['action'] == 'addComment') {
@@ -31,21 +30,19 @@ class Router
                             $this->ctrlComment->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
 
                         } else {
-                            // Autre exception
                             throw new Exception('Tous les champs ne sont pas remplis !');
                         }
 
                     } else {
-                        // Autre exception
                         throw new Exception('Aucun identifiant de billet envoyé');
-                    }}
-                elseif ($_GET['action'] == 'notification') {
-                 $this->ctrlNotification-> notification();
-                // $this->ctrlNotification-> addNotification();
-            }
-//                 elseif ($_GET['action'] == 'addnotification') {
-//                    $this->ctrlNotification->addNotification($_GET['Id'], $_POST['author'], $_POST['comment']);
-//                }
+                    }
+                } elseif ($_GET['action'] == 'notification') {
+                    if (isset($_GET['commentid']) && $_GET['commentid'] > 0) {
+                        if (!empty($_POST['reason']) && !empty($_POST['email'])) {
+                            $this->ctrlNotification->notification();
+                        }
+                    }
+                }
             } else {
                 $this->ctrlPost->listPosts();
             }

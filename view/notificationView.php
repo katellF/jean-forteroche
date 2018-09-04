@@ -1,10 +1,5 @@
-<?php //$this->title = htmlspecialchars($post['title']);
+<?php
 $this->title = htmlspecialchars('Notifier un commentaire');
-session_start();
-
-var_dump($this);
-//var_dump($this->content);
-
 ?>
 
 <h2>Signaler un Commentaire</h2>
@@ -20,7 +15,7 @@ var_dump($this);
         </div>
         <div>
             <label for="content">content</label><br/>
-            <textarea id="coontent" name="content"></textarea>
+            <textarea id="content" name="content"></textarea>
         </div>
         <div>
             <input type="submit"/>
