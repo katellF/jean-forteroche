@@ -41,6 +41,7 @@ class Router
                     }}
                 elseif ($_GET['action'] == 'notification') {
                  $this->ctrlNotification-> notification();
+                // $this->ctrlNotification-> addNotification();
             }
 //                 elseif ($_GET['action'] == 'addnotification') {
 //                    $this->ctrlNotification->addNotification($_GET['Id'], $_POST['author'], $_POST['comment']);

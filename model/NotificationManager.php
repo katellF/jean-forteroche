@@ -11,11 +11,12 @@ class NotificationManager extends Manager
         return $notifications;
     }
 
-    public function postNotification($commentId, $content, $notificationReason)
+    public function insertNotification($commentId, $content, $notificationReason,$email)
     {
         $db = $this->dbConnect();
-        $notifications = $db->prepare('INSERT INTO reporting(comment_id, notification_reason, content, email, notification_date) VALUES(?, ?, ?, NOW())');
-        $affectedLines = $notifications->execute(array($commentId, $content, $notificationReason));
+        $notifications = $db->prepare('INSERT INTO notifications(comment_id, reason, content, email, submission_date) VALUES(?,?, ?, ?, NOW())');
+        //$notifications = $db->prepare('INSERT INTO notifications(comment_id, reason, content, email, submission_date) VALUES(1,?, "content 1", "email 1", NOW())');
+        $affectedLines = $notifications->execute(array($commentId, $content, $notificationReason,$email));
 
         return $affectedLines;
     }

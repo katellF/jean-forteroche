@@ -12,10 +12,15 @@ class View
 
     public function generate($datas)
     {
+
         $content = $this->generateFile($this->file, $datas);
+        //var_dump($content);
+
 
         $view = $this->generateFile('view/template.php',
             array('title' => $this->title, 'content' => $content));
+
+        //var_dump($view);
 
         echo $view;
     }
@@ -25,6 +30,7 @@ class View
         if (file_exists($file)) {
 
             extract($datas);
+
 
             ob_start();
 
