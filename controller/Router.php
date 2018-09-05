@@ -21,7 +21,7 @@ class Router
                     $this->ctrlConnect->registration();}
                     //$this->ctrlConnect->isUserConnected();
                 if ($_GET['action'] == 'connection') {
-                    $this->ctrlConnect->registration();}
+                    $this->ctrlConnect->connection();}
 //                //$this->ctrlConnect->isUserConnected();
                 if ($_GET['action'] == 'listPosts') {
                     $this->ctrlPost->listPosts();

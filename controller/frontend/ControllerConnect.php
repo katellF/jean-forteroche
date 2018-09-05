@@ -83,27 +83,27 @@ class ControllerConnect
         if ( isset ($_POST) && !empty($_POST)) {
 
 //
-//            $errorCounter = 0;
+            $errorCounter = 0;
+
+            if (!isset($_POST['pseudoConnect']) || empty($_POST['pseudoConnect'])){
+                echo 'Pseudo manquant!';
+                $errorCounter++;
+            }
 //
-//            if (!isset($_POST['pseudo']) || empty($_POST['pseudo'])){
-//                echo 'Pseudo manquant!';
-//                $errorCounter++;
-//            }
+            if (!isset($_POST['passwordConnect']) || empty($_POST['passwordConnect'])){
+                echo 'Pwd manquant!';
+                $errorCounter++;
+            }
 //
-//            if (!isset($_POST['password']) || empty($_POST['password'])){
-//                echo 'Pwd manquant!';
-//                $errorCounter++;
-//            }
-//
-//            if ($errorCounter === 0){
-//
-//                $res = $this->UserConnect->userConnect();
-//
-//                $isPasswordCorrect = password_verify($_POST['password'], $res['password']);
-//                if (!$res) {
-//                    echo 'Mauvais identifiant ou mot de passe 1!';
-//                } else {
-//                    if ($isPasswordCorrect) {
+            if ($errorCounter === 0){
+
+                $res = $this->UserConnect->userConnect();
+
+                $isPasswordCorrect = password_verify($_POST['passwordConnect'], $res['password']);
+                if (!$res) {
+                    echo 'Mauvais identifiant ou mot de passe 1!';
+                } else {
+                    if ($isPasswordCorrect) {
 ////                        session_start();
 ////                        $_SESSION['id'] = $res['id'];
 ////                        $_SESSION['pseudo'] = $_POST['pseudo'];
@@ -112,17 +112,17 @@ class ControllerConnect
 ////                            setcookie('pass', $res['pass'], time() + 365*24*3600, null, null, false, true);
 ////                        }
 //
-//                        echo 'Vous êtes connecté !';
-//                    } else {
-//                        echo 'Mauvais identifiant ou mot de passe !2';
-//                    }
-//                }
-//            }
-//        }
+                        echo 'Vous êtes connecté !';
+                    } else {
+                        echo 'Mauvais identifiant ou mot de passe !2';
+                    }
+                }
+         }}else{
+      // }
 
         $view = new View("connection");
-        $view->generate(array());
+        $view->generate(array());}
 
 
-    }}
+    }
 }

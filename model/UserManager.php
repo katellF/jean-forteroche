@@ -30,7 +30,7 @@ class UserManager extends Manager
             'pseudo' => $_POST['pseudo'],
             'email' => $_POST['email'],
             'password' => $pass_hache,));
-return$res;
+        return$res;
         echo'enregistrer';
         exit;
     }
@@ -39,9 +39,9 @@ return$res;
 
         $db = $this->dbConnect();
 
-        $req = $db->prepare("SELECT id, password FROM users WHERE pseudo = :pseudo");
+        $req = $db->prepare("SELECT id, pseudo, password FROM users WHERE pseudo = :pseudo");
         $res = $req->execute(array(
-            'pseudo' => $_POST['pseudo'],
+            'pseudo' => $_POST['pseudoConnect'],
         ));
 
         $resultat = $req->fetch();
