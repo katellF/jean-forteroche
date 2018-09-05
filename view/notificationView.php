@@ -1,7 +1,7 @@
 <?php
 $this->title = htmlspecialchars('Notifier un commentaire');
 ?>
-
+<p><a href="index.php?action=post&amp;id=<?= $_GET['postid'] ?>">Retour à l'article</a></p>
 <h2>Signaler un Commentaire</h2>
 
     <form action="index.php?action=notification&amp;commentid=<?= $_GET['commentid'] ?>" method="post">

@@ -9,4 +9,8 @@
 <body>
 <?= $content ?>
 </body>
+
+<footer>
+    <p><a href="index.php?action=register">admin</a></p>
+</footer>
 </html>

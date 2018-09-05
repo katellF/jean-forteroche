@@ -10,12 +10,16 @@ class Router
         $this->ctrlPost = new ControllerPost();
         $this->ctrlComment = new ControllerComment();
         $this->ctrlNotification = new ControllerNotification();
+        $this->ctrlConnect = new ControllerConnect();
     }
 
     public function routerRequest()
     {
         try {
             if (isset($_GET['action'])) {
+                if ($_GET['action'] == 'register') {
+                    $this->ctrlConnect->registration();}
+                    //$this->ctrlConnect->isUserConnected();
                 if ($_GET['action'] == 'listPosts') {
                     $this->ctrlPost->listPosts();
                 } elseif ($_GET['action'] == 'post') {
