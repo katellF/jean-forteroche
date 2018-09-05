@@ -3,35 +3,50 @@
 
 class UserManager extends Manager
 {
-    public function getUser(){
+    public function getUser($pseudo){
 
         $db = $this->dbConnect();
 
-        $req = $db->prepare('SELECT id FROM users WHERE name = :name');
+        $req = $db->prepare('SELECT id FROM users WHERE pseudo = :pseudo');
         $req->execute(array(
-            'name' => htmlspecialchars($_POST['name'])));
+            'pseudo' => htmlspecialchars($pseudo)));
 
 
         return $req;
     }
 
-//    public function registerUser(){
-//
-//        $db = $this->dbConnect();
-//
-//        // Insertion
-//        $pass_hache = password_hash($_POST['password'], PASSWORD_DEFAULT);
-//        $req = $db->prepare('INSERT INTO members(pseudo, pass, email, registration_date) VALUES(:pseudo, :pass, :email, CURDATE())');
-//
-//
-//        $res = $req->execute(array(
-//            'pseudo' => $_POST['pseudo'],
-//            'pass' => $pass_hache,
-//            'email' => $_POST['email']));
-//
-//        echo'Bienvenue chez nous';
-//        exit;
-//    }
+    public function registerUser(){
+
+        $db = $this->dbConnect();
+
+        // Insertion
+        $pass_hache = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $req = $db->prepare('INSERT INTO users(lastname, firstname, pseudo, email, password, registration_date) VALUES(:lastname,:firstname,:pseudo,:email,:password, CURDATE())');
+
+
+        $res = $req->execute(array(
+            'lastname' => $_POST['lastname'],
+            'firstname' => $_POST['firstname'],
+            'pseudo' => $_POST['pseudo'],
+            'email' => $_POST['email'],
+            'password' => $pass_hache,));
+return$res;
+        echo'enregistrer';
+        exit;
+    }
+
+    public function userConnect(){
+
+        $db = $this->dbConnect();
+
+        $req = $db->prepare("SELECT id, password FROM users WHERE pseudo = :pseudo");
+        $res = $req->execute(array(
+            'pseudo' => $_POST['pseudo'],
+        ));
+
+        $resultat = $req->fetch();
+        return $resultat;
+    }
 //
 //    public function connectionAuto(){
 //
@@ -55,7 +70,7 @@ class UserManager extends Manager
 //
 //        $db = $this->dbConnect();
 //
-//        $req = $db->prepare("SELECT id, pass FROM members WHERE pseudo = :pseudo");
+//        $req = $db->prepare("SELECT id, password FROM users WHERE pseudo = :pseudo");
 //        $res = $req->execute(array(
 //            'pseudo' => $_POST['pseudo'],
 //        ));
