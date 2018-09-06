@@ -27,6 +27,8 @@ class Router
                 if ($_GET['action'] == 'admin') {
                     $this->ctrlDashboard->adminAccess();}
 //                //$this->ctrlConnect->isUserConnected();
+                elseif ($_GET['action'] == 'logout') {
+                    $this->ctrlConnect->logout();}
                 if ($_GET['action'] == 'listPosts') {
                     $this->ctrlPost->listPosts();
                 } elseif ($_GET['action'] == 'post') {

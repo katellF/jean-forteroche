@@ -105,16 +105,19 @@ class ControllerConnect
                     echo 'Mauvais identifiant ou mot de passe 1!';
                 } else {
                     if ($isPasswordCorrect) {
-////                        session_start();
-////                        $_SESSION['id'] = $res['id'];
-////                        $_SESSION['pseudo'] = $_POST['pseudo'];
+
+                        session_start();
+                        $_SESSION['id'] = $res['id'];
+                        $_SESSION['pseudo'] = $_POST['pseudoConnect'];
 ////                        if ( isset( $_POST['check'] ) && $_POST['check'] === "on" ) {
 ////                            setcookie('pseudo', $_POST['pseudo'], time() + 365*24*3600, null, null, false, true);
 ////                            setcookie('pass', $res['pass'], time() + 365*24*3600, null, null, false, true);
 ////                        }
-//
+
                         //echo 'Vous êtes connecté !';
+
                         header('Location: index.php?action=admin');
+
 
                     } else {
                         echo 'Mauvais identifiant ou mot de passe !2';
@@ -124,7 +127,33 @@ class ControllerConnect
             // }
 
             $view = new View("connection");
-            $view->generate(array());}
+            $view->generate(array());
+    }
+
+    function logout(){
+
+       session_start();
+
+        if ( isset( $_POST['operation'] ) && $_POST['operation'] === "logout" )
+        {
+            $this->UserConnect->getLogout();
+        }
+
+//        if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
+//        {
+//            echo 'Bonjour ' . $_SESSION['pseudo'];
+//        }
+
+        if (empty($_SESSION))
+        {
+            echo'Vous êtes déconnectés! ';
+
+        } else
+        {
+            $view = new View("backend/admin");
+            $view->generate(array());
+        }
+  }
 
 
 

@@ -46,6 +46,17 @@ class UserManager extends Manager
         $resultat = $req->fetch();
         return $resultat;
     }
+
+    public function getLogout(){
+
+        // Suppression des variables de session et de la session
+        $_SESSION = array();
+        session_destroy();
+
+//        // Suppression des cookies de connexion automatique
+//        setcookie('pseudo', '');
+//        setcookie('pass', '');
+    }
 //
 //    public function connectionAuto(){
 //
