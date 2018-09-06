@@ -29,18 +29,17 @@ class UserManager extends Manager
             'pseudo' => $_POST['pseudo'],
             'email' => $_POST['email'],
             'password' => $pass_hache,));
-        return$res;
-        echo'enregistrer';
-        exit;
+        return $res;
+
     }
 
-    public function userConnect(){
+    public function userConnect($pseudo){
 
         $db = $this->dbConnect();
 
         $req = $db->prepare("SELECT id, pseudo, password FROM users WHERE pseudo = :pseudo");
         $res = $req->execute(array(
-            'pseudo' => $_POST['pseudoConnect'],
+            'pseudo' => $pseudo,
         ));
 
         $resultat = $req->fetch();

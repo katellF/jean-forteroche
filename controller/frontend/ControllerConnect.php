@@ -10,9 +10,10 @@ class ControllerConnect
 
     }
 
-    function registration(){
+    function registration()
+    {
 //
-        if ( isset ($_POST) && !empty($_POST)) {
+        if (isset ($_POST) && !empty($_POST)) {
 
             $post_pseudo = htmlspecialchars($_POST['pseudo']);
 
@@ -30,75 +31,66 @@ class ControllerConnect
             }
 
 
-            if( strlen( htmlspecialchars($_POST['password'] )) < 6 ){
+            if (strlen(htmlspecialchars($_POST['password'])) < 6) {
 
                 echo 'Mdp trop court,  il faut au moins 6 chars...';
                 $errorCounter++;
             }
 
-            if($_POST['password'] !== $_POST['confirmPassword']){
+            if ($_POST['password'] !== $_POST['confirmPassword']) {
 
-            echo 'Vos 2 mots de passe doivent etre identiques';
-            $errorCounter++;
-        }
-//
-//////    if(1 !== preg_match("#^[a-z]||[0-9]@*\.#", $_POST['email'])){
-            if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)=== false) {
+                echo 'Vos 2 mots de passe doivent etre identiques';
+                $errorCounter++;
+            }
+            if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
 
                 echo 'ecriture email fausse';
                 $errorCounter++;
             }
 
-            if ( $errorCounter === 0) {
-
-                echo 'Insert User';
+            if ($errorCounter === 0) {
+                session_start();
 
                 $pass_hache = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-                $this->UserConnect->registerUser();
+                $res = $this->UserConnect->registerUser();
+                $connect = $this->UserConnect->userConnect($_POST['pseudo']);
 
+                $_SESSION['id'] = $connect['id'];
+                $_SESSION['pseudo'] = $connect['pseudo'];
+
+                header('Location: index.php?action=admin');
             }
 
         }
 
-            $view = new View("connection");
-            $view->generate(array());
+        $view = new View("connection");
+        $view->generate(array());
 
 
-    //}
-}
-    function connection(){
+    }
 
-//        if ( isset($_COOKIE['pseudo']) && isset($_COOKIE['pass']) ){
-//
-//            echo $_COOKIE['pseudo'] .'     '. $_COOKIE['pass'].'<br><br>';
-//
-//
-//            if( $this->UserConnect->connectionAuto() == true){
-//
-//                echo"Vous etes connectés";
-//                exit;
-//            }
-//        }
+    function connection()
+    {
 
-        if ( isset ($_POST) && !empty($_POST)) {
+        if (isset ($_POST) && !empty($_POST)) {
 
-//
+
             $errorCounter = 0;
 
-            if (!isset($_POST['pseudoConnect']) || empty($_POST['pseudoConnect'])){
+            if (!isset($_POST['pseudoConnect']) || empty($_POST['pseudoConnect'])) {
                 echo 'Pseudo manquant!';
                 $errorCounter++;
             }
-//
-            if (!isset($_POST['passwordConnect']) || empty($_POST['passwordConnect'])){
+
+            if (!isset($_POST['passwordConnect']) || empty($_POST['passwordConnect'])) {
                 echo 'Pwd manquant!';
                 $errorCounter++;
             }
-//
-            if ($errorCounter === 0){
 
-                $res = $this->UserConnect->userConnect();
+            if ($errorCounter === 0) {
+
+                $res = $this->UserConnect->userConnect($_POST['pseudoConnect']);
 
                 $isPasswordCorrect = password_verify($_POST['passwordConnect'], $res['password']);
                 if (!$res) {
@@ -109,52 +101,38 @@ class ControllerConnect
                         session_start();
                         $_SESSION['id'] = $res['id'];
                         $_SESSION['pseudo'] = $_POST['pseudoConnect'];
-////                        if ( isset( $_POST['check'] ) && $_POST['check'] === "on" ) {
-////                            setcookie('pseudo', $_POST['pseudo'], time() + 365*24*3600, null, null, false, true);
-////                            setcookie('pass', $res['pass'], time() + 365*24*3600, null, null, false, true);
-////                        }
-
-                        //echo 'Vous êtes connecté !';
 
                         header('Location: index.php?action=admin');
-
 
                     } else {
                         echo 'Mauvais identifiant ou mot de passe !2';
                     }
                 }
-         }}
-            // }
+            }
+        }
+        // }
 
-            $view = new View("connection");
-            $view->generate(array());
+        $view = new View("connection");
+        $view->generate(array());
     }
 
-    function logout(){
+    function logout()
+    {
 
-       session_start();
+        session_start();
 
-        if ( isset( $_POST['operation'] ) && $_POST['operation'] === "logout" )
-        {
+        if (isset($_POST['operation']) && $_POST['operation'] === "logout") {
             $this->UserConnect->getLogout();
         }
 
-//        if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
-//        {
-//            echo 'Bonjour ' . $_SESSION['pseudo'];
-//        }
+        if (empty($_SESSION)) {
+            echo 'Vous êtes déconnectés! ';
 
-        if (empty($_SESSION))
-        {
-            echo'Vous êtes déconnectés! ';
-
-        } else
-        {
+        } else {
             $view = new View("backend/admin");
             $view->generate(array());
         }
-  }
-
+    }
 
 
 }
