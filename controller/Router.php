@@ -12,6 +12,7 @@ class Router
         $this->ctrlNotification = new ControllerNotification();
         $this->ctrlConnect = new ControllerConnect();
         $this->ctrlDashboard = new ControllerDashboard();
+        $this->ctrlAdminPost = new ControllerAdminPost();
     }
 
     public function routerRequest()
@@ -29,6 +30,8 @@ class Router
 //                //$this->ctrlConnect->isUserConnected();
                 elseif ($_GET['action'] == 'logout') {
                     $this->ctrlConnect->logout();}
+                elseif ($_GET['action'] == 'addpost') {
+                    $this->ctrlAdminPost->addPost();}
                 if ($_GET['action'] == 'listPosts') {
                     $this->ctrlPost->listPosts();
                 } elseif ($_GET['action'] == 'post') {

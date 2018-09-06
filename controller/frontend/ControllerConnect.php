@@ -124,7 +124,7 @@ class ControllerConnect
         if (isset($_POST['operation']) && $_POST['operation'] === "logout") {
             $this->UserConnect->getLogout();
         }
-
+// add a view to improve logout
         if (empty($_SESSION)) {
             echo 'Vous êtes déconnectés! ';
 
