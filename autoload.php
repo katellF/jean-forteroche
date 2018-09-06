@@ -5,7 +5,7 @@
 
     public static function register($class){
 
-        $directories = array('controller','controller/frontend','model', 'view');
+        $directories = array('controller','controller/frontend', 'controller/backend', 'model', 'view');
 
         foreach ($directories as $directory){
 

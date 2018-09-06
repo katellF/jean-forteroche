@@ -59,11 +59,12 @@ class ControllerConnect
 
             }
 
-        }else {
+        }
+
             $view = new View("connection");
             $view->generate(array());
 
-        }
+
     //}
 }
     function connection(){
@@ -112,17 +113,19 @@ class ControllerConnect
 ////                            setcookie('pass', $res['pass'], time() + 365*24*3600, null, null, false, true);
 ////                        }
 //
-                        echo 'Vous êtes connecté !';
+                        //echo 'Vous êtes connecté !';
+                        header('Location: index.php?action=admin');
+
                     } else {
                         echo 'Mauvais identifiant ou mot de passe !2';
                     }
                 }
-         }}else{
-      // }
+         }}
+            // }
 
-        $view = new View("connection");
-        $view->generate(array());}
+            $view = new View("connection");
+            $view->generate(array());}
 
 
-    }
+
 }

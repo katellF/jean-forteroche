@@ -11,6 +11,7 @@ class Router
         $this->ctrlComment = new ControllerComment();
         $this->ctrlNotification = new ControllerNotification();
         $this->ctrlConnect = new ControllerConnect();
+        $this->ctrlDashboard = new ControllerDashboard();
     }
 
     public function routerRequest()
@@ -22,6 +23,9 @@ class Router
                     //$this->ctrlConnect->isUserConnected();
                 if ($_GET['action'] == 'connection') {
                     $this->ctrlConnect->connection();}
+//                //$this->ctrlConnect->isUserConnected();
+                if ($_GET['action'] == 'admin') {
+                    $this->ctrlDashboard->adminAccess();}
 //                //$this->ctrlConnect->isUserConnected();
                 if ($_GET['action'] == 'listPosts') {
                     $this->ctrlPost->listPosts();

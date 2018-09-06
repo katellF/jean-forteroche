@@ -19,7 +19,6 @@ class UserManager extends Manager
 
         $db = $this->dbConnect();
 
-        // Insertion
         $pass_hache = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $req = $db->prepare('INSERT INTO users(lastname, firstname, pseudo, email, password, registration_date) VALUES(:lastname,:firstname,:pseudo,:email,:password, CURDATE())');
 
