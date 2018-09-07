@@ -134,5 +134,21 @@ class ControllerConnect
         }
     }
 
+    function isUserConnected(){
+       // session_start();
+        //var_dump($_SESSION);
+
+        if ( isset($_SESSION) && isset($_SESSION['pseudo'])){
+
+            echo'Vous êtes connectés '.$_SESSION['pseudo'].'!';
+
+            return true;
+        } else {
+            //echo 'Vous n\'êtes pas connectés !';
+            return false;
+
+        }
+    }
+
 
 }

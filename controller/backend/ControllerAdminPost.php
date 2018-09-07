@@ -1,38 +1,43 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: katell
- * Date: 9/6/18
- * Time: 2:52 PM
- */
 
 class ControllerAdminPost
 {
+    private $postManager;
+    private $ctrlConnect;
+
+
     public function __construct()
     {
         $this->postManager = new PostManager();
+        $this->ctrlConnect = new ControllerConnect();
     }
 
     public function addPost()
     {
         session_start();
 
-        if (isset ($_POST) && !empty($_POST)) {
+        if ($this->ctrlConnect->isUserConnected()) {
 
-
-                $addPost = $this->postManager->insertPost();
+            if (isset ($_POST) && !empty($_POST)) {
+                $addPost = $this->postManager->insertPost($_POST);
+                //var_dump($addPost);
                 $view = new View("backend/addPost");
                 $view->generate(array('addPost' => $addPost));
 
-            header('Location: index.php?action=addpost');
+            } else {
+                $view = new View("backend/addPost");
+                $view->generate(array());
+            }
+
+
+
+            // header('Location: index.php?action=addpost');
 
         } else {
-
-            $view = new View("backend/addPost");
-            $view->generate(array());
-
-            // require('view/frontend/addPostView.php');
-
+            throw new Exception('Vous n avez pas acces à cette page!');
         }
+
+
+
     }
 }

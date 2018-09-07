@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
         {
@@ -15,15 +15,20 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
     </p>
 
 </form>
+<!-- liste des articles deja publié avec option modifier-->
+<!--<form method="post" action="index.php?action=addpost">-->
+<!---->
+<!--    <p>-->
+<!--        <input type="hidden" name="operation" value="addpost"/>-->
+<!--        <input type="submit" value="Ajouter un article"/>-->
+<!--    </p>-->
+<!---->
+<!--</form>-->
 
-<form method="post" action="index.php?action=addpost">
+<a href="index.php?action=addpost">Ajouter un article</a>
 
-    <p>
-        <input type="hidden" name="operation" value="addpost"/>
-        <input type="submit" value="Ajouter un article"/>
-    </p>
-
-</form>
+<a href="index.php?action=updatepost">Modifier un article</a>
+<a href="index.php?action=moderation">Gérer les commentaires</a>
 
 <form method="post" action="index.php?action=post">
 
