@@ -13,6 +13,7 @@ class Router
         $this->ctrlConnect = new ControllerConnect();
         $this->ctrlDashboard = new ControllerDashboard();
         $this->ctrlAdminPost = new ControllerAdminPost();
+        $this->ctrlAdminComment = new ControllerAdminComment();
     }
 
     public function routerRequest()
@@ -32,8 +33,11 @@ class Router
                     $this->ctrlConnect->logout();}
                 elseif ($_GET['action'] == 'addpost') {
                     $this->ctrlConnect->isUserConnected();
-                   $this->ctrlAdminPost->addPost();
-                    }
+                   $this->ctrlAdminPost->addPost();}
+                elseif ($_GET['action'] == 'moderation') {
+                    $this->ctrlConnect->isUserConnected();
+                    $this->ctrlAdminComment->commentList();
+                }
                 if ($_GET['action'] == 'listPosts') {
                     $this->ctrlPost->listPosts();
                 } elseif ($_GET['action'] == 'post') {

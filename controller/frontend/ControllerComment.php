@@ -13,7 +13,7 @@ class ControllerComment
         }
         else {
           header('Location: index.php?action=post&id=' . $postId);
-          // header('Location: index.php?action=moderation');
+
         }
     }
 

@@ -10,7 +10,7 @@ class ControllerPost
     {
         $this->postManager = new PostManager();
         $this->commentManager = new CommentManager();
-        //$this->commentConnect = new CommentManager();
+
     }
 
     public function listPosts()

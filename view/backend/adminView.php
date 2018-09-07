@@ -15,35 +15,19 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
     </p>
 
 </form>
-<!-- liste des articles deja publié avec option modifier-->
-<!--<form method="post" action="index.php?action=addpost">-->
-<!---->
-<!--    <p>-->
-<!--        <input type="hidden" name="operation" value="addpost"/>-->
-<!--        <input type="submit" value="Ajouter un article"/>-->
-<!--    </p>-->
-<!---->
-<!--</form>-->
 
-<a href="index.php?action=addpost">Ajouter un article</a>
 
-<a href="index.php?action=updatepost">Modifier un article</a>
-<a href="index.php?action=moderation">Gérer les commentaires</a>
+<!-- liste des articles deja publiés avec option modifier titre : mes articles -->
+<!-- possibilite de les trier par statut de les modifier et de les supprimer -->
+<!-- fenetre de confirmation pour modification et suppression-->
 
-<form method="post" action="index.php?action=post">
+<p><a href="index.php?action=addpost">Ajouter un article</a></p>
 
-    <p>
-        <input type="hidden" name="operation" value="logout"/>
-        <input type="submit" value="Modifier un article"/>
-    </p>
+<!-- <a href="index.php?action=updatepost">Modifier un article</a> -->
 
-</form>
+<!-- liste des commentaires et de leur statut -->
+<!-- possibilté de les trier par statut, de les modifier et de les supprimer -->
+<!-- fenetre de confirmation pour modification et suppression-->
 
-<form method="post" action="index.php?action=post">
+<p><a href="index.php?action=moderation">Gérer les commentaires</a></p>
 
-    <p>
-        <input type="hidden" name="operation" value="logout"/>
-        <input type="submit" value="Gérer les commentaires"/>
-    </p>
-
-</form>
