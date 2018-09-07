@@ -29,4 +29,11 @@ class ControllerAdminComment
 
 
     }
+
+    public function getStatus()
+    {
+
+
+
+    }
 }

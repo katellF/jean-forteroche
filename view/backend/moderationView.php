@@ -17,6 +17,22 @@ while ($data = $comments->fetch()) {
         </h3>
     </div>
   <p>statut: <?=$data['status']?></p>
+    <form method="post" action="index.php?action=moderation">
+
+
+            <input type="hidden" name="operation" value="approuver"/>
+            <input type="submit" value="Approuver"/>
+
+
+    </form>
+    <form method="post" action="index.php?action=moderation">
+
+
+            <input type="hidden" name="operation" value="supprimer"/>
+            <input type="submit" value="Supprimer"/>
+
+
+    </form>
 
     <?php
 }
@@ -24,11 +40,5 @@ $comments->closeCursor();
 
 ?>
 
-<form method="post" action="index.php?action=logout">
 
-    <p>
-        <input type="hidden" name="operation" value="logout"/>
-        <input type="submit" value="Se déconnecter"/>
-    </p>
 
-</form>

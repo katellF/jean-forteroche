@@ -21,6 +21,20 @@ class CommentManager extends Manager
         return $comments;
     }
 
+    public function Approve($commentId)
+    {
+        $db = $this->dbConnect();
+        $status = $db->prepare('UPDATE comments SET  status=\'approved\' WHERE  id = ?   ');
+        $modifyStatus = $status->execute(array('id' => $commentId));
+
+        return $modifyStatus;
+    }
+
+    public function Delete()
+    {
+        $db = $this->dbConnect();
+    }
+
     public function postComment($postId, $author, $comment)
     {
         $db = $this->dbConnect();
