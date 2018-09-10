@@ -11,7 +11,11 @@ $this->title = htmlspecialchars('Notifier un commentaire');
         </div>
         <div>
             <label for="reason">reason</label><br/>
-            <input type="text"id="reason" name="reason"/>
+            <select name="reason" id="reason">
+                <option value="abuse">Inapproprie</option>
+                <option value="insult">Insulte</option>
+            </select>
+
         </div>
         <div>
             <label for="content">content</label><br/>

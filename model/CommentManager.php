@@ -3,10 +3,10 @@
 
 class CommentManager extends Manager
 {
-    public function getComments($postId)
+    public function getApprovedComments($postId)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id=:post_id AND status=\'pending\' ORDER BY comment_date DESC');
+        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id=:post_id AND status=\'approved\' ORDER BY comment_date DESC');
         $comments->execute(array('post_id'=> $postId));
 
         return $comments;
@@ -56,21 +56,5 @@ class CommentManager extends Manager
 
         return $affectedLines;
     }
-
-
-
-//    public function getCommentByPostId ( $post_id ) {
-//
-//    }
-//
-//    public function getAllComments ( ) {
-//
-//    }
-//
-//    public function getAllCommentsByStatus ( $status ) {
-//
-//    }
-
-
 
 }

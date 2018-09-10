@@ -20,14 +20,13 @@
 
 <?php
 
-//while ($comment = $comments->fetch()) {
-//    // faire un if (si status = approved)
-//    ?>
-<!--    <p><strong>--><?//= htmlspecialchars($comment['author']) ?><!--</strong> le --><?//= $comment['comment_date_fr'] ?><!--</p>-->
-<!--    <p>--><?//= nl2br(htmlspecialchars($comment['comment'])) ?><!--</p> <em><a href="index.php?action=notification&amp;commentid=--><?//= $comment['id']?><!--&amp;postid=--><?//= $post['id']?><!--">Signaler un commentaire</a></em>-->
-<!--    --><?php
-//}
-//?>
+while ($comment = $comments->fetch()) {
+    ?>
+    <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
+    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p> <em><a href="index.php?action=notification&amp;commentid=<?= $comment['id']?>&amp;postid=<?= $post['id']?>">Signaler un commentaire</a></em>
+<?php
+}
+?>
 
     <h2>Ajouter un Commentaire</h2>
 

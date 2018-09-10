@@ -14,6 +14,7 @@ class Router
         $this->ctrlDashboard = new ControllerDashboard();
         $this->ctrlAdminPost = new ControllerAdminPost();
         $this->ctrlAdminComment = new ControllerAdminComment();
+        $this->ctrlAdminNotification = new ControllerAdminNotification();
     }
 
     public function routerRequest()
@@ -37,6 +38,9 @@ class Router
                 elseif ($_GET['action'] == 'moderation') {
                     $this->ctrlConnect->isUserConnected();
                     $this->ctrlAdminComment->commentList();
+                }elseif ($_GET['action'] == 'adminNotification') {
+                    $this->ctrlConnect->isUserConnected();
+                    $this->ctrlAdminNotification->notificationList();
                 }
                 if ($_GET['action'] == 'listPosts') {
                     $this->ctrlPost->listPosts();

@@ -35,4 +35,5 @@ class ControllerNotification
         $view = new View("notificationSent");
         $view->generate(array("data" => $content));
     }
+
 }

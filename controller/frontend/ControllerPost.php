@@ -24,7 +24,7 @@ class ControllerPost
     public function post()
     {
         $post = $this->postManager->getPost($_GET['id']);
-        $comments = $this->commentManager->getComments($_GET['id']);
+        $comments = $this->commentManager->getApprovedComments($_GET['id']);
         $view = new View("post");
         $view->generate(array('post' => $post, 'comments' => $comments));
     }
