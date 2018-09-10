@@ -1,5 +1,7 @@
 <?php
-//session_start();
+
+$this->title = 'tableau de bord';
+?>
 
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
         {

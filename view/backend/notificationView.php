@@ -3,7 +3,9 @@
 <a href="index.php?action=adminNotification&status=archived">Archivees</a>
 <a href="index.php?action=adminNotification">non lu</a>
 
-
+<?php
+$this->title = htmlspecialchars('Notifier un commentaire');
+?>
 <h2>Notifications</h2>
 <p>Liste de notifications des commentaires </p>
 <?php
