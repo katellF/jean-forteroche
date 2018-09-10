@@ -22,7 +22,21 @@ class ControllerAdminComment
                 $this->Status();
             }
 
+            if ( isset($_GET['status']) && $_GET['status'] === 'approved'){
+
+                $comments = $this->commentManager->getCommentsByStatus('approved');
+
+            }elseif ( isset($_GET['status']) && $_GET['status'] === 'rejected'){
+
+                $comments = $this->commentManager->getCommentsByStatus('rejected');
+
+            }elseif ( isset($_GET['status']) && $_GET['status'] === 'all'){
+
             $comments = $this->commentManager->getAllComments();
+            }else {
+
+                $comments = $this->commentManager->getCommentsByStatus('pending');
+            }
 
             $view = new View("backend/moderation");
             $view->generate(array('comments' => $comments));
@@ -49,5 +63,11 @@ class ControllerAdminComment
 
         }
 
+        if ( $_POST["operation"] === "delete" ){
+
+            $this ->commentManager->Delete($_GET['commentid']);
+        }
     }
+
+
 }
