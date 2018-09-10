@@ -17,19 +17,18 @@ while ($data = $comments->fetch()) {
         </h3>
     </div>
   <p>statut: <?=$data['status']?></p>
-    <form method="post" action="index.php?action=moderation">
+    <form method="post" action="index.php?action=moderation&commentid=<?=$data["id"]?>">
 
-
-            <input type="hidden" name="operation" value="approuver"/>
+            <input type="hidden" name="operation" value="approved"/>
             <input type="submit" value="Approuver"/>
 
 
     </form>
-    <form method="post" action="index.php?action=moderation">
+    <form method="post" action="index.php?action=moderation&commentid=<?=$data["id"]?>">
 
 
-            <input type="hidden" name="operation" value="supprimer"/>
-            <input type="submit" value="Supprimer"/>
+            <input type="hidden" name="operation" value="rejected"/>
+            <input type="submit" value="rejeter"/>
 
 
     </form>
