@@ -17,7 +17,7 @@ class ControllerPost
     {
         $posts = $this->postManager->getPosts();
 
-        $view = new View("listPosts");
+        $view = new View("frontend/listPosts");
         $view->generate(array('posts' => $posts));
     }
 
@@ -25,7 +25,7 @@ class ControllerPost
     {
         $post = $this->postManager->getPost($_GET['id']);
         $comments = $this->commentManager->getApprovedComments($_GET['id']);
-        $view = new View("post");
+        $view = new View("frontend/post");
         $view->generate(array('post' => $post, 'comments' => $comments));
     }
 }

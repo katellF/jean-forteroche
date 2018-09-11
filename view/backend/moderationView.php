@@ -1,19 +1,17 @@
 <?php
 $this->title = 'Commentaires';
 ?>
+<p><a href="index.php?action=admin">Retour au tableau de bord</a></p>
+
 <a href="index.php?action=moderation&status=all">Tous</a>
 <a href="index.php?action=moderation&status=approved">Approuver</a>
 <a href="index.php?action=moderation&status=rejected">Rejeter</a>
 <a href="index.php?action=moderation">En attente</a>
-<a href="index.php?action=moderation">Supprimer</a>
-
 
 
 <h2>Commentaires</h2>
 <p>Liste des commentaires du blog</p>
 <?php
-
-//var_dump($comments->fetchAll());
 
 while ($data = $comments->fetch()) {
     ?>

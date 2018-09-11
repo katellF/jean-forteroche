@@ -64,7 +64,7 @@ class ControllerConnect
 
         }
 
-        $view = new View("connection");
+        $view = new View("frontend/connection");
         $view->generate(array());
 
 
@@ -112,7 +112,7 @@ class ControllerConnect
         }
         // }
 
-        $view = new View("connection");
+        $view = new View("frontend/connection");
         $view->generate(array());
     }
 

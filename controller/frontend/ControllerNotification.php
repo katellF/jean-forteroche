@@ -22,7 +22,7 @@ class ControllerNotification
 
         } else {
 
-            $view = new View("notification");
+            $view = new View("frontend/notification");
             $view->generate(array());
 
         }
@@ -32,7 +32,7 @@ class ControllerNotification
     {
         $notificationManager = new NotificationManager();
         $content = $notificationManager->insertNotification($_GET['commentid'], $_POST['email'], $_POST['reason'], $_POST['content']);
-        $view = new View("notification");
+        $view = new View("frontend/notification");
         $view->generate(array("data" => $content));
     }
 
