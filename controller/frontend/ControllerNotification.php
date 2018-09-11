@@ -32,7 +32,7 @@ class ControllerNotification
     {
         $notificationManager = new NotificationManager();
         $content = $notificationManager->insertNotification($_GET['commentid'], $_POST['email'], $_POST['reason'], $_POST['content']);
-        $view = new View("notificationSent");
+        $view = new View("notification");
         $view->generate(array("data" => $content));
     }
 
