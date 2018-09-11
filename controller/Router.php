@@ -35,6 +35,9 @@ class Router
                 elseif ($_GET['action'] == 'addpost') {
                     $this->ctrlConnect->isUserConnected();
                    $this->ctrlAdminPost->addPost();}
+                elseif ($_GET['action'] == 'editpost') {
+                    $this->ctrlConnect->isUserConnected();
+                    $this->ctrlAdminPost->editPost();}
                 elseif ($_GET['action'] == 'moderation') {
                     $this->ctrlConnect->isUserConnected();
                     $this->ctrlAdminComment->commentList();

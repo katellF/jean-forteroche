@@ -45,7 +45,7 @@ while ($data = $comments->fetch()) {
     </form>
         <?php
     }
-?>
+    ?>
     <form method="post" action="index.php?action=moderation&commentid=<?=$data["id"]?>">
 
 
@@ -54,10 +54,10 @@ while ($data = $comments->fetch()) {
 
 
     </form>
+
 <?php
 }
 $comments->closeCursor();
-
 ?>
 
 
