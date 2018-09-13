@@ -27,21 +27,22 @@ while ($comment = $comments->fetch()) {
 <?php
 }
 ?>
-
+<div class="container">
     <h2>Ajouter un Commentaire</h2>
 
     <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
-        <div>
+        <div class="form-group">
             <label for="author">Auteur</label><br/>
-            <input type="text" id="author" name="author"/>
+            <input type="text" class="form-control" id="author" name="author"/>
         </div>
-        <div>
+        <div class="form-group">
             <label for="comment">Commentaire</label><br/>
-            <textarea id="comment" name="comment"></textarea>
+            <textarea class="form-control" id="comment" name="comment"></textarea>
         </div>
         <div>
-            <input type="submit"/>
+            <input type="submit" class="btn btn-primary" value="Envoyer"/>
         </div>
     </form>
+</div>
 
 

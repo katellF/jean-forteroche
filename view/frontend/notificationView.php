@@ -15,30 +15,32 @@ if (isset ($_POST) && !empty($_POST)) {
 <?php
 } else {
     ?>
+    <div class="container">
     <h2>Signaler un Commentaire</h2>
 
     <form action="index.php?action=notification&amp;commentid=<?= $comment['id']?>&amp;commentid=<?= $_GET['commentid'] ?> " method="post">
-        <div>
+        <div class="form-group">
             <label for="email">email</label><br/>
-            <input type="email" id="email" name="email"/>
+            <input type="email" class="form-control" id="email" name="email"/>
         </div>
         <div>
             <label for="reason">reason</label><br/>
-            <select name="reason" id="reason">
+            <select name="reason" id="reason" class="form-control">
                 <option value="abuse">Inapproprie</option>
                 <option value="insult">Insulte</option>
             </select>
 
         </div>
-        <div>
+        <div class="form-group">
             <label for="content">content</label><br/>
-            <textarea id="content" name="content"></textarea>
+            <textarea id="content"  class="form-control" name="content"></textarea>
         </div>
         <div>
-            <input type="submit"/>
+            <input type="submit" class="btn btn-primary" value="Envoyer"/>
         </div>
     </form>
-
+    </div>
+    
 
 <?php
 }

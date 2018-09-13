@@ -57,6 +57,7 @@ while ($data = $notifications->fetch()) {
 
 
     </form>
+
     <?php
 }
 $notifications->closeCursor();

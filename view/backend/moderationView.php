@@ -27,7 +27,8 @@ while ($data = $comments->fetch()) {
     <form method="post" action="index.php?action=moderation&commentid=<?=$data["id"]?>">
 
             <input type="hidden" name="operation" value="approved"/>
-            <input type="submit" value="Approuver"/>
+<!--            <input type="submit" value="Approuver"/>-->
+        <input type="submit" class="btn btn-primary" value="Approuver"/>
 
 
     </form>
@@ -39,7 +40,8 @@ while ($data = $comments->fetch()) {
 
 
             <input type="hidden" name="operation" value="rejected"/>
-            <input type="submit" value="rejeter"/>
+<!--            <input type="submit" value="rejeter"/>-->
+        <input type="submit" class="btn btn-primary" value="Rejeter"/>
 
 
     </form>
@@ -50,7 +52,8 @@ while ($data = $comments->fetch()) {
 
 
             <input type="hidden" name="operation" value="delete"/>
-            <input type="submit" value="supprimer"/>
+<!--            <input type="submit" value="supprimer"/>-->
+        <input type="submit" class="btn btn-primary" value="Supprimer"/>
 
 
     </form>
