@@ -21,10 +21,14 @@ class ControllerAdminPost
             if (isset ($_POST) && !empty($_POST)) {
                 var_dump($_POST);
 
-                $addPost = $this->postManager->insertPost($_POST);
-                //var_dump($addPost);
+                $addPostId = $this->postManager->insertPost($_POST);
+
+                $post = $this->postManager->getPost($addPostId);
+
+                //var_dump($post);
+
                 $view = new View("backend/addPost");
-                $view->generate(array('addPost' => $addPost));
+                $view->generate(array('post' => $post));
 
             } else {
                 $view = new View("backend/addPost");

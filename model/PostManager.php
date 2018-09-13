@@ -27,11 +27,11 @@ class PostManager extends Manager
        // var_dump($data);
         $db = $this->dbConnect();
         $post = $db->prepare('INSERT INTO posts( title, content, creation_date) VALUES ( :title, :content, NOW())');
-        $affectedLines = $post->execute(array(
+        $post->execute(array(
             'title' => $data['title'],
             'content' => $data['content'],
         ));
 
-        return $affectedLines;
+        return $db->lastInsertId();
     }
 }

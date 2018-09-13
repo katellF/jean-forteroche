@@ -14,7 +14,19 @@
 </head>
 
 <body>
+<header class="nav justify-content-center container">
 
+    <aside >
+           <img src="" alt="">Aside logo book
+    </aside>
+    <nav class="nav">
+        <a class="nav-link active" href="#">Accueil</a>
+        <a class="nav-link active" href="#">Chapitre</a>
+        <a class="nav-link active" href="#">A Propos</a>
+        <a class="nav-link active" href="#">Contact</a>
+    </nav>
+
+</header>
 <?= $content ?>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -22,9 +34,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 </body>
 
-<footer>
+<footer class="nav justify-content-center container">
 
-    <p><a href="index.php?action=register">admin</a></p>
+    <a href="index.php?action=register" class="nav-link active">admin</a>
+    <a href="index.php?action=register"class="nav-link active">mentions legales</a>
 
 </footer>
 
