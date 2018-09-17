@@ -19,7 +19,26 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
 
 </form>
 
+<?php
+while ($data = $posts->fetch()) {
+    ?>
 
+    <div>
+        <h3>
+            <a href="index.php?action=post&amp;id=<?= $data['id'] ?>""><?= htmlspecialchars($data['title']) ?></a>
+            <p>le <?= $data['creation_date_fr'] ?></p>
+        </h3>
+    </div>
+    <p>
+        <?= nl2br(html_entity_decode(htmlspecialchars($data['content']))) ?>
+        <br />
+        <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
+    </p>
+    <?php
+}
+$posts->closeCursor();
+
+?>
 <!-- liste des articles deja publiés avec option modifier titre : mes articles -->
 <!-- possibilite de les trier par statut de les modifier et de les supprimer -->
 <!-- fenetre de confirmation pour modification et suppression-->
@@ -34,23 +53,3 @@ if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
 
 <p><a href="index.php?action=moderation">Gérer les commentaires</a></p>
 
-<!--<div class="container">-->
-<!---->
-<!--    <h2>Se connecter</h2>-->
-<!---->
-<!---->
-<!--    <form action="index.php?action=connection" method="post">-->
-<!--        <div class="form-group">-->
-<!--            <label for="pseudo">pseudo</label><br/>-->
-<!--            <input type="text" class="form-control" id="pseudoConnect" placeholder="pseudo" name="pseudoConnect">-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--            <label for="password">Mot de passe</label>-->
-<!--            <input type="password" class="form-control" id="passwordConnect" placeholder="Password" name="passwordConnect">-->
-<!--        </div>-->
-<!--        <div>-->
-<!--            <input type="submit" class="btn btn-primary" value="se connecter"/>-->
-<!--        </div>-->
-<!--    </form>-->
-<!---->
-<!--</div>-->
