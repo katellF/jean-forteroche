@@ -1,13 +1,15 @@
 <?php $this->title = 'Mon blog';
 
 ?>
-
-
-
+<div class="relative">
+<div class="text-center title_Accueil color_white">
+<h1 class="font_size_3">Billet simple pour l'Alaska</h1>
+    <p class="font_size_1_5">Le Nouveau Livre de Jean Forteroche</p>
+</div>
+<!--    <div class="width_100">-->
+<!--    <img src="public/css/images/Projet_4_image1.png" class="img-fluid"/>-->
+<!--    </div>-->
 <div class="container">
-<h1 class="text-center">Billet simple pour l'Alaska</h1>
-
-
 <?php
 while ($data = $posts->fetch()) {
     ?>
@@ -24,13 +26,14 @@ while ($data = $posts->fetch()) {
        echo $rest ?>
 
         <br />
-        <strong><a href="index.php?action=post&amp;id=<?= htmlspecialchars($data['id']) ?>">Lire la suite</a></strong>
+        <strong class="italic"><a href="index.php?action=post&amp;id=<?= htmlspecialchars($data['id']) ?>">Lire la suite</a></strong>
     </p>
     <?php
 }
 $posts->closeCursor();
 
 ?>
+</div>
 </div>
 
 
