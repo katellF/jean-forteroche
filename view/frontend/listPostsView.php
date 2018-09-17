@@ -16,9 +16,12 @@ while ($data = $posts->fetch()) {
         </h3>
     </div>
     <p>
-        <?= nl2br(htmlspecialchars($data['content'])) ?>
+<!--        --><?//= nl2br(html_entity_decode(htmlspecialchars($data['content']))) ?>
+        <?php  $rest =  nl2br(html_entity_decode(htmlspecialchars(substr($data['content'],0,250))));
+        echo $rest ?>
+
         <br />
-        <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
+        <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Lire la suite</a></em>
     </p>
     <?php
 }

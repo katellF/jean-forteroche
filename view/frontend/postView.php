@@ -12,7 +12,8 @@
         </h3>
 
         <p>
-            <?= nl2br(htmlspecialchars($post['content'])) ?>
+            <?= nl2br(html_entity_decode(htmlspecialchars($post['content']))) ?>
+
         </p>
     </div>
 
