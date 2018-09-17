@@ -16,7 +16,6 @@ class ControllerPost
     public function listPosts()
     {
         $posts = $this->postManager->getPosts();
-
         $view = new View("frontend/listPosts");
         $view->generate(array('posts' => $posts));
     }
@@ -28,4 +27,5 @@ class ControllerPost
         $view = new View("frontend/post");
         $view->generate(array('post' => $post, 'comments' => $comments));
     }
+
 }

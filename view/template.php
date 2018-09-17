@@ -14,18 +14,36 @@
 </head>
 
 <body>
-<header class="nav justify-content-center container">
+<header class="container">
 
-    <aside >
-           <img src="" alt="">Aside logo book
-    </aside>
-    <nav class="nav">
-        <a class="nav-link active" href="#">Accueil</a>
-        <a class="nav-link active" href="#">Chapitre</a>
-        <a class="nav-link active" href="#">A Propos</a>
-        <a class="nav-link active" href="#">Contact</a>
+    <nav class="navbar fixed-top  navbar-expand-lg navbar-light bg-light">
+   <div class="container">
+        <img src="" alt="">Aside logo book
+        <div class="collapse navbar-collapse row justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">A Propos</a>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Chapitres
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Me Contacter</a>
+                </li>
+                </li>
+            </ul>
+        </div>
+   </div>
     </nav>
-
 </header>
 <?= $content ?>
 

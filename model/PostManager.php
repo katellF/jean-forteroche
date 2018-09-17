@@ -34,4 +34,7 @@ class PostManager extends Manager
 
         return $db->lastInsertId();
     }
+
+
+
 }
