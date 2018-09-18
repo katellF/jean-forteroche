@@ -72,6 +72,7 @@ h1, h2,h3{
 
     background-color: #343a40 !important;
     border-color: #343a40 !important;
+    margin-top: 15px;
 }
 
 .color_white{
@@ -88,7 +89,7 @@ font-size: 3rem;
 }
 
 .container > p{
-    
+
     color: #585858;
 }
 
