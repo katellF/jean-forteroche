@@ -2,9 +2,11 @@
 
 ?>
 <div class="relative">
-<div class="text-center title_Accueil color_white">
+<div class="text-center title_Accueil ">
+
 <h1 class="font_size_3">Billet simple pour l'Alaska</h1>
     <p class="font_size_1_5">Le Nouveau Livre de Jean Forteroche</p>
+
 </div>
 <!--    <div class="width_100">-->
 <!--    <img src="public/css/images/Projet_4_image1.png" class="img-fluid"/>-->
@@ -20,10 +22,15 @@ while ($data = $posts->fetch()) {
             <em class="font_size_60">le <?= $data['creation_date_fr'] ?></em>
         </h3>
     </div>
-    <p>
-<!--        --><?//= nl2br(html_entity_decode(htmlspecialchars($data['content']))) ?>
-<?php $rest =  nl2br(html_entity_decode(htmlspecialchars(substr($data['content'],0,250))));
-       echo $rest ?>
+    <p class="text">
+
+<?php
+
+    $content_clean =  nl2br(html_entity_decode(htmlspecialchars($data['content'])));
+
+    echo helpers::substrwords($content_clean , 250, '...'  );
+
+       ?>
 
         <br />
         <strong class="italic"><a href="index.php?action=post&amp;id=<?= htmlspecialchars($data['id']) ?>">Lire la suite</a></strong>
@@ -35,6 +42,5 @@ $posts->closeCursor();
 ?>
 </div>
 </div>
-
 
 
