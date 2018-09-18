@@ -39,7 +39,7 @@ class ControllerAdminComment
             }
 
             $view = new View("backend/moderation");
-            $view->generate(array('comments' => $comments));
+            $view->generate(array('comments' => $comments), 'template_backend');
 
         } else {
             throw new Exception('Vous n avez pas acces à cette page!');

@@ -28,7 +28,7 @@ class ControllerAdminPost
                 //var_dump($post);
 
                 $view = new View("backend/addPost");
-                $view->generate(array('post' => $post));
+                $view->generate(array('post' => $post), 'template_backend');
 
             } else {
                 $view = new View("backend/addPost");

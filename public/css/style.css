@@ -6,15 +6,6 @@ html, body {
 
 }
 
-/*h1{*/
-    /*text-align: center;*/
-/*}*/
-
-/*.text_center{*/
-
-    /*text-align: center;*/
-/*}*/
-
 .font_size_60{
 
     font-size: 60%;
@@ -44,7 +35,7 @@ html, body {
 
     position:absolute;
 }
-
+/* listPostsViews */
 .title_Accueil{
 
     background: url("images/im_1_alaska.jpg") no-repeat center center;
@@ -70,3 +61,20 @@ font-size: 3rem;
 .container > p{
     /*text-align: center;*/
 }
+
+/* connection */
+
+.connect{
+
+    margin-top: 150px;
+    margin-bottom: 50px;
+    height: 500px;
+}
+
+.form-connect{
+
+    margin-top: 50px;
+
+}
+
+/* footer */

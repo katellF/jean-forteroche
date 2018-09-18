@@ -19,7 +19,7 @@ class ControllerDashboard
             $posts = $this->postManager->getPosts();
 
         $view = new View("backend/admin");
-        $view->generate(array('posts' => $posts));
+        $view->generate(array('posts' => $posts), 'template_backend');
 
         } else {
 

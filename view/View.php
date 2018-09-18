@@ -12,15 +12,16 @@ class View
 
     }
 
-    public function generate($datas)
+    public function generate($datas, $template = 'template')
     {
+
+
 
         $content = $this->generateFile($this->file, $datas);
         //var_dump($content);
 
-
-        $view = $this->generateFile('view/template.php',
-            array('title' => $this->title, 'content' => $content));
+            $view = $this->generateFile('view/'.$template.'.php',
+                array('title' => $this->title, 'content' => $content));
 
         //var_dump($view);
 

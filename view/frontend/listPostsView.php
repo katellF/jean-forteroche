@@ -22,7 +22,7 @@ while ($data = $posts->fetch()) {
             <em class="font_size_60">le <?= $data['creation_date_fr'] ?></em>
         </h3>
     </div>
-    <p class="text">
+
 
 <?php
 
@@ -34,7 +34,7 @@ while ($data = $posts->fetch()) {
 
         <br />
         <strong class="italic"><a href="index.php?action=post&amp;id=<?= htmlspecialchars($data['id']) ?>">Lire la suite</a></strong>
-    </p>
+
     <?php
 }
 $posts->closeCursor();
