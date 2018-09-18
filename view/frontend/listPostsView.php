@@ -1,17 +1,16 @@
-<?php $this->title = 'Mon blog';
+<?php $this->title = 'Jean Forteroche';
 
 ?>
 <div class="relative">
 <div class="text-center title_Accueil ">
 
 <h1 class="font_size_3">Billet simple pour l'Alaska</h1>
-    <p class="font_size_1_5">Le Nouveau Livre de Jean Forteroche</p>
+    <p class="font_size_1_5 color_343a40">Le Nouveau Livre de Jean Forteroche</p>
 
 </div>
-<!--    <div class="width_100">-->
-<!--    <img src="public/css/images/Projet_4_image1.png" class="img-fluid"/>-->
-<!--    </div>-->
+    <h2 class="text-center ligne_top ligne_bottom">Découvrez le livre</h2>
 <div class="container">
+
 <?php
 while ($data = $posts->fetch()) {
     ?>
@@ -33,7 +32,8 @@ while ($data = $posts->fetch()) {
        ?>
 
         <br />
-        <strong class="italic"><a href="index.php?action=post&amp;id=<?= htmlspecialchars($data['id']) ?>">Lire la suite</a></strong>
+        <strong class="italic"><a href="index.php?action=post&amp;id=<?= htmlspecialchars($data['id']) ?>" class="btn btn-secondary btn-lg active button_list" role="button" aria-pressed="true">Lire la suite</a></strong>
+<!--    <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Link</a>-->
 
     <?php
 }

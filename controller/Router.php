@@ -15,6 +15,7 @@ class Router
         $this->ctrlAdminPost = new ControllerAdminPost();
         $this->ctrlAdminComment = new ControllerAdminComment();
         $this->ctrlAdminNotification = new ControllerAdminNotification();
+
     }
 
     public function routerRequest()
@@ -53,6 +54,8 @@ class Router
                     } else {
                         throw new Exception('Aucun identifiant de billet envoyé');
                     }
+                } elseif ($_GET['action'] == 'writer') {
+                    $this->ctrlPost->writer();
                 } elseif ($_GET['action'] == 'addComment') {
                     if (isset($_GET['id']) && $_GET['id'] > 0) {
                         if (!empty($_POST['author']) && !empty($_POST['comment'])) {

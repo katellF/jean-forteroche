@@ -28,4 +28,10 @@ class ControllerPost
         $view->generate(array('post' => $post, 'comments' => $comments));
     }
 
+    public function writer()
+    {
+        $view = new View("frontend/writer");
+        $view->generate(array());
+    }
+
 }

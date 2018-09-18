@@ -6,6 +6,16 @@ html, body {
 
 }
 
+h1, h2,h3{
+
+    color: #343a40;
+}
+
+.color_343a40{
+
+    color: #343a40;
+}
+
 .font_size_60{
 
     font-size: 60%;
@@ -36,13 +46,32 @@ html, body {
     position:absolute;
 }
 /* listPostsViews */
+
+.ligne_top{
+
+    margin-top: 50px;
+    border-top: 1px solid lightgrey;
+}
+
+.ligne_bottom{
+
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 50px;
+
+}
+
 .title_Accueil{
 
     background: url("images/im_1_alaska.jpg") no-repeat center center;
     background-size: cover;
-    color: #212529;
     height:400px;
     padding-top: 100px;
+}
+
+.button_list {
+
+    background-color: #343a40 !important;
+    border-color: #343a40 !important;
 }
 
 .color_white{
@@ -59,7 +88,8 @@ font-size: 3rem;
 }
 
 .container > p{
-    /*text-align: center;*/
+    
+    color: #585858;
 }
 
 /* connection */
