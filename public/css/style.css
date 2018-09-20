@@ -65,7 +65,7 @@ h1, h2,h3{
     background: url("images/im_1_alaska.jpg") no-repeat center center;
     background-size: cover;
     height:400px;
-    padding-top: 100px;
+    padding-top: 120px;
 }
 
 .button_list {
@@ -118,3 +118,6 @@ font-size: 3rem;
 }
 
 /* footer */
+footer{
+    margin-top: 70px;
+}

@@ -1,23 +1,23 @@
 <?php $this->title = htmlspecialchars($post['title']);
 
 ?>
+<div class="text-center title_Accueil">
+    <h1>Mes Chapitres </h1>
+</div>
+<!--<p><a href="index.php">Retour à la liste des articles</a></p>-->
 
-    <h1>Mon super blog !</h1>
-    <p><a href="index.php">Retour à la liste des articles</a></p>
-
-    <div class="news">
-        <h3>
+        <h2 class="text-center ligne_top ligne_bottom">
             <?= htmlspecialchars($post['title']) ?>
             <em>le <?= $post['creation_date_fr'] ?></em>
-        </h3>
-
+        </h2>
+<div class="container">
         <p>
             <?= nl2br(html_entity_decode(htmlspecialchars($post['content']))) ?>
 
         </p>
     </div>
 
-    <h2>Commentaires</h2>
+    <h3 class="container">Commentaires</h3>
 
 <?php
 
