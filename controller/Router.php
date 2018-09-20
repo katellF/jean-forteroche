@@ -15,6 +15,7 @@ class Router
         $this->ctrlAdminPost = new ControllerAdminPost();
         $this->ctrlAdminComment = new ControllerAdminComment();
         $this->ctrlAdminNotification = new ControllerAdminNotification();
+        $this->ctrlContact = new ControllerContact();
 
     }
 
@@ -56,7 +57,9 @@ class Router
                     }
                 } elseif ($_GET['action'] == 'writer') {
                     $this->ctrlPost->writer();
-                } elseif ($_GET['action'] == 'addComment') {
+                } elseif ($_GET['action'] == 'contact') {
+                    $this->ctrlContact->contactForm();
+                }elseif ($_GET['action'] == 'addComment') {
                     if (isset($_GET['id']) && $_GET['id'] > 0) {
                         if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                             $this->ctrlComment->addComment($_GET['id'], $_POST['author'], $_POST['comment']);

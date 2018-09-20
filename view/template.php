@@ -38,7 +38,7 @@
                         <a class="dropdown-item" href="#">Chapitre 4 : La Chute</a>
                     </div>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Me Contacter</a>
+                    <a class="nav-link" href="index.php?action=contact">Contact</a>
                 </li>
                 </li>
             </ul>
