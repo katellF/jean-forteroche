@@ -32,8 +32,8 @@ while ($data = $posts->fetch()) {
        ?>
 
         <br />
-        <strong class="italic"><a href="index.php?action=post&amp;id=<?= htmlspecialchars($data['id']) ?>" class="btn btn-secondary btn-lg active button_list" role="button" aria-pressed="true">Lire la suite</a></strong>
-<!--    <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Link</a>-->
+
+        <strong class="italic row no-gutters justify-content-end"><a href="index.php?action=post&amp;id=<?= htmlspecialchars($data['id']) ?>" class="btn btn-info btn-sm active button_list" role="button" aria-pressed="true">Lire la suite</a></strong>
 
     <?php
 }

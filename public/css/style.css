@@ -70,10 +70,19 @@ h1, h2,h3{
 
 .button_list {
 
-    background-color: #343a40 !important;
-    border-color: #343a40 !important;
+    /*!*background-color: #343a40 !important;*!*/
+    /*!*border-color: #343a40 !important;*!*/
+    /*!*background-color: #17A2B8 !important;*!*/
+    /*!*background-color: #0B4A54 !important;*!*/
+    /*background-color: #0D5965 !important;*/
+    /*background-color: #6BC3D1!important;*/
+    border-color: #6BC3D1 !important;
     margin-top: 15px;
+    /*background: linear-gradient(to bottom right, #343a40, #6B6F74, #B5B7B9)!important;*/
+    background: linear-gradient(to bottom right, #41B2C4, #56BBCB, #6BC3D1)!important;
+    /*opacity: 0.9;*/
 }
+
 
 .color_white{
 
