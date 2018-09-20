@@ -37,9 +37,33 @@ while ($data = $posts->fetch()) {
 
     <?php
 }
+
+
+
 $posts->closeCursor();
 
+
+if( $navigation['prev_page'] > 0){
+    ?>
+
+    <a href="index.php?action=listPosts&page=<?= $navigation['prev_page'] ?>">Page précédente</a>
+
+    <?php
+
+}
+
+if( $navigation['next_page'] > 0){
+    ?>
+
+
+    <a href="index.php?action=listPosts&page=<?= $navigation['next_page'] ?>">Page suivante</a>
+
+<?php
+
+}
+
 ?>
+
 </div>
 </div>
 

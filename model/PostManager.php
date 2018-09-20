@@ -3,10 +3,10 @@
 
 class PostManager extends Manager
 {
-    public function getPosts()
+    public function getPosts($start = 0 , $end = 3)
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title, status, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 5');
+        $req = $db->query('SELECT id, title, status, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date LIMIT '. $start.','. $end.' ');
 
         return $req;
     }
@@ -35,6 +35,15 @@ class PostManager extends Manager
         return $db->lastInsertId();
     }
 
+    public function countPosts($data)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT count(id) AS num_posts FROM posts WHERE status = :status');
+        $req->execute(array(
+            'status' => $data['status']));
+        $post = $req->fetch();
 
+        return $post;
+    }
 
 }

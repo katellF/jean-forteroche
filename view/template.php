@@ -27,16 +27,9 @@
                 <li class="nav-item active ">
                     <a class="nav-link" href="index.php?action=writer">A Propos</a>
                 </li>
-                <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       Chapitres
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Chapitre 1 : L'Arrivée</a>
-                        <a class="dropdown-item" href="#">Chapitre 2 : La Découverte</a>
-                        <a class="dropdown-item" href="#">Chapitre 3 : Les Gens</a>
-                        <a class="dropdown-item" href="#">Chapitre 4 : La Chute</a>
-                    </div>
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.php?action=chapter">Chapitres</a>
+
                 <li class="nav-item active">
                     <a class="nav-link" href="index.php?action=contact">Contact</a>
                 </li>
