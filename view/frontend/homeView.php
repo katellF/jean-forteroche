@@ -6,8 +6,8 @@
     <h1 class="font_size_3">Billet Simple Pour L'alaska</h1>
     <p class="font_size_1_5 color_343a40">Découvrez le nouveau livre de Jean Forteroche</p>
 
-    <a href="index.php?action=listPosts"class="text-center">Découvrez le livre</a>
-    <a href="index.php?action=lastPost"class="text-center">Dernier chapitre</a>
+    <a href="index.php?action=listPosts"class="text-center btn btn-info btn-sm active button_list">Découvrez le livre</a>
+    <a href="index.php?action=lastPost"class="text-center btn btn-info btn-sm active button_list">Lire Le Dernier chapitre</a>
 
 </div>
 
@@ -31,13 +31,13 @@
 
 </div>
 
-<h2 class="text-center ligne_top ligne_bottom">Ses Best Sellers</h2>
+<h2 class="text-center ligne_top ligne_bottom">Best Sellers</h2>
 <div class="container">
 
-    <p>Loin dans le désert</p>
-    <p>Pas Si Loin Que ça</p>
-    <p>L'Afrique</p>
-    <p>Un Puits sans eau</p>
+    <h4>Loin dans le désert</h4>
+    <h4>Pas Si Loin Que ça</h4>
+    <h4>L'Afrique</h4>
+    <h4>Un Puits sans eau</h4>
 </div>
 
 
