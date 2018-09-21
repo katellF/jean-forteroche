@@ -57,8 +57,8 @@ class Router
                     }
                 } elseif ($_GET['action'] == 'writer') {
                     $this->ctrlPost->writer();
-                }  elseif ($_GET['action'] == 'chaptersList') {
-                    $this->ctrlPost->chaptersList();
+                }  elseif ($_GET['action'] == 'home') {
+                    $this->ctrlPost->homePage();
                 }
                 elseif ($_GET['action'] == 'contact') {
                     $this->ctrlContact->contactForm();
@@ -79,7 +79,7 @@ class Router
                             $this->ctrlNotification->notification();
                 }
             } else {
-                $this->ctrlPost->listPosts();
+                $this->ctrlPost->homePage();
             }
         } catch (Exception $e) {
 

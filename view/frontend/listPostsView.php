@@ -18,7 +18,7 @@ while ($data = $posts->fetch()) {
     <div>
         <h3 class="text-center">
             <?= htmlspecialchars($data['title']) ?><br/>
-            <em class="font_size_60">le <?= $data['creation_date_fr'] ?></em>
+<!--            <em class="font_size_60">le --><?//= $data['creation_date_fr'] ?><!--</em>-->
         </h3>
     </div>
 

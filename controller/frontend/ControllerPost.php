@@ -53,13 +53,13 @@ class ControllerPost
         $view->generate(array());
     }
 
-    public function chaptersList()
+    public function homePage()
     {
 //        $start = 0;
 //        $end = ;
-        $allPosts = $this->postManager->getAllPosts();
-        $view = new View("frontend/chaptersList");
-        $view->generate(array('allPosts' => $allPosts));
+
+        $view = new View("frontend/home");
+        $view->generate(array());
     }
 
     public function navigation($current_page)

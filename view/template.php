@@ -22,13 +22,13 @@
         <div class="collapse navbar-collapse row justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php?action=listPosts">Accueil <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.php?action=home">Accueil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active ">
                     <a class="nav-link" href="index.php?action=writer">A Propos</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php?action=chaptersList">Chapitres</a>
+                    <a class="nav-link" href="index.php?action=listPosts">Chapitres</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="index.php?action=contact">Contact</a>

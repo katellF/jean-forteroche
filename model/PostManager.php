@@ -11,13 +11,13 @@ class PostManager extends Manager
         return $req;
     }
 
-    public function getAllPosts()
-    {
-        $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title, status, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date' );
-
-        return $req;
-    }
+//    public function getAllPosts()
+//    {
+//        $db = $this->dbConnect();
+//        $req = $db->query('SELECT id, title, status, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date' );
+//
+//        return $req;
+//    }
 
     public function getPost($postId)
     {
