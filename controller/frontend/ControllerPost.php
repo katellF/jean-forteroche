@@ -47,6 +47,16 @@ class ControllerPost
         $view->generate(array('post' => $post, 'comments' => $comments));
     }
 
+    public function lastPost()
+    {
+        $post = $this->postManager->getLastPost();
+
+        //var_dump();
+        $comments = $this->commentManager->getApprovedComments($post['id']);
+        $view = new View("frontend/post");
+        $view->generate(array('post' => $post, 'comments' => $comments));
+    }
+
     public function writer()
     {
         $view = new View("frontend/writer");

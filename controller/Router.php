@@ -59,8 +59,9 @@ class Router
                     $this->ctrlPost->writer();
                 }  elseif ($_GET['action'] == 'home') {
                     $this->ctrlPost->homePage();
-                }
-                elseif ($_GET['action'] == 'contact') {
+                }elseif ($_GET['action'] == 'lastPost') {
+                    $this->ctrlPost->lastPost();
+                } elseif ($_GET['action'] == 'contact') {
                     $this->ctrlContact->contactForm();
                 }elseif ($_GET['action'] == 'addComment') {
                     if (isset($_GET['id']) && $_GET['id'] > 0) {
