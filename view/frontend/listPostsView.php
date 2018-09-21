@@ -45,9 +45,9 @@ $posts->closeCursor();
 
 if( $navigation['prev_page'] > 0){
     ?>
-
-    <a href="index.php?action=listPosts&page=<?= $navigation['prev_page'] ?>">Page précédente</a>
-
+    <strong class="italic row no-gutters justify-content-center">
+    <a href="index.php?action=listPosts&page=<?= $navigation['prev_page'] ?>"class="btn btn-info btn-sm active button-pagination">Page précédente</a>
+    </strong>
     <?php
 
 }
@@ -55,8 +55,9 @@ if( $navigation['prev_page'] > 0){
 if( $navigation['next_page'] > 0){
     ?>
 
-
-    <a href="index.php?action=listPosts&page=<?= $navigation['next_page'] ?>">Page suivante</a>
+    <strong class="italic row no-gutters justify-content-center">
+        <a href="index.php?action=listPosts&page=<?= $navigation['next_page'] ?>" class="btn btn-info btn-sm active button-pagination">Page suivante</a>
+    </strong>
 
 <?php
 

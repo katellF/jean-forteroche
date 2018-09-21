@@ -83,6 +83,22 @@ h1, h2,h3{
     /*opacity: 0.9;*/
 }
 
+.button-pagination {
+
+    margin-top: 50px;
+    border-color: #343a40 !important;
+    background: linear-gradient(to bottom right, #343a40, #343a40, #343a40)!important;
+}
+
+.button-form{
+
+    margin-top: 50px;
+    background: linear-gradient(to bottom right, #41B2C4, #56BBCB, #6BC3D1)!important;
+    border-color: #6BC3D1 !important;
+    /* en hover */
+    /*border-color: #343a40 !important;*/
+    /*background: linear-gradient(to bottom right, #343a40, #343a40, #343a40)!important;*/
+}
 
 .color_white{
 

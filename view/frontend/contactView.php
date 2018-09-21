@@ -18,8 +18,8 @@
             <label for="content">Votre Demande</label><br/>
             <textarea class="form-control" id="content" name="content"></textarea>
         </div>
-        <div>
-            <input type="submit" class="btn btn-primary" value="Envoyer"/>
+        <div class="row no-gutters justify-content-center">
+            <input type="submit" class="btn btn-primary btn-lg btn-block active button-form"" value="Envoyer"/>
         </div>
     </form>
 </div>

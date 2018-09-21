@@ -1,8 +1,11 @@
 <?php $this->title = 'Jean Forteroche';
 ?>
 <div class="text-center title_Accueil">
-    <h1>Jean de Forteroche</h1>
+    <h1 class="font_size_3">Jean de Forteroche</h1>
+    <!-- changer la photo du titre -->
 </div>
+
+<!-- rajouter une photo -->
 
 <h2 class="text-center ligne_top ligne_bottom">A Propos de L'Auteur</h2>
 <div class="container">

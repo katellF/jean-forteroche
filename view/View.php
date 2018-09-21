@@ -23,8 +23,6 @@ class View
             $view = $this->generateFile('view/'.$template.'.php',
                 array('title' => $this->title, 'content' => $content));
 
-        //var_dump($view);
-
         echo $view;
     }
 
@@ -33,7 +31,6 @@ class View
         if (file_exists($file)) {
 
             extract($datas);
-
 
             ob_start();
 
