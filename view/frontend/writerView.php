@@ -2,10 +2,7 @@
 ?>
 <div class="title_writer  ">
     <h1 class="font_size_3 d-flex justify-content-end">Jean de Forteroche</h1>
-    <!-- changer la photo du titre -->
 </div>
-
-<!-- rajouter une photo -->
 
 <h2 class="text-center ligne_top ligne_bottom">A Propos de L'Auteur</h2>
 <div class="container">
