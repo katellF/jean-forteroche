@@ -6,8 +6,8 @@
     <h1 class="font_size_3">Billet Simple Pour L'alaska</h1>
     <p class="font_size_1_5 color_343a40">Découvrez le nouveau livre de Jean Forteroche</p>
 
-    <a href="index.php?action=listPosts"class="text-center btn btn-info btn-sm active button_list">Découvrez le livre</a>
-    <a href="index.php?action=lastPost"class="text-center btn btn-info btn-sm active button_list">Lire Le Dernier chapitre</a>
+    <a href="index.php?action=listPosts"class="text-center btn btn-info btn-sm active button_book">Découvrez le livre</a>
+    <a href="index.php?action=lastPost"class="text-center btn btn-info btn-sm active button_chapter">Lire le dernier chapitre</a>
 
 </div>
 
@@ -21,9 +21,7 @@
     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
 
     <strong class="italic row no-gutters justify-content-end">
-        <a href="index.php?action=post&amp;id=<?= htmlspecialchars($data['id']) ?>" class="btn btn-info btn-sm active button_list" role="button" aria-pressed="true">
-            En savoir plus
-        </a>
+        <a href="index.php?action=writer" class="btn btn-info btn-sm active button_list" role="button" aria-pressed="true">En savoir plus</a>
         </strong>
 
 <!--    L'auteur (extrait), ses romans les plus celebres -->
@@ -32,14 +30,21 @@
 </div>
 
 <h2 class="text-center ligne_top ligne_bottom">Best Sellers</h2>
-<div class="container">
-
-    <h4>Loin dans le désert</h4>
-    <h4>Pas Si Loin Que ça</h4>
-    <h4>L'Afrique</h4>
-    <h4>Un Puits sans eau</h4>
+<div class="container d-flex justify-content-center margin-bottom">
+    <div class="relative resize">
+        <img src="public/css/images/book1.png" alt="photo du livre, Loin dans le désert">
+    </div>
+    <div class="relative resize">
+        <img src="public/css/images/book2.png" alt="photo du livre, Loin dans le désert">
+    </div>
+    <div class="relative resize">
+        <img src="public/css/images/book3.png" alt="photo du livre, Loin dans le désert">
+    </div>
+    <div class="relative resize">
+        <img src="public/css/images/book4.png" alt="photo du livre, Loin dans le désert">
+    </div>
 </div>
 
 
-    <!--    L'auteur (extrait), ses romans les plus celebres -
+
 

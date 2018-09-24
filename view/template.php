@@ -18,7 +18,7 @@
 
     <nav class="navbar fixed-top  navbar-expand-lg navbar-dark bg-dark">
    <div class="container">
-        <img src="" alt="">Aside logo book
+<!--        <img src="" alt="">Aside logo book-->
         <div class="collapse navbar-collapse row justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active">

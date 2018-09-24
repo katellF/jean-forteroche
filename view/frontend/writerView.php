@@ -1,7 +1,7 @@
 <?php $this->title = 'Jean Forteroche';
 ?>
-<div class="text-center title_Accueil">
-    <h1 class="font_size_3">Jean de Forteroche</h1>
+<div class="title_writer  ">
+    <h1 class="font_size_3 d-flex justify-content-end">Jean de Forteroche</h1>
     <!-- changer la photo du titre -->
 </div>
 

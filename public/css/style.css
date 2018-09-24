@@ -68,9 +68,32 @@ h1, h2,h3{
     padding-top: 120px;
 }
 
-.chapters-list{
+.title_writer{
 
+    background: url("images/writer.png") no-repeat center center;
+    background-size: cover;
+    height:400px;
+    padding-top: 130px;
+    padding-right: 50px;
+}
 
+.button_book{
+
+    border-color: #6BC3D1 !important;
+    margin-top: 15px;
+    /*background: linear-gradient(to bottom right, #343a40, #6B6F74, #B5B7B9)!important;*/
+    background: linear-gradient(to bottom right, #41B2C4, #56BBCB, #6BC3D1)!important;
+    margin-right: 25px;
+
+}
+
+.button_chapter{
+
+    border-color: #6BC3D1 !important;
+    margin-top: 15px;
+    margin-left: 25px;
+    /*background: linear-gradient(to bottom right, #343a40, #6B6F74, #B5B7B9)!important;*/
+    background: linear-gradient(to bottom right, #41B2C4, #56BBCB, #6BC3D1)!important;
 }
 
 .button_list {
@@ -103,6 +126,28 @@ h1, h2,h3{
     /* en hover */
     /*border-color: #343a40 !important;*/
     /*background: linear-gradient(to bottom right, #343a40, #343a40, #343a40)!important;*/
+}
+
+img{
+
+    width: 100%;
+}
+
+.best-seller{
+
+
+}
+
+.resize{
+
+    width : 250px;
+    height: 400px;
+    /*margin-bottom: 50px;*/
+}
+
+.margin-bottom{
+
+    margin-bottom: 50px;
 }
 
 .color_white{
