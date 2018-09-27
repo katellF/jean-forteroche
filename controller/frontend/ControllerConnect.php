@@ -126,7 +126,7 @@ class ControllerConnect
 // add a view to improve logout
         if (empty($_SESSION)) {
             $view = new View("backend/logout");
-            $view->generate(array(),'template_backend');
+            $view->generate(array(),'template_logout');
 
         } else {
             header('Location: index.php?action=admin');
