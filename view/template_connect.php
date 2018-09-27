@@ -34,9 +34,11 @@
                         <a class="nav-link" href="index.php?action=contact">Contact</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php?action=logout">se deconnecter</a>
+                        <a class="nav-link" href="index.php?action=logout">Se deconnecter</a>
                     </li>
-
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php?action=admin"> Tabeau de bord</a>
+                    </li>
                 </ul>
             </div>
         </div>

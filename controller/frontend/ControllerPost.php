@@ -10,6 +10,7 @@ class ControllerPost
     {
         $this->postManager = new PostManager();
         $this->commentManager = new CommentManager();
+        $this->ctrlConnect = new ControllerConnect();
 
     }
 
@@ -65,11 +66,19 @@ class ControllerPost
 
     public function homePage()
     {
-//        $start = 0;
-//        $end = ;
+        session_start();
+
+        if ($this->ctrlConnect->isUserConnected()) {
+
+            $view = new View("frontend/home");
+            $view->generate(array(), "template_connect");
+
+        }else{
 
         $view = new View("frontend/home");
         $view->generate(array());
+
+        }
     }
 
     public function navigation($current_page)
