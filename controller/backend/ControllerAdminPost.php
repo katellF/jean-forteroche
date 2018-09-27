@@ -32,7 +32,7 @@ class ControllerAdminPost
 
             } else {
                 $view = new View("backend/addPost");
-                $view->generate(array());
+                $view->generate(array(),'template_backend');
             }
 
 

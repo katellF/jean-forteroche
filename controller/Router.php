@@ -46,8 +46,7 @@ class Router
                 }elseif ($_GET['action'] == 'adminNotification') {
                     $this->ctrlConnect->isUserConnected();
                     $this->ctrlAdminNotification->notificationList();
-                }
-                if ($_GET['action'] == 'listPosts') {
+                }if ($_GET['action'] == 'listPosts') {
                     $this->ctrlPost->listPosts();
                 } elseif ($_GET['action'] == 'post') {
                     if (isset($_GET['id']) && $_GET['id'] > 0) {

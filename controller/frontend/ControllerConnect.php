@@ -121,16 +121,16 @@ class ControllerConnect
 
         session_start();
 
-        if (isset($_POST['operation']) && $_POST['operation'] === "logout") {
-            $this->UserConnect->getLogout();
-        }
+        $this->UserConnect->getLogout();
+
 // add a view to improve logout
         if (empty($_SESSION)) {
-            echo 'Vous êtes déconnectés! ';
+            $view = new View("backend/logout");
+            $view->generate(array(),'template_backend');
 
         } else {
-            $view = new View("backend/admin");
-            $view->generate(array());
+            header('Location: index.php?action=admin');
+
         }
     }
 
@@ -144,7 +144,6 @@ class ControllerConnect
 
             return true;
         } else {
-            //echo 'Vous n\'êtes pas connectés !';
             return false;
 
         }

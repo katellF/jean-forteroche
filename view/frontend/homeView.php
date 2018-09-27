@@ -24,9 +24,6 @@
         <a href="index.php?action=writer" class="btn btn-info btn-sm active button_list" role="button" aria-pressed="true">En savoir plus</a>
         </strong>
 
-<!--    L'auteur (extrait), ses romans les plus celebres -->
-
-
 </div>
 
 <h2 class="text-center ligne_top ligne_bottom">Best Sellers</h2>

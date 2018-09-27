@@ -18,20 +18,25 @@
 
     <nav class="navbar fixed-top  navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
+            <!--        <img src="" alt="">Aside logo book-->
             <div class="collapse navbar-collapse row justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php?action=addpost"">Article <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.php?action=home">Accueil <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active ">
+                        <a class="nav-link" href="index.php?action=writer">A Propos</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php?action=moderation"">Commentaire</a>
+                        <a class="nav-link" href="index.php?action=listPosts">Chapitres</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php?action=home">retour au site</a>
+                        <a class="nav-link" href="index.php?action=contact">Contact</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="index.php?action=logout">se deconnecter</a>
                     </li>
+
                 </ul>
             </div>
         </div>
@@ -44,7 +49,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 </body>
 
-<footer >
+<footer>
 
     <!--    <a href="index.php?action=register" class="nav-link active">admin</a>-->
     <!--    <a href="index.php?action=register"class="nav-link active">mentions legales</a>-->
@@ -59,7 +64,7 @@
                         <a class="nav-link" href="#">Mentions Légales</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Me Contacter</a>
+                        <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
             </div>

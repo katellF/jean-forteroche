@@ -3,22 +3,6 @@
 $this->title = 'tableau de bord';
 ?>
 
-if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
-        {
-            echo 'Bonjour ' . $_SESSION['pseudo'];
-        }
-?>
-
-<form method="post" action="index.php?action=logout">
-
-    <p>
-      <input type="hidden" name="operation" value="logout"/>
-<!--        <input type="submit" value="Se déconnecter" class="color_green" />-->
-        <input type="submit" class="btn btn-primary" value="se deconnecter"/>
-    </p>
-
-</form>
-
 <?php
 while ($data = $posts->fetch()) {
     ?>
