@@ -116,7 +116,20 @@ h1, h2,h3{
     margin-top: 50px;
     background: linear-gradient(to bottom right, #41B2C4, #56BBCB, #6BC3D1)!important;
     border-color: #6BC3D1 !important;
+}
 
+.button_logout{
+
+    border-color: #6BC3D1 !important;
+    margin-top: 15px;
+    /*background: linear-gradient(to bottom right, #343a40, #6B6F74, #B5B7B9)!important;*/
+    background: linear-gradient(to bottom right, #41B2C4, #56BBCB, #6BC3D1)!important;
+    /*margin-right: 25px;*/
+}
+
+.logout{
+
+    height: 500px;
 }
 
 img{
@@ -139,6 +152,16 @@ img{
 .margin-bottom{
 
     margin-bottom: 50px;
+}
+
+.margin-left15{
+
+    margin-left: 15px;
+}
+
+.margin-right15{
+
+    margin-right: 15px;
 }
 
 .color_white{
