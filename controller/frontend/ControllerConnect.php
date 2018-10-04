@@ -140,7 +140,7 @@ class ControllerConnect
 
         if ( isset($_SESSION) && isset($_SESSION['pseudo'])){
 
-            echo'Vous êtes connectés '.$_SESSION['pseudo'].'!';
+           //echo'Vous êtes connectés '.$_SESSION['pseudo'].'!';
 
             return true;
         } else {

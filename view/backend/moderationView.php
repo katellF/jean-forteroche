@@ -20,16 +20,17 @@ while ($data = $comments->fetch()) {
             <?= htmlspecialchars($data['author']) ?>
             <em>le <?= $data['comment_date_fr'] ?></em>
         </h3>
+
+        <p><?= $data['comment'] ?></p>
+
     </div>
   <p>statut: <?=$data['status']?></p>
 
     <?php if($data['status']=== 'pending' || $data['status']=== 'rejected' ){?>
     <form method="post" action="index.php?action=moderation&commentid=<?=$data["id"]?>">
 
-            <input type="hidden" name="operation" value="approved"/>
-<!--            <input type="submit" value="Approuver"/>-->
+        <input type="hidden" name="operation" value="approved"/>
         <input type="submit" class="btn btn-primary" value="Approuver"/>
-
 
     </form>
     <?php
@@ -38,11 +39,8 @@ while ($data = $comments->fetch()) {
     <?php if($data['status']=== 'pending' || $data['status']=== 'approved' ){?>
     <form method="post" action="index.php?action=moderation&commentid=<?=$data["id"]?>">
 
-
-            <input type="hidden" name="operation" value="rejected"/>
-<!--            <input type="submit" value="rejeter"/>-->
+        <input type="hidden" name="operation" value="rejected"/>
         <input type="submit" class="btn btn-primary" value="Rejeter"/>
-
 
     </form>
         <?php
@@ -50,11 +48,8 @@ while ($data = $comments->fetch()) {
     ?>
     <form method="post" action="index.php?action=moderation&commentid=<?=$data["id"]?>">
 
-
-            <input type="hidden" name="operation" value="delete"/>
-<!--            <input type="submit" value="supprimer"/>-->
+        <input type="hidden" name="operation" value="delete"/>
         <input type="submit" class="btn btn-primary" value="Supprimer"/>
-
 
     </form>
 

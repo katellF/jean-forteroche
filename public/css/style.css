@@ -139,20 +139,34 @@ img{
 
 .best-seller{
 
-
 }
 
 .resize{
 
     width : 250px;
     height: 400px;
+}
 
+.margin-top50{
+
+    margin-top: 50px;
 }
 
 .margin-bottom{
 
     margin-bottom: 50px;
 }
+
+.margin-bottom25{
+
+    margin-bottom: 25px;
+}
+
+.margin-top25{
+
+    margin-top: 25px;
+}
+
 
 .margin-left15{
 

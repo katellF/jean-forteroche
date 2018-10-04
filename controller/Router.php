@@ -29,9 +29,12 @@ class Router
                 if ($_GET['action'] == 'connection') {
                     $this->ctrlConnect->connection();}
 //                //$this->ctrlConnect->isUserConnected();
-                if ($_GET['action'] == 'admin') {
+//                if ($_GET['action'] == 'admin') {
+//                    $this->ctrlConnect->isUserConnected();
+//                    $this->ctrlDashboard->adminAccess();}
+                    if ($_GET['action'] == 'admin') {
                     $this->ctrlConnect->isUserConnected();
-                    $this->ctrlDashboard->adminAccess();}
+                    $this->ctrlAdminPost->postsList();}
                 elseif ($_GET['action'] == 'logout') {
                     $this->ctrlConnect->logout();}
                 elseif ($_GET['action'] == 'addpost') {

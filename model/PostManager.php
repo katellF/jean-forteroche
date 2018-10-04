@@ -11,6 +11,15 @@ class PostManager extends Manager
         return $req;
     }
 
+    public function getApprovedPosts($postId)
+    {
+        $db = $this->dbConnect();
+        $comments = $db->prepare(' SELECT id, title, status, content, DATE_FORMAT(creation_date, \' % d /%m /%Y à % Hh % imin % ss\') AS creation_date_fr FROM posts WHERE post_id=:post_id AND status=\'approved\' ORDER BY creation_date DESC');
+        $comments->execute(array('post_id'=> $postId));
+
+        return $comments;
+    }
+
     public function getLastPost()
     {
         $db = $this->dbConnect();
@@ -29,10 +38,18 @@ class PostManager extends Manager
         return $post;
     }
 
+    public function getPostsByStatus($status)
+    {
+        $db = $this->dbConnect();
+        $posts = $db->prepare('SELECT id, title, content,status, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE status=:status ORDER BY comment_date DESC');
+        $posts->execute(array('status' => $status));
+
+        return $posts;
+    }
+
     public function insertPost($data)
     {
-
-       // var_dump($data);
+        // var_dump($data);
         $db = $this->dbConnect();
         $post = $db->prepare('INSERT INTO posts( title, content, creation_date) VALUES ( :title, :content, NOW())');
         $post->execute(array(
@@ -53,5 +70,25 @@ class PostManager extends Manager
 
         return $post;
     }
+
+    public function setStatus($postId , $status)
+    {
+        $db = $this->dbConnect();
+        $updateStatus = $db->prepare('UPDATE posts SET  status=:status WHERE  id=:id ');
+        $modifyStatus = $updateStatus->execute(array('id' => $postId  , 'status' => $status  ));
+
+        return $modifyStatus;
+    }
+
+
+    public function Delete($postId)
+    {
+        $db = $this->dbConnect();
+        $deleteComment = $db->prepare('DELETE FROM posts WHERE  id=:id ');
+
+        return $deleteComment->execute(array('id' => $postId ));
+
+    }
+
 
 }

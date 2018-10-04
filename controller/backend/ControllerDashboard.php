@@ -16,10 +16,11 @@ class ControllerDashboard
         session_start();
         if ( $this->ctrlConnect->isUserConnected()) {
 
-            $posts = $this->postManager->getPosts();
-
-        $view = new View("backend/admin");
-        $view->generate(array('posts' => $posts), 'template_backend');
+          //  $this->postManager->postsList();
+//            $posts = $this->postManager->getPosts();
+//
+//        $view = new View("backend/admin");
+//        $view->generate(array('posts' => $posts), 'template_backend');
 
         } else {
 
