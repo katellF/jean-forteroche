@@ -1,8 +1,8 @@
-
+<div class="margin-top25">
 <a href="index.php?action=adminNotification&status=all">Toutes</a>
 <a href="index.php?action=adminNotification&status=archived">Archivees</a>
 <a href="index.php?action=adminNotification">non lu</a>
-
+</div>
 <?php
 $this->title = htmlspecialchars('Notifier un commentaire');
 ?>
@@ -22,16 +22,16 @@ while ($data = $notifications->fetch()) {
     <div class="news">
         <h3>
             <?= htmlspecialchars($data['content']) ?>
-            <em>le <?= $data['notification_date_fr'] ?></em>
+            <em class="font_size_60">le <?= $data['notification_date_fr'] ?></em>
         </h3>
     </div>
     <p>statut: <?=$data['status']?></p>
-
+<div class="d-flex">
     <?php if($data['status']=== 'unread' ){?>
-        <form method="post" action="index.php?action=adminNotification&notificationid=<?=$data["id"]?>">
+        <form  class="margin-right15" method="post" action="index.php?action=adminNotification&notificationid=<?=$data["id"]?>">
 
             <input type="hidden" name="operation" value="archived"/>
-            <input type="submit" value="Archiver"/>
+            <input type="submit" class="btn btn-primary" value="Archiver"/>
 
 
         </form>
@@ -42,7 +42,7 @@ while ($data = $notifications->fetch()) {
         <form method="post" action="index.php?action=adminNotification&notificationid=<?=$data["id"]?>">
 
             <input type="hidden" name="operation" value="unread"/>
-            <input type="submit" value="non lu"/>
+            <input type="submit" class="btn btn-primary" value="non lu"/>
 
 
         </form>
@@ -53,11 +53,11 @@ while ($data = $notifications->fetch()) {
 
 
         <input type="hidden" name="operation" value="delete"/>
-        <input type="submit" value="supprimer"/>
+        <input type="submit" class="btn btn-primary" value="supprimer"/>
 
 
     </form>
-
+</div>
     <?php
 }
 $notifications->closeCursor();

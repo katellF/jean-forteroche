@@ -2,7 +2,6 @@
 <html lang="fr">
 
 <head>
-    <!--    <script src='https:https://cloud.tinymce.com/stable/tinymce.min.js'></script>-->
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,7 +24,10 @@
                         <a class="nav-link" href="index.php?action=addpost">Ajouter un Article <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php?action=moderation"">Commentaire</a>
+                        <a class="nav-link" href="index.php?action=moderation">Commentaires</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php?action=adminNotification">Notifications</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="index.php?action=home">retour au site</a>
@@ -48,8 +50,6 @@
 
 <footer >
 
-    <!--    <a href="index.php?action=register" class="nav-link active">admin</a>-->
-    <!--    <a href="index.php?action=register"class="nav-link active">mentions legales</a>-->
     <nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <div class="collapse navbar-collapse row justify-content-center" id="navbarNavDropdown">

@@ -1,13 +1,14 @@
 <?php
 $this->title = 'Commentaires';
 ?>
-<p><a href="index.php?action=admin">Retour au tableau de bord</a></p>
+<p class="margin-top25 margin-bottom25"><a href="index.php?action=admin">Retour au tableau de bord</a></p>
 
+<div class="margin-bottom25">
 <a href="index.php?action=moderation&status=all">Tous</a>
 <a href="index.php?action=moderation&status=approved">Approuver</a>
 <a href="index.php?action=moderation&status=rejected">Rejeter</a>
 <a href="index.php?action=moderation">En attente</a>
-
+</div>
 
 <h2>Commentaires</h2>
 <p>Liste des commentaires du blog</p>
@@ -18,7 +19,7 @@ while ($data = $comments->fetch()) {
     <div class="news">
         <h3>
             <?= htmlspecialchars($data['author']) ?>
-            <em>le <?= $data['comment_date_fr'] ?></em>
+            <em class="font_size_60">le <?= $data['comment_date_fr'] ?></em>
         </h3>
 
         <p><?= $data['comment'] ?></p>
@@ -26,8 +27,9 @@ while ($data = $comments->fetch()) {
     </div>
   <p>statut: <?=$data['status']?></p>
 
+<div class="d-flex">
     <?php if($data['status']=== 'pending' || $data['status']=== 'rejected' ){?>
-    <form method="post" action="index.php?action=moderation&commentid=<?=$data["id"]?>">
+    <form class="margin-right15" method="post" action="index.php?action=moderation&commentid=<?=$data["id"]?>">
 
         <input type="hidden" name="operation" value="approved"/>
         <input type="submit" class="btn btn-primary" value="Approuver"/>
@@ -37,7 +39,7 @@ while ($data = $comments->fetch()) {
     }
     ?>
     <?php if($data['status']=== 'pending' || $data['status']=== 'approved' ){?>
-    <form method="post" action="index.php?action=moderation&commentid=<?=$data["id"]?>">
+    <form class="margin-right15" method="post" action="index.php?action=moderation&commentid=<?=$data["id"]?>">
 
         <input type="hidden" name="operation" value="rejected"/>
         <input type="submit" class="btn btn-primary" value="Rejeter"/>
@@ -52,7 +54,7 @@ while ($data = $comments->fetch()) {
         <input type="submit" class="btn btn-primary" value="Supprimer"/>
 
     </form>
-
+</div>
 <?php
 }
 $comments->closeCursor();

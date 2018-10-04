@@ -1,7 +1,7 @@
 <?php
 $this->title = htmlspecialchars('Notifier un commentaire');
 ?>
-    <p><a href="index.php?action=post&amp;id=<?= $_GET['postid'] ?>">Retour à l'article</a></p>
+    <p class="margin-top25 margin-bottom25"><a href="index.php?action=post&amp;id=<?= $_GET['postid'] ?>">Retour à l'article</a></p>
 <?php
 
 if (isset ($_POST) && !empty($_POST)) {
@@ -18,7 +18,7 @@ if (isset ($_POST) && !empty($_POST)) {
     <div class="container">
     <h2>Signaler un Commentaire</h2>
 
-    <form action="index.php?action=notification&amp;commentid=<?= $comment['id']?>&amp;commentid=<?= $_GET['commentid'] ?> " method="post">
+    <form action="index.php?action=notification&amp;commentid=<?= $_GET['commentid'] ?> " method="post">
         <div class="form-group">
             <label for="email">email</label><br/>
             <input type="email" class="form-control" id="email" name="email"/>

@@ -40,8 +40,6 @@ class ControllerAdminNotification
 
             }
 
-
-
             $view = new View("backend/notification");
             $view->generate(array('notifications' => $notifications));
 

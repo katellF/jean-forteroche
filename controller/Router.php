@@ -11,7 +11,7 @@ class Router
         $this->ctrlComment = new ControllerComment();
         $this->ctrlNotification = new ControllerNotification();
         $this->ctrlConnect = new ControllerConnect();
-        $this->ctrlDashboard = new ControllerDashboard();
+       // $this->ctrlDashboard = new ControllerDashboard();
         $this->ctrlAdminPost = new ControllerAdminPost();
         $this->ctrlAdminComment = new ControllerAdminComment();
         $this->ctrlAdminNotification = new ControllerAdminNotification();
@@ -25,7 +25,6 @@ class Router
             if (isset($_GET['action'])) {
                 if ($_GET['action'] == 'register') {
                     $this->ctrlConnect->registration();}
-                    //$this->ctrlConnect->isUserConnected();
                 if ($_GET['action'] == 'connection') {
                     $this->ctrlConnect->connection();}
                 if ($_GET['action'] == 'admin') {
