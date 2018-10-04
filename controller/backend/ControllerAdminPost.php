@@ -82,7 +82,17 @@ class ControllerAdminPost
 
     }
 
-    public function recoverPost(){}
+    public function recoverPost(){
+
+        session_start();
+
+        if ($this->ctrlConnect->isUserConnected()) {
+
+            $post = $this->postManager->getPost($_GET['postid']);
+            $view = new View("backend/addPost");
+            $view->generate(array('post' => $post));
+        }
+    }
 
     public function postsList()
     {
@@ -95,7 +105,7 @@ class ControllerAdminPost
                 $this->statusPost();
             }
 
-            if ( isset($_GET['status']) && $_GET['status'] === 'approved'){
+            if ( isset($_GET['status']) && $_GET['status'] ==='approved'){
 
                 $posts= $this->postManager->getPostsByStatus('approved');
 
@@ -103,15 +113,19 @@ class ControllerAdminPost
 
                 $posts= $this->postManager->getPostsByStatus('rejected');
 
-            }elseif ( isset($_GET['status']) && $_GET['status'] === 'all'){
+            }elseif ( isset($_GET['status']) && $_GET['status'] === 'draft'){
+
+                $posts= $this->postManager->getPostsByStatus('draft');
+
+            } elseif ( isset($_GET['status']) && $_GET['status'] === 'all'){
 
                 $posts= $this->postManager->getPosts();
             }else {
 
-                $posts= $this->postManager->getPostsByStatus('draft');
+                $posts= $this->postManager->getPosts();
             }
 
-            $posts = $this->postManager->getPosts();
+            //$posts = $this->postManager->getPosts();
 
         $view = new View("backend/admin");
          $view->generate(array('posts' => $posts), 'template_backend');

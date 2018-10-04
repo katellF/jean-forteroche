@@ -22,7 +22,7 @@
             <div class="collapse navbar-collapse row justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php?action=addpost"">Article <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.php?action=addpost">Ajouter un Article <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="index.php?action=moderation"">Commentaire</a>

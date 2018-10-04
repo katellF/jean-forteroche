@@ -3,10 +3,10 @@
 $this->title = 'tableau de bord';
 ?>
 <div class="margin-top25">
-<a href="index.php?action=moderation&status=all">Tous</a>
-<a href="index.php?action=moderation&status=approved">Approuver</a>
-<a href="index.php?action=moderation&status=rejected">Rejeter</a>
-<a href="index.php?action=moderation">En attente</a>
+<a href="index.php?action=admin&status=all">Tous</a>
+<a href="index.php?action=admin&status=approved">Approuver</a>
+<a href="index.php?action=admin&status=rejected">Rejeter</a>
+<a href="index.php?action=admin&status=draft">Draft</a>
 </div>
 
     <div class="container margin-top50">
@@ -16,8 +16,9 @@ while ($data = $posts->fetch()) {
 
     <div>
         <h3 class="margin-bottom25 margin-top25">
-            <a href="index.php?action=post&amp;id=<?= $data['id'] ?>""><?= htmlspecialchars($data['title']) ?></a>
-            <p>le <?= $data['creation_date_fr'] ?></p>
+<!--            <a href="index.php?action=post&amp;id=--><?//= $data['id'] ?><!--"">--><?//= htmlspecialchars($data['title']) ?><!--</a>-->
+            <?= htmlspecialchars($data['title']) ?>
+            <p class="font_size_60">le <?= $data['creation_date_fr'] ?></p>
         </h3>
     </div>
 
@@ -56,7 +57,7 @@ while ($data = $posts->fetch()) {
 
         </form>
 
-
+    <a href="index.php?action=recoverpost&postid=<?=$data["id"]?>" class="btn btn-primary button-modify active margin-left15">Modifier</a>
 </div>
 <?php
         }

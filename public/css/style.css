@@ -118,6 +118,13 @@ h1, h2,h3{
     border-color: #6BC3D1 !important;
 }
 
+.button-modify{
+
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+
+}
+
 .button_logout{
 
     border-color: #6BC3D1 !important;
@@ -126,6 +133,7 @@ h1, h2,h3{
     background: linear-gradient(to bottom right, #41B2C4, #56BBCB, #6BC3D1)!important;
     /*margin-right: 25px;*/
 }
+
 
 .logout{
 
