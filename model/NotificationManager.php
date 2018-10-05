@@ -55,4 +55,14 @@ class NotificationManager extends Manager
         return $deleteNotification->execute(array('id' => $notificationId ));
 
     }
+
+    public function getCountNotification($args)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT count(id) AS num_unreadNotifications FROM notifications WHERE status = :status');
+        $req->execute(array('status' => $args['status']));
+        $countNotifications = $req->fetch();
+
+        return $countNotifications;
+    }
 }

@@ -40,8 +40,10 @@ class ControllerAdminNotification
 
             }
 
+           // $countNotif = $this->countNotification();
+            //var_dump($countNotif['num_unreadNotifications']);
             $view = new View("backend/notification");
-            $view->generate(array('notifications' => $notifications));
+            $view->generate(array('notifications' => $notifications),'template_backend');
 
         }
         else {
@@ -64,6 +66,8 @@ class ControllerAdminNotification
             $this ->notificationManager->Delete($_GET['notificationid']);
         }
     }
+
+
 
 
 }

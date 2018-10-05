@@ -27,7 +27,7 @@
                         <a class="nav-link" href="index.php?action=moderation">Commentaires</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php?action=adminNotification">Notifications</a>
+                        <a class="nav-link" href="index.php?action=adminNotification">Notifications (<?= $unreadNotif ?>)</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="index.php?action=home">retour au site</a>
