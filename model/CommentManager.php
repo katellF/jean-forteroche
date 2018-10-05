@@ -57,4 +57,14 @@ class CommentManager extends Manager
         return $affectedLines;
     }
 
+    public function getCountComment($argsComment)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT count(id) AS num_pendingComments FROM comments WHERE status = :status');
+        $req->execute(array('status' => $argsComment['status']));
+        $countNotifications = $req->fetch();
+
+        return $countNotifications;
+    }
+
 }

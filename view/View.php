@@ -9,20 +9,23 @@ class View
     {
             $this->file = "view/" . $action . "View.php";
             $this->notificationManager = new NotificationManager();
+            $this->commentManager = new CommentManager();
 
     }
 
     public function generate($datas, $template = 'template')
     {
         //$countNotif = $this->countNotification();
-        $args['status'] = 'unread';
-        $countNotif = $this->notificationManager->getCountNotification($args);
+        $argsNotif['status'] = 'unread';
+        $argsComment['status'] = 'pending';
+        $countNotif = $this->notificationManager->getCountNotification($argsNotif);
+        $countComment = $this->commentManager->getCountComment($argsComment);
 
 
         $content = $this->generateFile($this->file, $datas);
 
         $view = $this->generateFile('view/'.$template.'.php',
-                array('title' => $this->title, 'content' => $content, 'unreadNotif' => $countNotif["num_unreadNotifications"]));
+                array('title' => $this->title, 'content' => $content, 'unreadNotif' => $countNotif["num_unreadNotifications"],'pendingComment' => $countComment["num_pendingComments"]));
 
         echo $view;
         return $countNotif;

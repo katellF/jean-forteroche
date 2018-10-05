@@ -24,7 +24,7 @@
                         <a class="nav-link" href="index.php?action=addpost">Ajouter un Article <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php?action=moderation">Commentaires</a>
+                        <a class="nav-link" href="index.php?action=moderation">Commentaires(<?= $pendingComment ?>)</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="index.php?action=adminNotification">Notifications (<?= $unreadNotif ?>)</a>
