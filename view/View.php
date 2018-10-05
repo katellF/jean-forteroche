@@ -14,16 +14,18 @@ class View
 
     public function generate($datas, $template = 'template')
     {
+        //$countNotif = $this->countNotification();
+        $args['status'] = 'unread';
+        $countNotif = $this->notificationManager->getCountNotification($args);
 
 
-        $countNotif = $this->countNotification();
         $content = $this->generateFile($this->file, $datas);
-        //var_dump($content);
 
-            $view = $this->generateFile('view/'.$template.'.php',
+        $view = $this->generateFile('view/'.$template.'.php',
                 array('title' => $this->title, 'content' => $content, 'unreadNotif' => $countNotif["num_unreadNotifications"]));
 
         echo $view;
+        return $countNotif;
     }
 
     private function generateFile($file, $datas)
@@ -42,13 +44,13 @@ class View
         }
     }
 
-    public function countNotification()
-    {
-
-        $args['status'] = 'unread';
-
-        return $this->notificationManager->getCountNotification($args);
-
-
-    }
+//    public function countNotification()
+//    {
+//
+//        $args['status'] = 'unread';
+//
+//        return $this->notificationManager->getCountNotification($args);
+//
+//
+//    }
 }
