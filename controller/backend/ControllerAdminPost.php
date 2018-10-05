@@ -105,19 +105,23 @@ class ControllerAdminPost
                 $this->statusPost();
             }
 
-            if ( isset($_GET['status']) && $_GET['status'] ==='approved'){
+            if ( isset($_GET['status']) && $_GET['status'] ==='published'){
 
-                $posts= $this->postManager->getPostsByStatus('approved');
+                $posts= $this->postManager->getPostsByStatus('published');
 
-            }elseif ( isset($_GET['status']) && $_GET['status'] === 'rejected'){
+            }elseif ( isset($_GET['status']) && $_GET['status'] === 'pending'){
 
-                $posts= $this->postManager->getPostsByStatus('rejected');
+                $posts= $this->postManager->getPostsByStatus('pending');
 
             }elseif ( isset($_GET['status']) && $_GET['status'] === 'draft'){
 
                 $posts= $this->postManager->getPostsByStatus('draft');
 
-            } elseif ( isset($_GET['status']) && $_GET['status'] === 'all'){
+            }elseif ( isset($_GET['status']) && $_GET['status'] === 'trash'){
+
+                $posts= $this->postManager->getPostsByStatus('trash');
+
+            }elseif ( isset($_GET['status']) && $_GET['status'] === 'all'){
 
                 $posts= $this->postManager->getPosts();
             }else {
@@ -142,16 +146,28 @@ class ControllerAdminPost
     public function statusPost()
     {
 
-        if ( $_POST["operation"] === "approved" ){
+        if ( $_POST["operation"] === "published" ){
 
-            $this ->postManager->setStatus($_GET['postid'] , 'approved');
+            $this ->postManager->setStatus($_GET['postid'] , 'published');
 
         }
 
 
-        if ( $_POST["operation"] === "rejected" ){
+        if ( $_POST["operation"] === "pending" ){
 
-            $this ->postManager->setStatus($_GET['postid'] , 'rejected');
+            $this ->postManager->setStatus($_GET['postid'] , 'pending');
+
+        }
+
+        if ( $_POST["operation"] === "draft" ){
+
+            $this ->postManager->setStatus($_GET['postid'] , 'draft');
+
+        }
+
+        if ( $_POST["operation"] === "trash" ){
+
+            $this ->postManager->setStatus($_GET['postid'] , 'trash');
 
         }
 
