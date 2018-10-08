@@ -29,11 +29,11 @@ class PostManager extends Manager
         return $comments;
     }
 
-    public function getPublishedPosts($status)
+    public function getPublishedPosts($start , $end)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare(' SELECT id, title, content,status, DATE_FORMAT(creation_date, \' % d /%m /%Y à % Hh % imin % ss\') AS creation_date_fr FROM posts WHERE status=:status  ORDER BY creation_date ');
-        $comments->execute(array('status' => $status));
+        $comments = $db->prepare(' SELECT id, title, content,status, DATE_FORMAT(creation_date, \' % d /%m /%Y à % Hh % imin % ss\') AS creation_date_fr FROM posts WHERE status=\'published\' ORDER BY creation_date LIMIT '. $start.','. $end.' ');
+        $comments->execute(array());
 
         return $comments;
     }
@@ -67,7 +67,6 @@ class PostManager extends Manager
 
     public function insertPost($data)
     {
-        // var_dump($data);
         $db = $this->dbConnect();
         $post = $db->prepare('INSERT INTO posts( title, content, creation_date) VALUES ( :title, :content, NOW())');
         $post->execute(array(

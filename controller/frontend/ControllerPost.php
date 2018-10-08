@@ -18,7 +18,10 @@ class ControllerPost
     {
         $start = 0;
         $end = 3;
-        $status='published';
+        $per_page = 3;
+
+
+        //$status='published';
 
         if( isset($_GET['page']) && is_integer( (int)$_GET['page'] ) ){
             $page = $_GET['page'];
@@ -26,20 +29,22 @@ class ControllerPost
 
             if ( $page !== 1 ){
 
-                $end = $page * 4;
-                $start = $end - 4;
+                $end = $page * $end;
+                $start = $end - $per_page;
 
             }
         } else {
             $page = 1;
         }
-        $navigation = $this->navigation($page);
+
 
        //$posts = $this->postManager->getPosts($start, $end);
-       $posts = $this->postManager->getPosts();
+       //$posts = $this->postManager->getPosts();
        // $posts = $this->postManager->getApprovedPosts($_GET['id']);
         //$posts = $this->postManager->getPostsByStatus($status);
-       // $posts = $this->postManager->getPublishedPosts($status);
+
+        $navigation = $this->navigation($page);
+        $posts = $this->postManager->getPublishedPosts($start, $end);
         $view = new View("frontend/listPosts");
         $view->generate(array('posts' => $posts , 'navigation' => $navigation));
 
@@ -86,11 +91,11 @@ class ControllerPost
         }
     }
 
-    public function navigation($current_page)
+    public function navigation($current_page, $status = 'published')
     {
-
-        $post_per_page = 5;
-        $data['status'] = 'draft';
+        //$current_page= 1;
+        $post_per_page = 3;
+        $data['status'] = $status;
 
         $count_posts = $this->postManager->countPosts($data);
 
@@ -103,15 +108,16 @@ class ControllerPost
             $nav['next_page'] = 2;
         }
 
-        if ( $current_page > 1 && $count_posts['num_posts'] > $post_per_page ) {
+        if ( $current_page > 1) {
+
+            $nav['prev_page'] = $current_page - 1;
 
             if ( $count_posts['num_posts'] > $current_page * $post_per_page) {
                 $nav['next_page'] = $current_page + 1;
             }
-            $nav['prev_page'] = $current_page - 1;
+
 
         }
-
 
         return $nav;
 
