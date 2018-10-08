@@ -11,11 +11,21 @@ class PostManager extends Manager
         return $req;
     }
 
+    // A revoir ou a supprimer verifier si est encore utilisé?
     public function getApprovedPosts($postId)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare(' SELECT id, title, status, content, DATE_FORMAT(creation_date, \' % d /%m /%Y à % Hh % imin % ss\') AS creation_date_fr FROM posts WHERE post_id=:post_id AND status=\'approved\' ORDER BY creation_date DESC');
+        $comments = $db->prepare(' SELECT id, title, status, content, DATE_FORMAT(creation_date, \' % d /%m /%Y à % Hh % imin % ss\') AS creation_date_fr FROM posts WHERE post_id=:post_id AND status=\'published\' ORDER BY creation_date DESC');
         $comments->execute(array('post_id'=> $postId));
+
+        return $comments;
+    }
+
+    public function getPublishedPosts($status)
+    {
+        $db = $this->dbConnect();
+        $comments = $db->prepare(' SELECT id, title, content,status, DATE_FORMAT(creation_date, \' % d /%m /%Y à % Hh % imin % ss\') AS creation_date_fr FROM posts WHERE status=:status  ORDER BY creation_date ');
+        $comments->execute(array('status' => $status));
 
         return $comments;
     }

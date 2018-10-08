@@ -18,6 +18,7 @@ class ControllerPost
     {
         $start = 0;
         $end = 3;
+        $status='published';
 
         if( isset($_GET['page']) && is_integer( (int)$_GET['page'] ) ){
             $page = $_GET['page'];
@@ -34,7 +35,10 @@ class ControllerPost
         }
         $navigation = $this->navigation($page);
 
-        $posts = $this->postManager->getPosts($start, $end);
+       //$posts = $this->postManager->getPosts($start, $end);
+       // $posts = $this->postManager->getApprovedPosts($_GET['id']);
+        //$posts = $this->postManager->getPostsByStatus($status);
+        $posts = $this->postManager->getPublishedPosts($status);
         $view = new View("frontend/listPosts");
         $view->generate(array('posts' => $posts , 'navigation' => $navigation));
 
