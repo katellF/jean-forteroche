@@ -12,6 +12,8 @@ $this->title = 'tableau de bord';
 
     <div class="container margin-top50">
 <?php
+
+
 while ($data = $posts->fetch()) {
     ?>
 
@@ -89,8 +91,11 @@ while ($data = $posts->fetch()) {
            class="btn btn-primary button-modify active margin-left15">Modifier</a>
         </div>
 <?php
-    $posts->closeCursor();
 }
+
+// Always place this at the end of the loop... not inside...
+$posts->closeCursor();
+
 ?>
     </div>
 

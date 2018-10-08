@@ -36,9 +36,10 @@ class ControllerPost
         $navigation = $this->navigation($page);
 
        //$posts = $this->postManager->getPosts($start, $end);
+       $posts = $this->postManager->getPosts();
        // $posts = $this->postManager->getApprovedPosts($_GET['id']);
         //$posts = $this->postManager->getPostsByStatus($status);
-        $posts = $this->postManager->getPublishedPosts($status);
+       // $posts = $this->postManager->getPublishedPosts($status);
         $view = new View("frontend/listPosts");
         $view->generate(array('posts' => $posts , 'navigation' => $navigation));
 

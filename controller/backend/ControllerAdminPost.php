@@ -122,8 +122,10 @@ class ControllerAdminPost
                 $posts= $this->postManager->getPostsByStatus('trash');
 
             }elseif ( isset($_GET['status']) && $_GET['status'] === 'all'){
-
-                $posts= $this->postManager->getPosts();
+              // $start = 0;  $end = 10;
+               //$posts= $this->postManager->getPosts($start, $end);
+              // $posts= $this->postManager->getPosts();
+               $posts= $this->postManager->getPosts();
             }else {
 
                 $posts= $this->postManager->getPosts();
