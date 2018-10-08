@@ -87,7 +87,7 @@ while ($data = $posts->fetch()) {
         <?php
     }
 
-    if ($data['status'] === 'trash' && $_GET['action'] = 'admin' && $_GET['status'] = 'trash'){
+    if ($data['status'] === 'trash' && $_GET['status'] === 'trash'){
         ?>
         <form method="post" action="index.php?action=admin&postid=<?= $data["id"] ?>">
 
@@ -97,7 +97,7 @@ while ($data = $posts->fetch()) {
 
         <?php
         }
-        ?>
+    ?>
     <a href="index.php?action=recoverpost&postid=<?= $data["id"] ?>"
            class="btn btn-primary button-modify active margin-left15">Modifier</a>
         </div>
