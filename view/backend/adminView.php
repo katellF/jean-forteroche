@@ -97,10 +97,15 @@ while ($data = $posts->fetch()) {
 
         <?php
         }
-    ?>
+
+   ?>
+
+
     <a href="index.php?action=recoverpost&postid=<?= $data["id"] ?>"
            class="btn btn-primary button-modify active margin-left15">Modifier</a>
         </div>
+
+
 <?php
 }
 

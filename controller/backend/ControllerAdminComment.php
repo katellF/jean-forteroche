@@ -69,7 +69,27 @@ class ControllerAdminComment
         }
     }
 
+    public function adminAnswer()
+    {
+        session_start();
+        $comments = $this->commentManager->getCommentsById($_GET['commentid']);
+        $view = new View("backend/answerComment");
+        $view->generate(array('comments' => $comments),'template_backend');
 
+    }
 
+    function addComment($postId, $author, $comment)
+    {
+        $commentManager = new CommentManager();
 
+        $affectedLines = $commentManager->postComment($postId, $author, $comment, 'approved');
+
+        if ($affectedLines === false) {
+            throw new Exception('Impossible d\'ajouter le commentaire !');
+        } else {
+            header('Location: index.php?action=post&id=' . $postId);
+
+        }
+
+    }
 }

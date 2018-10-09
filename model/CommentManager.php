@@ -12,10 +12,19 @@ class CommentManager extends Manager
         return $comments;
     }
 
+    public function getCommentsById($commentId)
+    {
+        $db = $this->dbConnect();
+        $comments = $db->prepare('SELECT id, author, comment, post_id, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE id=:id AND status=\'approved\' ORDER BY comment_date DESC');
+        $comments->execute(array('id'=> $commentId));
+
+        return $comments;
+    }
+
     public function getAllComments()
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT id, author, comment,status, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments  ORDER BY comment_date DESC');
+        $comments = $db->prepare('SELECT id, author, comment, status, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments  ORDER BY comment_date DESC');
         $comments->execute(array());
 
         return $comments;
@@ -24,11 +33,12 @@ class CommentManager extends Manager
     public function getCommentsByStatus($status)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT id, author, comment,status, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE status=:status ORDER BY comment_date DESC');
+        $comments = $db->prepare('SELECT id, author, comment, status, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE status=:status ORDER BY comment_date DESC');
         $comments->execute(array('status' => $status));
 
         return $comments;
     }
+
 
     public function setStatus($commentId , $status)
     {
@@ -48,11 +58,11 @@ class CommentManager extends Manager
 
     }
 
-    public function postComment($postId, $author, $comment)
+    public function postComment($postId, $author, $comment, $status = 'pending')
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('INSERT INTO comments(post_id, author, comment, comment_date) VALUES(?, ?, ?, NOW())');
-        $affectedLines = $comments->execute(array($postId, $author, $comment));
+        $comments = $db->prepare('INSERT INTO comments(post_id, author, comment, status, comment_date) VALUES(?, ?, ?, ?, NOW())');
+        $affectedLines = $comments->execute(array($postId, $author, $comment, $status));
 
         return $affectedLines;
     }

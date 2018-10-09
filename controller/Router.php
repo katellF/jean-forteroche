@@ -38,6 +38,9 @@ class Router
                    elseif ($_GET['action'] == 'recoverpost') {
                     $this->ctrlConnect->isUserConnected();
                    $this->ctrlAdminPost->recoverpost();}
+                   elseif ($_GET['action'] == 'adminAnswer') {
+                    $this->ctrlConnect->isUserConnected();
+                   $this->ctrlAdminComment->adminAnswer();}
                 elseif ($_GET['action'] == 'editpost') {
                     $this->ctrlConnect->isUserConnected();
                     $this->ctrlAdminPost->editPost();}
@@ -66,7 +69,13 @@ class Router
                 }elseif ($_GET['action'] == 'addComment') {
                     if (isset($_GET['id']) && $_GET['id'] > 0) {
                         if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                            $this->ctrlComment->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+
+                            $status = 'pending';
+                            if ( isset($_POST['source']) && $_POST['source'] === 'admin' ) {
+                                $status = 'approved';
+                            }
+
+                            $this->ctrlComment->addComment($_GET['id'], $_POST['author'], $_POST['comment'] , $status);
 
                         } else {
                             throw new Exception('Tous les champs ne sont pas remplis !');

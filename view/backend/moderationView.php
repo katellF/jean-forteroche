@@ -47,6 +47,21 @@ while ($data = $comments->fetch()) {
     </form>
         <?php
     }
+
+    if ($data['status'] === 'approved' && isset($_GET['status']) && $_GET['status'] === 'approved'){
+    ?>
+
+        <a href="index.php?action=adminAnswer&commentid=<?= $data["id"] ?>"
+           class="btn btn-primary button-modify active margin-left15">Répondre</a>
+
+<!--    <form method="post" action="index.php?action=moderation&status='approved'&commentid=--><?//= $data["id"] ?><!--">-->
+<!---->
+<!--        <input type="hidden" name="operation" value="answered"/>-->
+<!--        <input type="submit" class="btn btn-primary" value="Répondre"/>-->
+<!--    </form>-->
+
+    <?php
+    }
     ?>
     <form method="post" action="index.php?action=moderation&commentid=<?=$data["id"]?>">
 
