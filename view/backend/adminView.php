@@ -87,7 +87,7 @@ while ($data = $posts->fetch()) {
         <?php
     }
 
-    if ($data['status'] === 'trash' && $_GET['status'] === 'trash'){
+    if ($data['status'] === 'trash' && isset($_GET['status']) && $_GET['status'] === 'trash'){
         ?>
         <form method="post" action="index.php?action=admin&postid=<?= $data["id"] ?>">
 
