@@ -24,10 +24,10 @@
                         <a class="nav-link" href="index.php?action=addpost">Ajouter un Article <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php?action=moderation">Commentaires(<?= $pendingComment ?>)</a>
+                        <a class="nav-link" href="index.php?action=moderation">Commentaires <span class="border border-primary rounded-circle circle-comment"><?= $pendingComment ?></span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php?action=adminNotification">Notifications (<?= $unreadNotif ?>)</a>
+                        <a class="nav-link" href="index.php?action=adminNotification">Notifications <span class="border border-primary rounded-circle circle-notif"><?= $unreadNotif ?></span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="index.php?action=home">retour au site</a>

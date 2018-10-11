@@ -105,7 +105,7 @@ class ControllerAdminPost
                 $this->statusPost();
             }
 
-            if ( isset($_GET['status']) && $_GET['status'] ==='published'){
+            if ( isset($_GET['status']) && $_GET['status'] ==='publié'){
 
                 $posts= $this->postManager->getPostsByStatus('published');
 

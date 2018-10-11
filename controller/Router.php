@@ -69,7 +69,6 @@ class Router
                 }elseif ($_GET['action'] == 'addComment') {
                     if (isset($_GET['id']) && $_GET['id'] > 0) {
                         if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-
                             $status = 'pending';
                             if ( isset($_POST['source']) && $_POST['source'] === 'admin' ) {
                                 $status = 'approved';

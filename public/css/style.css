@@ -159,6 +159,11 @@ img{
     margin-top: 50px;
 }
 
+.margin-bottom50{
+
+    margin-bottom: 50px;
+}
+
 .margin-bottom{
 
     margin-bottom: 50px;
@@ -187,7 +192,7 @@ img{
 
 .color_white{
 
-    color: white;
+    color: white !important;
 }
 
 .font_size_3{
@@ -229,4 +234,48 @@ font-size: 3rem;
 /* footer */
 footer{
     margin-top: 70px;
+}
+
+/* backend */
+
+.nav-filter{
+
+    background-color: #6BC3D1 !important;
+}
+
+.color-138597{
+
+    color: #138597;
+}
+
+.bg-138597{
+
+    background-color: #138597 !important;
+    border-color: #138597 !important;;
+}
+
+.border-6BC3D1{
+
+    border-bottom: solid #6BC3D1 2px;
+}
+
+.bg-6BC3D1{
+
+    background-color: #6BC3D1 !important;
+    border-color: #6BC3D1 !important;
+
+}
+
+.circle-comment{
+
+    background: orange;
+    border-color: orange !important;
+    padding: 3px;
+}
+
+.circle-notif{
+
+    background: green;
+    border-color: green !important;
+    padding: 3px;
 }

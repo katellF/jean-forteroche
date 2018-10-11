@@ -17,12 +17,13 @@ $this->title = 'Article';
 
     });
 </script>
-<p class="margin-top25"><a href="index.php?action=admin">Retour au tableau de bord</a></p>
+
+<p class="margin-top25 margin-bottom25"><a class="btn btn-info color_white bg-6BC3D1" href="index.php?action=admin">Retour au tableau de bord</a></p>
 
 <div class="container">
 <form method="post" action="index.php?action=addpost">
     <div class="form-group">
-        <label for="title">Titre</label><input type="text" name="title" id="title" value="<?=isset($post) === true ? $post['title'] : "" ?>"   />
+        <label for="title">Titre</label> <input type="text" name="title" id="title" value="<?=isset($post) === true ? $post['title'] : "" ?>"   />
     </div>
 
     <div class="form-group">

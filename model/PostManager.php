@@ -3,14 +3,6 @@
 
 class PostManager extends Manager
 {
-//    public function getPosts($start = 0 , $end = 10)
-//    {
-//        $db = $this->dbConnect();
-//        $req = $db->query('SELECT id, title, status, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date LIMIT '. $start.','. $end.' ');
-//
-//        return $req;
-//    }
-
     public function getPosts()
    {
         $db = $this->dbConnect();

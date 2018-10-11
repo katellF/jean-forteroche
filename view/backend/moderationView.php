@@ -1,17 +1,18 @@
 <?php
 $this->title = 'Commentaires';
 ?>
-<p class="margin-top25 margin-bottom25"><a href="index.php?action=admin">Retour au tableau de bord</a></p>
+<p class="margin-top25 margin-bottom25"><a class="btn btn-primary bg-6BC3D1" href="index.php?action=admin">Retour au tableau de bord</a></p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light margin-top25 margin-bottom25 text-center justify-content-center nav-filter">
 
-<div class="margin-bottom25">
-<a href="index.php?action=moderation&status=all">Tous</a>
-<a href="index.php?action=moderation&status=approved">Approuver</a>
-<a href="index.php?action=moderation&status=rejected">Rejeter</a>
-<a href="index.php?action=moderation">En attente</a>
-</div>
+<a class="margin-right15 color_white" href="index.php?action=moderation&status=all">Tous</a>
+<a class="margin-right15 color_white" href="index.php?action=moderation&status=approved">Approuver</a>
+<a class="margin-right15 color_white" href="index.php?action=moderation&status=rejected">Rejeter</a>
+<a class="margin-right15 color_white" href="index.php?action=moderation">En attente</a>
+</nav>
 
-<h2>Commentaires</h2>
-<p>Liste des commentaires du blog</p>
+
+<h2 class="text-center">Commentaires</h2>
+<p class="text-center">Liste des commentaires du blog</p>
 <?php
 
 while ($data = $comments->fetch()) {
