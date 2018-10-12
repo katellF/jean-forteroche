@@ -16,12 +16,11 @@ class ControllerPost
 
     public function listPosts()
     {
+
+        session_start();
         $start = 0;
         $end = 3;
         $per_page = 3;
-
-
-        //$status='published';
 
         if( isset($_GET['page']) && is_integer( (int)$_GET['page'] ) ){
             $page = $_GET['page'];
@@ -37,16 +36,21 @@ class ControllerPost
             $page = 1;
         }
 
-
-       //$posts = $this->postManager->getPosts($start, $end);
-       //$posts = $this->postManager->getPosts();
-       // $posts = $this->postManager->getApprovedPosts($_GET['id']);
-        //$posts = $this->postManager->getPostsByStatus($status);
-
         $navigation = $this->navigation($page);
         $posts = $this->postManager->getPublishedPosts($start, $end);
-        $view = new View("frontend/listPosts");
+
+
+        if ($this->ctrlConnect->isUserConnected()) {
+
+            $view = new View("frontend/listPosts");
+            $view->generate(array('posts' => $posts , 'navigation' => $navigation),'template_connect');
+
+        } else{
+
+            $view = new View("frontend/listPosts");
         $view->generate(array('posts' => $posts , 'navigation' => $navigation));
+
+        }
 
     }
 
@@ -70,8 +74,16 @@ class ControllerPost
 
     public function writer()
     {
-        $view = new View("frontend/writer");
+        session_start();
+        if ($this->ctrlConnect->isUserConnected()) {
+
+            $view = new View("frontend/writer");
+            $view->generate(array(), "template_connect");
+        } else{
+
+            $view = new View("frontend/writer");
         $view->generate(array());
+        }
     }
 
     public function homePage()

@@ -12,12 +12,9 @@ while ($comment = $comments->fetch()) {
 $comments->closeCursor();
 
 
-var_dump($_SESSION);
+
 
 ?>
-
-
-
 <div class="container">
     <h2>Repondre</h2>
 
@@ -25,7 +22,6 @@ var_dump($_SESSION);
         <div class="form-group">
             <label for="author">Auteur</label><br/>
             <?=$_SESSION['pseudo']?>
-<!--            <input type="text" class="form-control" id="author" name="author"/>-->
         </div>
         <div class="form-group">
             <label for="comment">Commentaire</label><br/>

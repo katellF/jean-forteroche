@@ -47,13 +47,4 @@ class View
         }
     }
 
-//    public function countNotification()
-//    {
-//
-//        $args['status'] = 'unread';
-//
-//        return $this->notificationManager->getCountNotification($args);
-//
-//
-//    }
 }
