@@ -31,7 +31,7 @@ class ControllerNotification
     public function addNotification()
     {
         $notificationManager = new NotificationManager();
-        $content = $notificationManager->insertNotification($_GET['commentid'], $_POST['email'], $_POST['reason'], $_POST['content']);
+        $content = $notificationManager->insertNotification($_GET['commentid'], $_POST['reason'], $_POST['content'], $_POST['email']);
         $view = new View("frontend/notification");
         $view->generate(array("data" => $content));
     }
