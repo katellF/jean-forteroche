@@ -20,16 +20,16 @@ $this->title = 'Commentaires';
     while ($data = $comments->fetch()) {
     ?>
     <div class="border-6BC3D1">
+
         <div>
             <h3 class="margin-bottom25 margin-top25">
                 <?= htmlspecialchars($data['author']) ?>
                 <em class="font_size_60">le <?= $data['comment_date_fr'] ?></em>
             </h3>
-
+            <p class="color-138597"><strong>statut: <?= helpers::labelCommentStatus($data['status'])?></strong></p>
             <p><?= $data['comment'] ?></p>
 
         </div>
-        <p>statut: <?= $data['status'] ?></p>
 
         <div class="d-flex justify-content-end margin-bottom25">
             <?php if ($data['status'] === 'pending' || $data['status'] === 'rejected') { ?>

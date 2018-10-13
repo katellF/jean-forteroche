@@ -24,7 +24,7 @@ $this->title = 'tableau de bord';
                     <?//= htmlspecialchars($data['title']) ?><!--</a>-->
                     <?= htmlspecialchars($data['title']) ?>
                     <p class="font_size_60">le <?= $data['creation_date_fr'] ?></p>
-                    <p class="font_size_60 color-138597"><strong>statut : <?= $data['status'] ?></strong></p>
+                    <p class="font_size_60 color-138597"><strong>statut : <?=  helpers::labelPostStatus($data['status']) ?></strong></p>
                 </h3>
             </div>
 

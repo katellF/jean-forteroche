@@ -27,7 +27,7 @@ $this->title = htmlspecialchars('Notifier un commentaire');
                 raison : <?= htmlspecialchars($data['reason']) ?> <br/>
                 <em class="font_size_60">le <?= $data['notification_date_fr'] ?></em>
             </h3>
-            <p class="color-138597"><strong>statut: <?= $data['status'] ?></strong></p>
+            <p class="color-138597"><strong>statut: <?=  helpers::labelNotifStatus($data['status']) ?></strong></p>
             <p> signalement : <?= htmlspecialchars($data['content']) ?> </p>
             </div>
 
