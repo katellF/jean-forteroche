@@ -11,9 +11,6 @@ while ($comment = $comments->fetch()) {
 
 $comments->closeCursor();
 
-
-
-
 ?>
 <div class="container">
     <h2>Repondre</h2>

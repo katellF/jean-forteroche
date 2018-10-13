@@ -30,8 +30,8 @@ $this->title = htmlspecialchars('Notifier un commentaire');
             <p class="color-138597"><strong>statut: <?= $data['status'] ?></strong></p>
             <p> signalement : <?= htmlspecialchars($data['content']) ?> </p>
             </div>
-            <div>
-                <div class="d-flex relative align-items-end justify-content-end margin-bottom25">
+
+                <div class="d-flex relative justify-content-end margin-bottom25">
 
                     <?php if ($data['status'] === 'unread') { ?>
                         <form class=" margin-right15" method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
@@ -47,7 +47,7 @@ $this->title = htmlspecialchars('Notifier un commentaire');
                         <form method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
 
                             <input type="hidden" name="operation" value="unread"/>
-                            <input type="submit" class="btn btn-primary" value="non lu"/>
+                            <input type="submit" class="btn btn-primary bg-138597" value="non lu"/>
 
 
                         </form>
@@ -56,55 +56,19 @@ $this->title = htmlspecialchars('Notifier un commentaire');
                     ?>
                     <form method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
 
-
                         <input type="hidden" name="operation" value="delete"/>
                         <input type="submit" class="btn btn-primary bg-138597" value="supprimer"/>
 
 
                     </form>
                 </div>
+
             </div>
-        </div>
 
-
-<!--        <div class="d-flex flex-column relative align-items-end button-notif">-->
-<!---->
-<!--            --><?php //if ($data['status'] === 'unread') { ?>
-<!--                <form class=" margin-right15 margin-bottom15" method="post" action="index.php?action=adminNotification&notificationid=--><?//= $data["id"] ?><!--">-->
-<!---->
-<!--                    <input type="hidden" name="operation" value="archived"/>-->
-<!--                    <input type="submit" class="btn btn-primary bg-138597" value="Archiver"/>-->
-<!---->
-<!--                </form>-->
-<!--                --><?php
-//            }
-//            ?>
-<!--<!--            pas logique a reprendre-->
-<!--            --><?php //if ($data['status'] === 'archived') { ?>
-<!--                <form method="post" action="index.php?action=adminNotification&notificationid=--><?//= $data["id"] ?><!--">-->
-<!---->
-<!--                    <input type="hidden" name="operation" value="unread"/>-->
-<!--                    <input type="submit" class="btn btn-primary" value="non lu"/>-->
-<!---->
-<!---->
-<!--                </form>-->
-<!--                --><?php
-//            }
-//            ?>
-<!--            <form method="post" action="index.php?action=adminNotification&notificationid=--><?//= $data["id"] ?><!--">-->
-<!---->
-<!---->
-<!--                <input type="hidden" name="operation" value="delete"/>-->
-<!--                <input type="submit" class="btn btn-primary bg-138597" value="supprimer"/>-->
-<!---->
-<!---->
-<!--            </form>-->
-<!--        </div>-->
-<!---->
-<!--        --><?php
+<?php
     }
     $notifications->closeCursor();
 
     ?>
-    </div>
+
 </div>
