@@ -2,7 +2,7 @@
 $this->title = htmlspecialchars('Notifier un commentaire');
 ?>
 
-<div class="container">
+<div class="container relative ">
     <p class="margin-top50 margin-bottom25"><a class="btn btn-primary bg-6BC3D1" href="index.php?action=admin">Retour au
             tableau de bord</a></p>
 
@@ -18,30 +18,32 @@ $this->title = htmlspecialchars('Notifier un commentaire');
 
     while ($data = $notifications->fetch()) {
         ?>
-        <div class="text-center">
+        <div class="d-flex justify-content-center">
+          <div class="col"></div>
+            <div class="col">
             <h4>
                 raison : <?= htmlspecialchars($data['reason']) ?> <br/>
                 <em class="font_size_60">le <?= $data['notification_date_fr'] ?></em>
             </h4>
+            <p class="color-138597"><strong>statut: <?= $data['status'] ?></strong></p>
             <p> signalement : <?= htmlspecialchars($data['content']) ?> </p>
         </div>
-        <p class="text-center">statut: <?= $data['status'] ?></p>
+        </div>
 
 
-        <div class="d-flex flex-column align-items-end justify-content-center">
+        <div class="d-flex flex-column relative align-items-end button-notif">
 
             <?php if ($data['status'] === 'unread') { ?>
-                <form class="margin-right15" method="post"
-                      action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
+                <form class=" margin-right15 margin-bottom15" method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
 
                     <input type="hidden" name="operation" value="archived"/>
-                    <input type="submit" class="btn btn-primary" value="Archiver"/>
-
+                    <input type="submit" class="btn btn-primary bg-138597" value="Archiver"/>
 
                 </form>
                 <?php
             }
             ?>
+<!--            pas logique a reprendre-->
             <?php if ($data['status'] === 'archived') { ?>
                 <form method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
 
@@ -57,11 +59,12 @@ $this->title = htmlspecialchars('Notifier un commentaire');
 
 
                 <input type="hidden" name="operation" value="delete"/>
-                <input type="submit" class="btn btn-primary" value="supprimer"/>
+                <input type="submit" class="btn btn-primary bg-138597" value="supprimer"/>
 
 
             </form>
         </div>
+
         <?php
     }
     $notifications->closeCursor();
