@@ -1,24 +1,26 @@
 <?php
 $this->title = 'Commentaires';
 ?>
-<p class="margin-top25 margin-bottom25"><a class="btn btn-primary bg-6BC3D1" href="index.php?action=admin">Retour au tableau de bord</a></p>
-<nav class="navbar navbar-expand-lg navbar-light bg-light margin-top25 margin-bottom25 text-center justify-content-center nav-filter">
+<p class="margin-top25 margin-bottom25 margin-left15"><a class="btn btn-primary bg-6BC3D1" href="index.php?action=admin">Retour au tableau de bord</a></p>
 
-<a class="margin-right15 color_white" href="index.php?action=moderation&status=all">Tous</a>
-<a class="margin-right15 color_white" href="index.php?action=moderation&status=approved">Approuver</a>
-<a class="margin-right15 color_white" href="index.php?action=moderation&status=rejected">Rejeter</a>
-<a class="margin-right15 color_white" href="index.php?action=moderation">En attente</a>
+<h1 class="text-center margin-top50 margin-bottom50">Liste des commentaires</h1>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light margin-top25 margin-bottom25 text-center justify-content-center nav-filter">
+    <a class="margin-right15 color_white" href="index.php?action=moderation&status=all">Tous</a>
+    <a class="margin-right15 color_white" href="index.php?action=moderation&status=approved">Approuver</a>
+    <a class="margin-right15 color_white" href="index.php?action=moderation&status=rejected">Rejeter</a>
+    <a class="margin-right15 color_white" href="index.php?action=moderation">En attente</a>
 </nav>
 
+<div class="container margin-top50">
 
-<h2 class="text-center">Commentaires</h2>
-<p class="text-center">Liste des commentaires du blog</p>
 <?php
 
 while ($data = $comments->fetch()) {
     ?>
-    <div class="news">
-        <h3>
+    <div class="border-6BC3D1">
+    <div>
+        <h3 class="margin-bottom25 margin-top25">
             <?= htmlspecialchars($data['author']) ?>
             <em class="font_size_60">le <?= $data['comment_date_fr'] ?></em>
         </h3>
@@ -75,6 +77,6 @@ while ($data = $comments->fetch()) {
 }
 $comments->closeCursor();
 ?>
-
-
+    </div>
+</div>
 
