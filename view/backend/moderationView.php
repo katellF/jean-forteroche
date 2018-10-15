@@ -9,8 +9,8 @@ $this->title = 'Commentaires';
 <nav class="navbar navbar-expand-lg navbar-light bg-light margin-top25 margin-bottom25 text-center justify-content-center nav-filter">
     <a class="margin-right15 color_white" href="index.php?action=moderation&status=all">Tous</a>
     <a class="margin-right15 color_white" href="index.php?action=moderation&status=approved">Approuver</a>
-    <a class="margin-right15 color_white" href="index.php?action=moderation&status=rejected">Rejeter</a>
     <a class="margin-right15 color_white" href="index.php?action=moderation">En attente</a>
+    <a class="margin-right15 color_white" href="index.php?action=moderation&status=trash">Corbeille</a>
 </nav>
 
 <div class="container margin-top50">
@@ -32,7 +32,7 @@ $this->title = 'Commentaires';
         </div>
 
         <div class="d-flex justify-content-end margin-bottom25">
-            <?php if ($data['status'] === 'pending' || $data['status'] === 'rejected') { ?>
+            <?php if ($data['status'] === 'pending' || $data['status'] === 'trash') { ?>
                 <form class="margin-right15" method="post"
                       action="index.php?action=moderation&commentid=<?= $data["id"] ?>">
 
@@ -43,12 +43,12 @@ $this->title = 'Commentaires';
                 <?php
             }
             ?>
-            <?php if ($data['status'] === 'pending' || $data['status'] === 'approved') { ?>
+            <?php if ($data['status'] === 'pending' || $data['status'] === 'approved' ) { ?>
                 <form class="margin-right15" method="post"
                       action="index.php?action=moderation&commentid=<?= $data["id"] ?>">
 
-                    <input type="hidden" name="operation" value="rejected"/>
-                    <input type="submit" class="btn btn-primary bg-138597" value="Rejeter"/>
+                    <input type="hidden" name="operation" value="trash"/>
+                    <input type="submit" class="btn btn-primary bg-138597" value="Corbeille"/>
 
                 </form>
                 <?php
@@ -61,13 +61,17 @@ $this->title = 'Commentaires';
                    class="btn btn-primary button-modify active margin-right15 bg-138597">Répondre</a>
                 <?php
             }
-            ?>
+
+
+            if ($data['status'] === 'trash' && isset($_GET['status']) && $_GET['status'] === 'trash') {
+                ?>
             <form method="post" action="index.php?action=moderation&commentid=<?= $data["id"] ?>">
 
                 <input type="hidden" name="operation" value="delete"/>
                 <input type="submit" class="btn btn-primary bg-138597" value="Supprimer"/>
 
             </form>
+           <?php } ?>
         </div>
     </div>
         <?php

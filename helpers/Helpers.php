@@ -65,11 +65,11 @@ public static function substrwords($text, $maxchar, $end='...') {
     public static function labelCommentStatus($status) {
 
         if ( $status == 'approved' ){
-            $translated = 'Approuvée';
+            $translated = 'Approuvé';
         }
 
-        if ( $status == 'rejected' ){
-            $translated = 'Rejetée';
+        if ( $status == 'trash' ){
+            $translated = 'Corbeille';
         }
 
         if ( $status == 'pending' ){

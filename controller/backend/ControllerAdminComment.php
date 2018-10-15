@@ -19,7 +19,7 @@ class ControllerAdminComment
 
 
             if ( isset($_POST) && !empty($_POST) && isset($_GET["commentid"])) {
-                $this->Status();
+                $this->statusComment();
             }
 
             if ( isset($_GET['status']) && $_GET['status'] === 'approved'){
@@ -30,9 +30,13 @@ class ControllerAdminComment
 
                 $comments = $this->commentManager->getCommentsByStatus('rejected');
 
+            }elseif ( isset($_GET['status']) && $_GET['status'] === 'trash') {
+
+                $comments = $this->commentManager->getCommentsByStatus('trash');
+
             }elseif ( isset($_GET['status']) && $_GET['status'] === 'all'){
 
-            $comments = $this->commentManager->getAllComments();
+                $comments = $this->commentManager->getAllComments();
             }else {
 
                 $comments = $this->commentManager->getCommentsByStatus('pending');
@@ -47,7 +51,7 @@ class ControllerAdminComment
 
     }
 
-    public function Status()
+    public function statusComment()
     {
 
         if ( $_POST["operation"] === "approved" ){
@@ -56,10 +60,15 @@ class ControllerAdminComment
 
         }
 
+        if ( $_POST["operation"] === "pending" ){
 
-        if ( $_POST["operation"] === "rejected" ){
+            $this ->commentManager->setStatus($_GET['postid'] , 'pending');
 
-            $this ->commentManager->setStatus($_GET['commentid'] , 'rejected');
+        }
+
+        if ( $_POST["operation"] === "trash" ){
+
+            $this ->commentManager->setStatus($_GET['commentid'] , 'trash');
 
         }
 
