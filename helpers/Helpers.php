@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: katell
- * Date: 9/18/18
- * Time: 10:41 AM
- */
 
 class helpers
 {
@@ -36,19 +30,19 @@ public static function substrwords($text, $maxchar, $end='...') {
 
     public static function labelPostStatus($status) {
 
-        if ( $status = 'published' ){
+        if ( $status == 'published' ){
             $translated = 'publié';
         }
 
-        if ( $status = 'draft' ){
+        if ( $status == 'draft' ){
             $translated = 'brouillon';
         }
 
-        if ( $status = 'trash' ){
+        if ( $status == 'trash' ){
             $translated = 'poubelle';
         }
 
-        if ( $status = 'pending' ){
+        if ( $status == 'pending' ){
             $translated = 'en attente';
         }
 
@@ -57,11 +51,11 @@ public static function substrwords($text, $maxchar, $end='...') {
 
     public static function labelNotifStatus($status) {
 
-        if ( $status = 'unread' ){
+        if ( $status == 'unread' ){
             $translated = 'non lue';
         }
 
-        if ( $status = 'archived' ){
+        if ( $status == 'archived' ){
             $translated = 'archivée';
         }
 
@@ -70,15 +64,15 @@ public static function substrwords($text, $maxchar, $end='...') {
 
     public static function labelCommentStatus($status) {
 
-        if ( $status = 'approved' ){
+        if ( $status == 'approved' ){
             $translated = 'Approuvée';
         }
 
-        if ( $status = 'rejected' ){
+        if ( $status == 'rejected' ){
             $translated = 'Rejetée';
         }
 
-        if ( $status = 'pending' ){
+        if ( $status == 'pending' ){
             $translated = 'En attente';
         }
 

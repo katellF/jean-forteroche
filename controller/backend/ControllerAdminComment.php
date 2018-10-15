@@ -72,9 +72,15 @@ class ControllerAdminComment
     public function adminAnswer()
     {
         session_start();
+
+        if ($this->ctrlConnect->isUserConnected()) {
         $comments = $this->commentManager->getCommentsById($_GET['commentid']);
         $view = new View("backend/answerComment");
         $view->generate(array('comments' => $comments),'template_backend');
+
+        }else {
+            throw new Exception('Vous n avez pas acces à cette page!');
+        }
 
     }
 

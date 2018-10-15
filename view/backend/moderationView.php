@@ -22,10 +22,10 @@ $this->title = 'Commentaires';
     <div class="border-6BC3D1">
 
         <div>
-            <h3 class="margin-bottom25 margin-top25">
+            <h2 class="margin-bottom25 margin-top25">
                 <?= htmlspecialchars($data['author']) ?>
                 <em class="font_size_60">le <?= $data['comment_date_fr'] ?></em>
-            </h3>
+            </h2>
             <p class="color-138597"><strong>statut: <?= helpers::labelCommentStatus($data['status'])?></strong></p>
             <p><?= $data['comment'] ?></p>
 
@@ -59,14 +59,6 @@ $this->title = 'Commentaires';
 
                 <a href="index.php?action=adminAnswer&commentid=<?= $data["id"] ?>"
                    class="btn btn-primary button-modify active margin-right15 bg-138597">Répondre</a>
-
-                <!--    <form method="post" action="index.php?action=moderation&status='approved'&commentid=--><?//= $data["id"]
-                ?><!--">-->
-                <!---->
-                <!--        <input type="hidden" name="operation" value="answered"/>-->
-                <!--        <input type="submit" class="btn btn-primary" value="Répondre"/>-->
-                <!--    </form>-->
-
                 <?php
             }
             ?>

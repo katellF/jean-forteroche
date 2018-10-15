@@ -21,7 +21,7 @@ $this->title = htmlspecialchars('Notifier un commentaire');
     while ($data = $notifications->fetch()) {
         ?>
         <div class="border-6BC3D1">
-<!--          <div class="col-1"></div>-->
+
             <div>
             <h3 class="margin-bottom25 margin-top25">
                 raison : <?= htmlspecialchars($data['reason']) ?> <br/>

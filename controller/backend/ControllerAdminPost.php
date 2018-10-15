@@ -19,13 +19,36 @@ class ControllerAdminPost
         if ($this->ctrlConnect->isUserConnected()) {
 
             if (isset ($_POST) && !empty($_POST)) {
-                var_dump($_POST);
 
-                $addPostId = $this->postManager->insertPost($_POST);
 
-                $post = $this->postManager->getPost($addPostId);
+                if ( isset($_POST['postid'])  && $_POST['postid'] !== "" ) {
 
-                //var_dump($post);
+
+                    if ( $_POST['status'] == 'Publier') {
+                        $_POST['status'] = 'published';
+                    }
+
+                    if ( $_POST['status'] == 'Brouillon') {
+                        $_POST['status'] = 'draft';
+                    }
+
+                        $this->postManager->updatePost($_POST['postid'] , $_POST);
+                    $post = $this->postManager->getPost($_POST['postid']);
+
+                }  else {
+
+                    $addPostId = $this->postManager->insertPost($_POST);
+
+                    if ( $_POST['status'] == 'Publier') {
+                        $this->postManager->setStatus($addPostId , 'published');
+                    }
+
+                    $post = $this->postManager->getPost($addPostId);
+
+                }
+
+                //var_dump($_POST);
+
 
                 $view = new View("backend/addPost");
                 $view->generate(array('post' => $post), 'template_backend');
@@ -35,7 +58,9 @@ class ControllerAdminPost
                 $view->generate(array(),'template_backend');
             }
 
-
+//            if ( isset($_POST) && !empty($_POST) && isset($_GET["postid"])) {
+//                $this->statusPost();
+//            }
 
             // header('Location: index.php?action=addpost');
 
@@ -52,7 +77,7 @@ class ControllerAdminPost
         if ($this->ctrlConnect->isUserConnected()) {
 
             if (isset ($_POST) && !empty($_POST)) {
-                var_dump($_POST);
+                //var_dump($_POST);
 
                 $addPost = $this->postManager->insertPost($_POST);
                 //var_dump($addPost);
@@ -105,7 +130,7 @@ class ControllerAdminPost
                 $this->statusPost();
             }
 
-            if ( isset($_GET['status']) && $_GET['status'] ==='publié'){
+            if ( isset($_GET['status']) && $_GET['status'] ==='published'){
 
                 $posts= $this->postManager->getPostsByStatus('published');
 
@@ -178,5 +203,6 @@ class ControllerAdminPost
             $this ->postManager->Delete($_GET['postid']);
         }
     }
+
 
 }

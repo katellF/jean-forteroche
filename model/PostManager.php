@@ -90,6 +90,17 @@ class PostManager extends Manager
     }
 
 
+
+    public function updatePost($postId , $data)
+    {
+        $db = $this->dbConnect();
+        $updateStatus = $db->prepare('UPDATE posts SET  title=:title , content=:content, status=:status WHERE  id=:id ');
+        $modifyStatus = $updateStatus->execute(array('id' => $postId  , 'title' => $data['title'] , 'content'=>$data['content'], 'status'=>$data['status'] ));
+
+        return $modifyStatus;
+    }
+
+
     public function Delete($postId)
     {
         $db = $this->dbConnect();
