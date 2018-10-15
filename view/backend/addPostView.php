@@ -42,12 +42,14 @@ $this->title = 'Article';
         <label for="content">Contenu</label><textarea name="content" id="content" value=""><?=isset($post) === true ?$post['content'] : "" ?></textarea>
     </div>
 
-    <input type="hidden" value="<?=isset($post) === true ? $post['id'] : "" ?>" name="postid">
-
-    <input type="submit" class="btn btn-primary bg-138597" name="status" value="Publier"/>
-
-    <input type="submit" class="btn btn-primary bg-138597"  name="status" value="Brouillon"/>
-
+    <div class="row justify-content-between no-gutters">
+<!--        <div class="col-1"></div>-->
+        <input type="hidden" value="<?=isset($post) === true ? $post['id'] : "" ?>" name="postid">
+        <input type="submit" class="btn btn-primary bg-138597 col-3"  name="status" value="Brouillon"/>
+<!--        <div class="col-4"></div>-->
+        <input type="submit" class="btn btn-primary bg-138597 col-3" name="status" value="Publier"/>
+<!--        <div class="col-1"></div>-->
+    </div>
 </form>
 
 
