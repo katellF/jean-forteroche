@@ -47,7 +47,7 @@ require (dirname(__FILE__) . '/includes/scripts_footer.php');
 
 </body>
 
-<footer>
+<footer id="footer">
 
     <nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -68,5 +68,5 @@ require (dirname(__FILE__) . '/includes/scripts_footer.php');
     </nav>
 
 </footer>
-
+</div>
 </html>

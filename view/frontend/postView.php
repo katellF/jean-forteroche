@@ -42,6 +42,7 @@ while ($comment = $comments->fetch()) {
             <textarea class="form-control" id="comment" name="comment"></textarea>
         </div>
         <div>
+            <input type="hidden" name="operation" value="commentSend"/>
             <input type="submit" class="btn btn-primary" value="Envoyer"/>
         </div>
     </form>
