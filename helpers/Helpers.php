@@ -59,6 +59,10 @@ public static function substrwords($text, $maxchar, $end='...') {
             $translated = 'archivée';
         }
 
+        if ( $status == 'trash' ){
+            $translated = 'Corbeille';
+        }
+
         return $translated;
     }
 

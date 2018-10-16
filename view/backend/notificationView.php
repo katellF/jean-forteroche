@@ -57,7 +57,7 @@ $this->title = htmlspecialchars('Notifier un commentaire');
 
                     if ($data['status'] === 'unread' || $data['status'] === 'archived' ) { ?>
                         <form class="margin-right15" method="post"
-                              action="index.php?action=moderation&commentid=<?= $data["id"] ?>">
+                              action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
 
                             <input type="hidden" name="operation" value="trash"/>
                             <input type="submit" class="btn btn-primary bg-138597" value="Corbeille"/>

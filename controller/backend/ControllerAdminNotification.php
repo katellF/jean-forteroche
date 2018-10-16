@@ -65,7 +65,7 @@ class ControllerAdminNotification
 
         if ( $_POST["operation"] === "trash" ){
 
-            $this ->commentManager->setStatus($_GET['commentid'] , 'trash');
+            $this ->notificationManager->setStatus($_GET['notificationid'] , 'trash');
 
         }
 

@@ -18,7 +18,7 @@ $this->title = 'tableau de bord';
         <div class="border-6BC3D1">
             <div>
                 <h3 class="margin-bottom25 margin-top25">
-                    <?= htmlspecialchars($data['title']) ?>
+                    <?= htmlspecialchars($data['title']) ?> <?= $data["id"] ?>
                     <p class="font_size_60">le <?= $data['creation_date_fr'] ?></p>
                     <p class="font_size_60 color-138597"><strong>statut : <?= helpers::labelPostStatus($data['status']) ?></strong></p>
                 </h3>
@@ -30,7 +30,7 @@ $this->title = 'tableau de bord';
 
             echo helpers::substrwords($content_clean, 350, '...');
             ?>
-            <strong class="italic row no-gutters justify-content-end"><a href="index.php?action=previewpost&amp;id=<?= htmlspecialchars($data['id']) ?>" class="btn btn-info btn-sm active button_list" role="button" aria-pressed="true">Lire la suite</a></strong>
+            <strong class="row no-gutters justify-content-end"><a href="index.php?action=previewpost&amp;id=<?= htmlspecialchars($data['id']) ?>" class="btn btn-info btn-sm active button_list margin-bottom25" role="button" aria-pressed="true">Aperçu</a></strong>
 
             <div class="d-flex justify-content-end margin-bottom25">
 
@@ -39,24 +39,12 @@ $this->title = 'tableau de bord';
                           action="index.php?action=admin&postid=<?= $data["id"] ?>">
 
                         <input type="hidden" name="operation" value="published"/>
-                        <input type="submit" class="btn btn-info bg-138597" value="publier"/>
+                        <input type="submit" class="btn btn-info bg-138597" id="confirmPublish_<?= $data["id"] ?>" value="publier"/>
 
                     </form>
                     <?php
                 }
-//                if ($data['status'] === 'draft' || $data['status'] === 'published' || $data['status'] === 'trash') {
-//                    ?>
-<!--                    <form class="margin-right15" method="post"-->
-<!--                          action="index.php?action=admin&postid=--><?//= $data["id"] ?><!--">-->
-<!---->
-<!--                        <input type="hidden" name="operation" value="pending"/>-->
-<!--                        <input type="submit" class="btn btn-primary bg-138597 " value="En attente"/>-->
-<!---->
-<!--                    </form>-->
-<!--                    --><?php
-//                }
-                ?>
-                <?php
+
                 if ($data['status'] === 'draft' || $data['status'] === 'published') {
                     ?>
                     <form class="margin-right15" method="post"
@@ -110,6 +98,12 @@ $this->title = 'tableau de bord';
 
     ?>
 </div>
+
+<script type="javascript">
+
+
+//    $('#confirmPublish_60').click(ConfirmClass.confirmPublish);
+</script>
 
 
 

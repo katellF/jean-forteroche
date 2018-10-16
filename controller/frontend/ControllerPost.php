@@ -56,11 +56,22 @@ class ControllerPost
 
     public function post()
     {
+        session_start();
+        if ($this->ctrlConnect->isUserConnected()) {
+
+            $post = $this->postManager->getPublishedPost($_GET['id']);
+            $comments = $this->commentManager->getApprovedComments($_GET['id']);
+            $view = new View("frontend/post");
+            $view->generate(array('post' => $post, 'comments' => $comments),'template_connect');
+
+        }else{
 
         $post = $this->postManager->getPublishedPost($_GET['id']);
         $comments = $this->commentManager->getApprovedComments($_GET['id']);
         $view = new View("frontend/post");
         $view->generate(array('post' => $post, 'comments' => $comments));
+
+        }
 
     }
 
