@@ -6,9 +6,8 @@ $this->title = 'tableau de bord';
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light margin-top25 margin-bottom25 text-center justify-content-center nav-filter">
     <a class="margin-right15 color_white" href="index.php?action=admin&status=all">Tous</a>
-    <a class="margin-right15 color_white" href="index.php?action=admin&status=published">Publié</a>
-    <a class="margin-right15 color_white" href="index.php?action=admin&status=pending">En attente</a>
-    <a class="margin-right15 color_white" href="index.php?action=admin&status=draft">Brouillon</a>
+    <a class="margin-right15 color_white" href="index.php?action=admin&status=published">Publiés</a>
+    <a class="margin-right15 color_white" href="index.php?action=admin&status=draft">Brouillons</a>
     <a class="color_white" href="index.php?action=admin&status=trash">Dans la corbeille</a>
 </nav>
 <div class="container margin-top50">
@@ -30,11 +29,12 @@ $this->title = 'tableau de bord';
             $content_clean = nl2br(html_entity_decode(htmlspecialchars($data['content'])));
 
             echo helpers::substrwords($content_clean, 350, '...');
-
             ?>
+            <strong class="italic row no-gutters justify-content-end"><a href="index.php?action=previewpost&amp;id=<?= htmlspecialchars($data['id']) ?>" class="btn btn-info btn-sm active button_list" role="button" aria-pressed="true">Lire la suite</a></strong>
+
             <div class="d-flex justify-content-end margin-bottom25">
 
-                <?php if ($data['status'] === 'draft' || $data['status'] === 'pending' || $data['status'] === 'trash') { ?>
+                <?php if ($data['status'] === 'draft' || $data['status'] === 'trash') { ?>
                     <form class="margin-right15" method="post"
                           action="index.php?action=admin&postid=<?= $data["id"] ?>">
 
@@ -44,20 +44,20 @@ $this->title = 'tableau de bord';
                     </form>
                     <?php
                 }
-                if ($data['status'] === 'draft' || $data['status'] === 'published' || $data['status'] === 'trash') {
-                    ?>
-                    <form class="margin-right15" method="post"
-                          action="index.php?action=admin&postid=<?= $data["id"] ?>">
-
-                        <input type="hidden" name="operation" value="pending"/>
-                        <input type="submit" class="btn btn-primary bg-138597 " value="En attente"/>
-
-                    </form>
-                    <?php
-                }
+//                if ($data['status'] === 'draft' || $data['status'] === 'published' || $data['status'] === 'trash') {
+//                    ?>
+<!--                    <form class="margin-right15" method="post"-->
+<!--                          action="index.php?action=admin&postid=--><?//= $data["id"] ?><!--">-->
+<!---->
+<!--                        <input type="hidden" name="operation" value="pending"/>-->
+<!--                        <input type="submit" class="btn btn-primary bg-138597 " value="En attente"/>-->
+<!---->
+<!--                    </form>-->
+<!--                    --><?php
+//                }
                 ?>
                 <?php
-                if ($data['status'] === 'draft' || $data['status'] === 'published' || $data['status'] === 'pending') {
+                if ($data['status'] === 'draft' || $data['status'] === 'published') {
                     ?>
                     <form class="margin-right15" method="post"
                           action="index.php?action=admin&postid=<?= $data["id"] ?>">
@@ -70,9 +70,9 @@ $this->title = 'tableau de bord';
 
                     <?php
                 }
-                if ($data['status'] === 'trash' || $data['status'] === 'published' || $data['status'] === 'pending') {
+                if ($data['status'] === 'trash' || $data['status'] === 'published') {
                     ?>
-                    <form method="post" action="index.php?action=admin&postid=<?= $data["id"] ?>">
+                    <form class="margin-right15" method="post" action="index.php?action=admin&postid=<?= $data["id"] ?>">
 
                         <input type="hidden" name="operation" value="draft"/>
                         <input type="submit" class="btn btn-primary bg-138597" value="Brouillon"/>
@@ -85,7 +85,7 @@ $this->title = 'tableau de bord';
 
                 if ($data['status'] === 'trash' && isset($_GET['status']) && $_GET['status'] === 'trash') {
                     ?>
-                    <form method="post" action="index.php?action=admin&postid=<?= $data["id"] ?>">
+                    <form class="margin-right15" method="post" action="index.php?action=admin&postid=<?= $data["id"] ?>">
 
                         <input type="hidden" name="operation" value="delete"/>
                         <input type="submit" class="btn btn-primary bg-138597" value="Supprimer"/>
@@ -97,7 +97,7 @@ $this->title = 'tableau de bord';
                 ?>
 
 
-                <a class="btn btn-primary button-modify active margin-left15 bg-138597"
+                <a class="btn btn-primary button-modify active bg-138597"
                    href="index.php?action=recoverpost&postid=<?= $data["id"] ?>">Modifier</a>
             </div>
 

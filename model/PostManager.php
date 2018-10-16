@@ -48,6 +48,16 @@ class PostManager extends Manager
         return $post;
     }
 
+    public function getPublishedPost($postId)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT id, title, content, status, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ? AND status =\'published\' ');
+        $req->execute(array($postId));
+        $post = $req->fetch();
+
+        return $post;
+    }
+
     public function getPostsByStatus($status)
     {
         $db = $this->dbConnect();

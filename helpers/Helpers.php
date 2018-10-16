@@ -39,12 +39,12 @@ public static function substrwords($text, $maxchar, $end='...') {
         }
 
         if ( $status == 'trash' ){
-            $translated = 'poubelle';
+            $translated = 'Corbeille';
         }
 
-        if ( $status == 'pending' ){
-            $translated = 'en attente';
-        }
+//        if ( $status == 'pending' ){
+//            $translated = 'en attente';
+//        }
 
         return $translated;
     }

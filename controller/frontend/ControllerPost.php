@@ -56,10 +56,12 @@ class ControllerPost
 
     public function post()
     {
-        $post = $this->postManager->getPost($_GET['id']);
+
+        $post = $this->postManager->getPublishedPost($_GET['id']);
         $comments = $this->commentManager->getApprovedComments($_GET['id']);
         $view = new View("frontend/post");
         $view->generate(array('post' => $post, 'comments' => $comments));
+
     }
 
     public function lastPost()
@@ -97,8 +99,8 @@ class ControllerPost
 
         }else{
 
-        $view = new View("frontend/home");
-        $view->generate(array());
+            $view = new View("frontend/home");
+            $view->generate(array());
 
         }
     }

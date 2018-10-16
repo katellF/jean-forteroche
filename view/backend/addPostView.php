@@ -11,10 +11,10 @@ $this->title = 'Article';
 <h1 class="text-center margin-top50 margin-bottom50">Ajouter un Chapitre</h1>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light margin-top25 margin-bottom25 text-center justify-content-center nav-filter">
-    <a class="margin-right15 color_white" href="index.php?action=moderation&status=all">Tous</a>
-    <a class="margin-right15 color_white" href="index.php?action=moderation&status=approved">Approuver</a>
-    <a class="margin-right15 color_white" href="index.php?action=moderation&status=rejected">Rejeter</a>
-    <a class="margin-right15 color_white" href="index.php?action=moderation">En attente</a>
+    <a class="margin-right15 color_white" href="index.php?action=admin&status=all">Tous</a>
+    <a class="margin-right15 color_white" href="index.php?action=admin&status=approved">Plubiés</a>
+    <a class="margin-right15 color_white" href="index.php?action=admin&status=approved">Brouillons</a>
+    <a class="margin-right15 color_white" href="index.php?action=admin&status=trash">Corbeille</a>
 </nav>
 
 

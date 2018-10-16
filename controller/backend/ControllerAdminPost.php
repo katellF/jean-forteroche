@@ -70,6 +70,21 @@ class ControllerAdminPost
 
     }
 
+    public function previewPost()
+    {
+        session_start();
+
+        if ($this->ctrlConnect->isUserConnected()) {
+
+            $post = $this->postManager->getPost($_GET['id']);
+           // $comments = $this->commentManager->getApprovedComments($_GET['id']);
+            $view = new View("backend/previewPost");
+            $view->generate(array('post' => $post), "template_connect");
+        } else {
+            throw new Exception('Vous n avez pas acces à cette page!');
+        }
+    }
+
     public function editPost()
     {
         session_start();
@@ -134,11 +149,13 @@ class ControllerAdminPost
 
                 $posts= $this->postManager->getPostsByStatus('published');
 
-            }elseif ( isset($_GET['status']) && $_GET['status'] === 'pending'){
-
-                $posts= $this->postManager->getPostsByStatus('pending');
-
-            }elseif ( isset($_GET['status']) && $_GET['status'] === 'draft'){
+          }
+//elseif ( isset($_GET['status']) && $_GET['status'] === 'pending'){
+//
+//                $posts= $this->postManager->getPostsByStatus('pending');
+//
+//            }
+            elseif ( isset($_GET['status']) && $_GET['status'] === 'draft'){
 
                 $posts= $this->postManager->getPostsByStatus('draft');
 
@@ -180,11 +197,11 @@ class ControllerAdminPost
         }
 
 
-        if ( $_POST["operation"] === "pending" ){
-
-            $this ->postManager->setStatus($_GET['postid'] , 'pending');
-
-        }
+//        if ( $_POST["operation"] === "pending" ){
+//
+//            $this ->postManager->setStatus($_GET['postid'] , 'pending');
+//
+//        }
 
         if ( $_POST["operation"] === "draft" ){
 
