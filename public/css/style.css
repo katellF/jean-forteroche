@@ -35,6 +35,10 @@ h1, h2,h3{
     height: 70%;
 }
 
+.min_height{
+
+    min-height: 500px;
+}
 .relative{
 
     position:relative;
@@ -184,6 +188,13 @@ img{
     margin-top: 25px;
 }
 
+.margin-top15{
+
+    margin-top: 15px;
+}
+
+
+
 
 .margin-left15{
 
@@ -211,6 +222,16 @@ font-size: 3rem;
 .container > p{
 
     color: #585858;
+}
+
+/* notif frontend*/
+
+.border_notif{
+
+    border: solid 2px #6BC3D1;
+    width:50%;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 /* connection */

@@ -1,42 +1,44 @@
 <?php
 $this->title = htmlspecialchars('Notifier un commentaire');
 ?>
-    <p class="margin-top25 margin-bottom25"><a href="index.php?action=post&amp;id=<?= $_GET['postid'] ?>">Retour à l'article</a></p>
+
+<div class="min_height">
+    <p class="margin-top50 margin-bottom25 margin-left15"><a href="index.php?action=post&amp;id=<?= $_GET['postid'] ?>" class="btn btn-primary bg-6BC3D1">Retour à l'article</a></p>
 <?php
 
 if (isset ($_POST) && !empty($_POST)) {
     ?>
-    <h2>Signaler un Commentaire</h2>
-
-
-    <p>Votre notification a bien été envoyée.</p>
-    <p>Merci pour votre vigilance.</p>
-
+    <div class="container margin-top50 text-center border_notif">
+    <h1 class="margin-bottom25">Notification Envoyée</h1>
+        <p>Votre commentaire a bien été signalé.</p>
+        <p>Merci pour votre vigilance.</p>
+    </div>
 <?php
 } else {
     ?>
-    <div class="container">
-    <h2>Signaler un Commentaire</h2>
+    <div class="container margin-top50">
+    <h1 class="margin-bottom50 text-center">Signaler un Commentaire</h1>
 
     <form action="index.php?action=notification&amp;commentid=<?= $_GET['commentid'] ?>" method="post">
-        <div class="form-group">
-            <label for="email">email</label><br/>
+        <div class="form-group margin-bottom25">
+            <label for="email" class="margin-bottom15">Email</label><br/>
             <input type="email" class="form-control" id="email" name="email"/>
         </div>
-        <div>
-            <label for="reason">reason</label><br/>
+        <div class="form-group margin-bottom25">
+            <label for="reason" class="margin-bottom15">Cause</label><br/>
             <select name="reason" id="reason" class="form-control">
-                <option value="abuse">Inapproprie</option>
-                <option value="insult">Insulte</option>
+                <option value="abuse">Inapproprié</option>
+                <option value="insult">Insultant</option>
+                <option value="insult">Obscène</option>
+                <option value="insult">Autres</option>
             </select>
-
         </div>
-        <div class="form-group">
-            <label for="content">content</label><br/>
+        <div class="form-group margin-bottom25">
+            <label for="content" class="margin-bottom15">Vos remarques</label><br/>
             <textarea id="content"  class="form-control" name="content"></textarea>
         </div>
         <div>
-            <input type="submit" class="btn btn-primary" value="Envoyer"/>
+            <input type="submit" class="btn btn-primary bg-138597 margin-top15" value="Envoyer"/>
         </div>
     </form>
     </div>
@@ -45,3 +47,4 @@ if (isset ($_POST) && !empty($_POST)) {
 <?php
 }
 ?>
+</div>
