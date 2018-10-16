@@ -50,7 +50,7 @@ require (dirname(__FILE__) . '/includes/scripts_footer.php');
 <footer id="footer">
 
     <nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
+
             <div class="collapse navbar-collapse row justify-content-center" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
@@ -64,7 +64,7 @@ require (dirname(__FILE__) . '/includes/scripts_footer.php');
                     </li>
                 </ul>
             </div>
-        </div>
+
     </nav>
 
 </footer>
