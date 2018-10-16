@@ -6,34 +6,65 @@ class ControllerNotification
     {
         $this->notificationManager = new NotificationManager();
         $this->commentManager = new CommentManager();
+        $this->ctrlConnect = new ControllerConnect();
     }
-
 
 
     public function notification()
     {
-        if (isset ($_POST) && !empty($_POST)) {
-            if (!empty($_POST['email']) && !empty($_POST['reason'])) {
-                $this->addNotification();
 
-            }else {
+        session_start();
+        if ($this->ctrlConnect->isUserConnected()) {
+            if (isset ($_POST) && !empty($_POST)) {
+                if (!empty($_POST['email']) && !empty($_POST['reason'])) {
+                    $this->addNotification();
 
-                throw new Exception('Tous les champs ne sont pas remplis !');}
+                } else {
 
+                    throw new Exception('Tous les champs ne sont pas remplis !');
+                }
+
+            } else {
+
+                $view = new View("frontend/notification");
+                $view->generate(array(), 'template_connect');
+            }
         } else {
+            if (isset ($_POST) && !empty($_POST)) {
+                if (!empty($_POST['email']) && !empty($_POST['reason'])) {
+                    $this->addNotification();
 
-            $view = new View("frontend/notification");
-            $view->generate(array());
+                } else {
+
+                    throw new Exception('Tous les champs ne sont pas remplis !');
+                }
+
+            } else {
+
+                $view = new View("frontend/notification");
+                $view->generate(array());
+
+            }
 
         }
     }
 
+
     public function addNotification()
     {
-        $notificationManager = new NotificationManager();
-        $content = $notificationManager->insertNotification($_GET['commentid'], $_POST['reason'], $_POST['content'], $_POST['email']);
-        $view = new View("frontend/notification");
-        $view->generate(array("data" => $content));
+        $content = $this->notificationManager->insertNotification($_GET['commentid'], $_POST['reason'], $_POST['content'], $_POST['email']);
+
+        if ($this->ctrlConnect->isUserConnected()) {
+
+            $view = new View("frontend/notification");
+            $view->generate(array("data" => $content), 'template_connect');
+
+        } else {
+
+            $view = new View("frontend/notification");
+            $view->generate(array("data" => $content));
+        }
     }
+
 
 }

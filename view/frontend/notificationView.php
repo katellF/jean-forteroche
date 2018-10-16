@@ -18,7 +18,7 @@ if (isset ($_POST) && !empty($_POST)) {
     <div class="container">
     <h2>Signaler un Commentaire</h2>
 
-    <form action="index.php?action=notification&amp;commentid=<?= $_GET['commentid'] ?> " method="post">
+    <form action="index.php?action=notification&amp;commentid=<?= $_GET['commentid'] ?>" method="post">
         <div class="form-group">
             <label for="email">email</label><br/>
             <input type="email" class="form-control" id="email" name="email"/>
