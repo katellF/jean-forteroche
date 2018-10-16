@@ -34,10 +34,12 @@ class ControllerAdminNotification
             }elseif ( isset($_GET['status']) && $_GET['status'] === 'all'){
                 $notifications = $this->notificationManager->getAllNotifications();
 
+            }elseif ( isset($_GET['status']) && $_GET['status'] === 'trash'){
+
+                $notifications= $this->notificationManager->getNotificationsByStatus('trash');
+
             }else {
                 $notifications = $this->notificationManager->getNotificationsByStatus('unread');
-
-
             }
 
            // $countNotif = $this->countNotification();
@@ -58,6 +60,12 @@ class ControllerAdminNotification
         if ( $_POST["operation"] === "archived" ){
 
             $this ->notificationManager->setStatus($_GET['notificationid'] , 'archived');
+
+        }
+
+        if ( $_POST["operation"] === "trash" ){
+
+            $this ->commentManager->setStatus($_GET['commentid'] , 'trash');
 
         }
 

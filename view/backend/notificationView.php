@@ -11,6 +11,7 @@ $this->title = htmlspecialchars('Notifier un commentaire');
     <nav class="navbar navbar-expand-lg navbar-light bg-light margin-top25 margin-bottom25 text-center justify-content-center nav-filter">
         <a class="margin-right15 color_white" href="index.php?action=adminNotification&status=all">Toutes</a>
         <a class="margin-right15 color_white" href="index.php?action=adminNotification&status=archived">Archivees</a>
+        <a class="margin-right15 color_white" href="index.php?action=adminNotification&status=trash">Corbeille</a>
         <a class="color_white" href="index.php?action=adminNotification">non lu</a>
     </nav>
 
@@ -33,8 +34,8 @@ $this->title = htmlspecialchars('Notifier un commentaire');
 
                 <div class="d-flex relative justify-content-end margin-bottom25">
 
-                    <?php if ($data['status'] === 'unread') { ?>
-                        <form class=" margin-right15" method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
+                    <?php if ($data['status'] === 'unread' || $data['status'] === 'trash')  { ?>
+                        <form class="margin-right15" method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
 
                             <input type="hidden" name="operation" value="archived"/>
                             <input type="submit" class="btn btn-primary bg-138597" value="Archiver"/>
@@ -43,8 +44,8 @@ $this->title = htmlspecialchars('Notifier un commentaire');
                         <?php
                     }
                     ?>
-                    <?php if ($data['status'] === 'archived') { ?>
-                        <form method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
+                    <?php if ($data['status'] === 'archived'|| $data['status'] === 'trash') { ?>
+                        <form  class="margin-right15" method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
 
                             <input type="hidden" name="operation" value="unread"/>
                             <input type="submit" class="btn btn-primary bg-138597" value="non lu"/>
@@ -53,14 +54,28 @@ $this->title = htmlspecialchars('Notifier un commentaire');
                         </form>
                         <?php
                     }
+
+                    if ($data['status'] === 'unread' || $data['status'] === 'archived' ) { ?>
+                        <form class="margin-right15" method="post"
+                              action="index.php?action=moderation&commentid=<?= $data["id"] ?>">
+
+                            <input type="hidden" name="operation" value="trash"/>
+                            <input type="submit" class="btn btn-primary bg-138597" value="Corbeille"/>
+
+                        </form>
+                        <?php
+                    }
+
+                    if ($data['status'] === 'trash' && isset($_GET['status']) && $_GET['status'] === 'trash') {
                     ?>
-                    <form method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
+                        <form method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
 
-                        <input type="hidden" name="operation" value="delete"/>
-                        <input type="submit" class="btn btn-primary bg-138597" value="supprimer"/>
+                            <input type="hidden" name="operation" value="delete"/>
+                            <input type="submit" class="btn btn-primary bg-138597" value="supprimer"/>
 
 
-                    </form>
+                        </form>
+                    <?php } ?>
                 </div>
 
             </div>
