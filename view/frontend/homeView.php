@@ -4,10 +4,12 @@
 <div class="text-center title_Accueil ">
 
     <h1 class="font_size_3 font_size_resp">Billet Simple Pour L'alaska</h1>
-    <p class="font_size_1_5 color_343a40 none">Découvrez le nouveau livre de Jean Forteroche</p>
+    <p class="font_size_1_5 color_343a40 noneR576">Découvrez le nouveau livre de Jean Forteroche</p>
 
-    <a href="index.php?action=listPosts"class="text-center btn btn-info btn-sm active button_book">Découvrez le livre</a>
-    <a href="index.php?action=lastPost"class="text-center btn btn-info btn-sm active button_chapter">Lire le dernier chapitre</a>
+    <div class="container">
+    <a href="index.php?action=listPosts"class="text-center btn btn-info btn-lg active button_book">Découvrez le livre</a>
+    <a href="index.php?action=lastPost"class="text-center btn btn-info btn-lg active button_chapter">Lire le dernier chapitre</a>
+    </div>
 
 </div>
 
