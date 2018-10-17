@@ -5,7 +5,7 @@
 <div class="text-center title_Accueil ">
 
 <h1 class="font_size_3">Billet simple pour l'Alaska</h1>
-    <p class="font_size_1_5 color_343a40">Le Nouveau Livre de Jean Forteroche</p>
+    <p class="font_size_1_5 color_343a40 noneR576">Le Nouveau Livre de Jean Forteroche</p>
 
 </div>
     <h2 class="text-center ligne_top ligne_bottom">Découvrez le livre</h2>

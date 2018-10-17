@@ -424,6 +424,8 @@ footer {
     @media (max-width: 576px) {
 
 
+
+
         /* ============ home page ============== */
         .font_size_resp {
 
@@ -450,6 +452,20 @@ footer {
             display: none;
         }
 
+
+        /* ============ writer page ============== */
+
+        .font_size_r {
+
+            font-size: 2rem;
+        }
+
+
+        .title_writer {
+
+            height: 200px;
+            padding-top: 100px;
+        }
 
         /* ============ footer ============== */
         .nav_footer{

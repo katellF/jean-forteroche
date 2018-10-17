@@ -1,7 +1,7 @@
 <?php $this->title = 'Jean Forteroche';
 ?>
 <div class="title_writer  ">
-    <h1 class="font_size_3 d-flex justify-content-end">Jean de Forteroche</h1>
+    <h1 class="font_size_3 font_size_r d-flex justify-content-end color_white">Jean de Forteroche</h1>
 </div>
 
 <h2 class="text-center ligne_top ligne_bottom">A Propos de L'Auteur</h2>
