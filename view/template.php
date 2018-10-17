@@ -23,22 +23,23 @@
 <!--        <a class="navbar-brand" href="#">Navbar</a>-->
 
 <!--        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">-->
-        <div class="collapse navbar-collapse row justify-content-end" id="navbarTogglerDemo03">
+        <div class=" collapse navbar-collapse row justify-content-end menu_burger" id="navbarTogglerDemo03">
             <ul class="navbar-nav mt-2 mt-lg-0">
-                <li class="nav-item active">
+                <li class="nav-item active border_nav color_link">
 <!--                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
-                    <a class="nav-link" href="index.php?action=home">Accueil <span class="sr-only">(current)</span></a>
+                    <a class="nav-link color_link" href="index.php?action=home">Accueil <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item active border_nav color_link">
 <!--                    <a class="nav-link" href="#">Link</a>-->
-                    <a class="nav-link" href="index.php?action=writer">A Propos</a>
-                <li class="nav-item active">
+                    <a class="nav-link color_link" href="index.php?action=writer">A Propos</a>
+
+                <li class="nav-item active border_nav color_link">
 <!--                    <a class="nav-link disabled" href="#">Disabled</a>-->
-                    <a class="nav-link" href="index.php?action=listPosts">Chapitres</a>
+                    <a class="nav-link color_link" href="index.php?action=listPosts">Chapitres</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item active border_nav">
 <!--                    <a class="nav-link disabled" href="#">Disabled</a>-->
-                    <a class="nav-link" href="index.php?action=contact">Contact</a>
+                    <a class="nav-link color_link" href="index.php?action=contact">Contact</a>
                 </li>
             </ul>
 <!--            <form class="form-inline my-2 my-lg-0">-->
