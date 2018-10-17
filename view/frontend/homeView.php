@@ -3,8 +3,8 @@
 ?>
 <div class="text-center title_Accueil ">
 
-    <h1 class="font_size_3">Billet Simple Pour L'alaska</h1>
-    <p class="font_size_1_5 color_343a40">Découvrez le nouveau livre de Jean Forteroche</p>
+    <h1 class="font_size_3 font_size_resp">Billet Simple Pour L'alaska</h1>
+    <p class="font_size_1_5 color_343a40 none">Découvrez le nouveau livre de Jean Forteroche</p>
 
     <a href="index.php?action=listPosts"class="text-center btn btn-info btn-sm active button_book">Découvrez le livre</a>
     <a href="index.php?action=lastPost"class="text-center btn btn-info btn-sm active button_chapter">Lire le dernier chapitre</a>
@@ -27,17 +27,17 @@
 </div>
 
 <h2 class="text-center ligne_top ligne_bottom">Best Sellers</h2>
-<div class="container d-flex justify-content-center margin-bottom">
-    <div class="relative resize">
+<div class="container d-flex justify-content-center margin-bottom block">
+    <div class="relative resize margin_side_autoR margin_bottom25R">
         <img src="public/css/images/book1.png" alt="photo du livre, Loin dans le désert">
     </div>
-    <div class="relative resize">
+    <div class="relative resize margin_side_autoR">
         <img src="public/css/images/book2.png" alt="photo du livre, Loin dans le désert">
     </div>
-    <div class="relative resize">
+    <div class="relative resize none">
         <img src="public/css/images/book3.png" alt="photo du livre, Loin dans le désert">
     </div>
-    <div class="relative resize">
+    <div class="relative resize none">
         <img src="public/css/images/book4.png" alt="photo du livre, Loin dans le désert">
     </div>
 </div>

@@ -341,14 +341,11 @@ footer {
 }
 
 
-/* ============================== Responsif min 992 px ============================= */
+/* ============================== Responsif max 992 px ============================= */
 @media (max-width: 992px) {
 
     /* ========================== header ============================== */
-    /*.justify_content_end{*/
-    /*justify-content: end !important;*/
-    /*}*/
-    /* nav menu burger */
+
     .menu_burger {
 
         justify-content: start !important;
@@ -371,12 +368,68 @@ footer {
         color: #6BC3D1 !important;
     }
 
-    /* ============================== Responsif min 576 px ============================= */
+    .block {
+
+        display: block !important;
+    }
+
+    .margin_side_autoR{
+
+        margin-left : auto;
+        margin-right: auto;
+    }
+
+    .margin_bottom25R{
+
+        margin-bottom: 25px;
+    }
+
+    .none {
+
+        display: none;
+    }
+
+    .resize{
+
+        width: auto;
+        height: auto;
+    }
+
+
+    /* ========================== footer ============================== */
+
+
+
+    /* ============================== Responsif max 576 px ============================= */
     @media (max-width: 576px) {
 
-        /*.justify_content_start{*/
-        /*justify-content: start !important;*/
-        /*}*/
+
+        /* ============ home page ============== */
+        .font_size_resp {
+
+            font-size: 2.5rem;
+        }
+
+        .button_book {
+
+            margin-top: 30px;
+            margin-bottom: 15px;
+
+        }
+
+        .button_chapter {
+
+            margin-top: 30px;
+            margin-left: 0;
+            margin-bottom: 15px;
+           
+        }
+
+
+
+
+
+
 
     }
 
