@@ -24,26 +24,29 @@
 
 while ($comment = $comments->fetch()) {
     ?>
+    <div class="border-comment">
     <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p> 
-    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p> <em><a href="index.php?action=notification&amp;commentid=<?= $comment['id']?>&amp;postid=<?= $post['id']?>">Signaler un commentaire</a></em>
+    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+    <em><a href="index.php?action=notification&amp;commentid=<?= $comment['id']?>&amp;postid=<?= $post['id']?>" class="btn btn-primary bg-138597 margin-top15">Signaler ce commentaire</a></em>
+    </div>
 <?php
 }
 ?>
 
-    <h2 class="margin-top50">Ajouter un Commentaire</h2>
+    <h2 class="margin-top50 margin-bottom25">Ajouter un Commentaire</h2>
 
     <form action="index.php?action=addComment&amp;postid=<?= $post['id'] ?>" method="post">
         <div class="form-group">
-            <label for="author">Auteur</label><br/>
+            <label for="author" class="margin-bottom15">Auteur</label><br/>
             <input type="text" class="form-control" id="author" name="author"/>
         </div>
         <div class="form-group">
-            <label for="comment">Commentaire</label><br/>
+            <label for="comment" class="margin-bottom15">Commentaire</label><br/>
             <textarea class="form-control" id="comment" name="comment"></textarea>
         </div>
         <div>
             <input type="hidden" name="operation" value="commentSend"/>
-            <input type="submit" class="btn btn-primary" value="Envoyer"/>
+            <input type="submit" class="btn btn-primary bg-138597 margin-top15" value="Envoyer"/>
         </div>
     </form>
 </div>
