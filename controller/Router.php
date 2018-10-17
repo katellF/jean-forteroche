@@ -56,7 +56,7 @@ class Router
                 }if ($_GET['action'] == 'listPosts') {
                     $this->ctrlPost->listPosts();
                 } elseif ($_GET['action'] == 'post') {
-                    if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    if (isset($_GET['postid']) && $_GET['postid'] > 0) {
                         $this->ctrlPost->post();
                     } else {
                         throw new Exception('Aucun identifiant de billet envoyé');
@@ -72,14 +72,14 @@ class Router
                 } elseif ($_GET['action'] == 'contact') {
                     $this->ctrlContact->contactForm();
                 }elseif ($_GET['action'] == 'addComment') {
-                    if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    if (isset($_GET['postid']) && $_GET['postid'] > 0) {
                         if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                             $status = 'pending';
                             if ( isset($_POST['source']) && $_POST['source'] === 'admin' ) {
                                 $status = 'approved';
                             }
 
-                            $this->ctrlComment->addComment($_GET['id'], $_POST['author'], $_POST['comment'] , $status);
+                            $this->ctrlComment->addComment($_GET['postid'], $_POST['author'], $_POST['comment'] , $status);
 
                         } else {
                             throw new Exception('Tous les champs ne sont pas remplis !');
