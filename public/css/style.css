@@ -240,14 +240,15 @@ font-size: 3rem;
 /* post frontend */
 .border-comment{
 
-    border: solid #6BC3D1 2px;
-    background-color:#6BC3D1 ;
+    /*border: solid rgba(107,195,209,0.50) 2px;*/
+    background-color:rgba(107,195,209,0.30) ;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 10px;
     margin-bottom: 15px;
     width: 50%;
     border-radius: 3px;
+
 }
 
 /* notif frontend*/

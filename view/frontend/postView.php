@@ -27,7 +27,7 @@ while ($comment = $comments->fetch()) {
     <div class="border-comment">
     <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p> 
     <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-    <em><a href="index.php?action=notification&amp;commentid=<?= $comment['id']?>&amp;postid=<?= $post['id']?>" class="btn btn-primary bg-138597 margin-top15">Signaler ce commentaire</a></em>
+    <em class="row justify-content-end no-gutters margin-right15" ><a href="index.php?action=notification&amp;commentid=<?= $comment['id']?>&amp;postid=<?= $post['id']?>" class="btn btn-primary bg-138597 margin-top15">Signaler ce commentaire</a></em>
     </div>
 <?php
 }
