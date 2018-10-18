@@ -10,11 +10,6 @@ class ConfirmClass {
     confirmPublish() {
 
 
-        console.log('dsds');
-        // Alerte canvas vide
-        //var canvasSubmit = document.getElementById("sign").toDataURL();
-        //var btnPublish = document.getElementById("confirmPublish");
-
         let response = confirm("Voulez-vous publier cet article? ");
 
         if (response) {
@@ -29,11 +24,6 @@ class ConfirmClass {
 
     confirmTrash() {
 
-
-        console.log('dsds');
-        // Alerte canvas vide
-        //var canvasSubmit = document.getElementById("sign").toDataURL();
-        //var btnPublish = document.getElementById("confirmPublish");
 
         let response = confirm("Voulez-vous mettre cet article dans la corbeille? ");
 

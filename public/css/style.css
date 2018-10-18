@@ -333,6 +333,11 @@ img {
     bottom: 0;
 }
 
+.min-height{
+min-height: calc(100vh - 55px);
+
+}
+
 /* ========== footer ========== */
 footer {
     margin-top: 70px;

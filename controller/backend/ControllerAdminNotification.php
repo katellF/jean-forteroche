@@ -69,6 +69,12 @@ class ControllerAdminNotification
 
         }
 
+        if ( $_POST["operation"] === "unread" ){
+
+            $this ->notificationManager->setStatus($_GET['notificationid'] , 'unread');
+
+        }
+
         if ( $_POST["operation"] === "delete" ){
 
             $this ->notificationManager->Delete($_GET['notificationid']);
