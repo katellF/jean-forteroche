@@ -7,7 +7,7 @@ class UserManager extends Manager
 
         $db = $this->dbConnect();
 
-        $req = $db->prepare('SELECT id FROM users WHERE pseudo = :pseudo');
+        $req = $db->prepare('SELECT id FROM users WHERE pseudo =:pseudo');
         $req->execute(array(
             'pseudo' => htmlspecialchars($pseudo)));
 
@@ -37,7 +37,7 @@ class UserManager extends Manager
 
         $db = $this->dbConnect();
 
-        $req = $db->prepare("SELECT id, pseudo, password FROM users WHERE pseudo = :pseudo");
+        $req = $db->prepare("SELECT id, pseudo, password FROM users WHERE pseudo =:pseudo");
         $res = $req->execute(array(
             'pseudo' => $pseudo,
         ));
@@ -57,11 +57,11 @@ class UserManager extends Manager
 //        setcookie('pass', '');
     }
 
-    public function setPassword($userId , $password)
+    public function setPassword( $pseudo , $password)
     {
         $db = $this->dbConnect();
-        $updatePassword = $db->prepare('UPDATE users SET  password=: password WHERE  id=:id ');
-        $modifyPassword = $updatePassword->execute(array('id' => $userId  , 'password' => $password  ));
+        $updatePassword = $db->prepare('UPDATE users SET  password=:password WHERE  pseudo=:pseudo ');
+        $modifyPassword = $updatePassword->execute(array('pseudo' => $pseudo  , 'password' => $password  ));
 
         return $modifyPassword;
     }

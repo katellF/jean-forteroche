@@ -4,7 +4,7 @@ $this->title = 'tableau de bord';
 ?>
 
 <p class="margin-top50 margin-bottom25 margin-left15 d-flex justify-content-end margin-right15"><a class="btn btn-primary bg-6BC3D1"
-                                                         href="index.php?action=modifypass">Modifier le mot de passe</a></p>
+                                                         href="index.php?action=modifypass&id=">Modifier le mot de passe</a></p>
 
 </div>
 <h1 class="text-center margin-top50 margin-bottom50"> Liste des Chapitres </h1>
