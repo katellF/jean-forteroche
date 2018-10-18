@@ -45,9 +45,9 @@ $this->title = 'Article';
     <div class="row justify-content-between no-gutters">
 <!--        <div class="col-1"></div>-->
         <input type="hidden" value="<?=isset($post) === true ? $post['id'] : "" ?>" name="postid">
-        <input type="submit" class="btn btn-primary bg-138597 col-3"  name="status" value="Brouillon"/>
+        <input type="submit" class="btn btn-primary bg-138597 col-3 draft_button"  name="status" value="Brouillon"/>
 <!--        <div class="col-4"></div>-->
-        <input type="submit" class="btn btn-primary bg-6BC3D1 col-3" name="status" value="Publier"/>
+        <input type="submit" class="btn btn-primary bg-6BC3D1 col-3 publish_button" name="status" value="Publier"/>
 <!--        <div class="col-1"></div>-->
     </div>
 </form>

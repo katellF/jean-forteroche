@@ -16,29 +16,6 @@
 <body>
 <header class="container">
 
-<!--    <nav class="navbar fixed-top  navbar-expand-lg navbar-dark bg-dark">-->
-<!--        <div class="container">-->
-<!--            <div class="collapse navbar-collapse row justify-content-end" id="navbarNavDropdown">-->
-<!--                <ul class="navbar-nav">-->
-<!--                    <li class="nav-item active">-->
-<!--                        <a class="nav-link" href="index.php?action=addpost">Ajouter un Article <span class="sr-only">(current)</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item active">-->
-<!--                        <a class="nav-link" href="index.php?action=moderation">Commentaires <span class="border border-primary rounded-circle circle-comment">--><?//= $pendingComment ?><!--</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item active">-->
-<!--                        <a class="nav-link" href="index.php?action=adminNotification">Notifications <span class="border border-primary rounded-circle circle-notif">--><?//= $unreadNotif ?><!--</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item active">-->
-<!--                        <a class="nav-link" href="index.php?action=home">retour au site</a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item active">-->
-<!--                        <a class="nav-link" href="index.php?action=logout">se deconnecter</a>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </nav>-->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
@@ -64,7 +41,7 @@
                         <a class="nav-link color_link" href="index.php?action=home">retour au site</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link color_link" href="index.php?action=logout">se deconnecter</a>
+                        <a class="nav-link color_link" href="index.php?action=logout">se déconnecter</a>
                     </li>
                 </ul>
             </div>

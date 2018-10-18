@@ -52,7 +52,7 @@ $this->title = 'tableau de bord';
                           action="index.php?action=admin&postid=<?= $data["id"] ?>">
 
                         <input type="hidden" name="operation" value="trash"/>
-                        <input type="submit" class="btn btn-primary bg-138597" value="Corbeille"/>
+                        <input type="submit" class="btn btn-primary bg-138597 trash_button" value="Corbeille"/>
 
                     </form>
 
@@ -64,7 +64,7 @@ $this->title = 'tableau de bord';
                     <form class="margin-right15" method="post" action="index.php?action=admin&postid=<?= $data["id"] ?>">
 
                         <input type="hidden" name="operation" value="draft"/>
-                        <input type="submit" class="btn btn-primary bg-138597" value="Brouillon"/>
+                        <input type="submit" class="btn btn-primary bg-138597 draft_button" value="Brouillon"/>
 
                     </form>
 
@@ -77,7 +77,7 @@ $this->title = 'tableau de bord';
                     <form class="margin-right15" method="post" action="index.php?action=admin&postid=<?= $data["id"] ?>">
 
                         <input type="hidden" name="operation" value="delete"/>
-                        <input type="submit" class="btn btn-primary bg-138597" value="Supprimer"/>
+                        <input type="submit" class="btn btn-primary bg-138597 delete_button" value="Supprimer"/>
                     </form>
 
                     <?php
