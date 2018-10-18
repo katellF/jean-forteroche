@@ -42,8 +42,6 @@ class ControllerAdminNotification
                 $notifications = $this->notificationManager->getNotificationsByStatus('unread');
             }
 
-           // $countNotif = $this->countNotification();
-            //var_dump($countNotif['num_unreadNotifications']);
             $view = new View("backend/notification");
             $view->generate(array('notifications' => $notifications),'template_backend');
 
