@@ -30,11 +30,11 @@
                     </li>
                     <li class="nav-item active border_nav color_link">
 
-                        <a class="nav-link color_link" href="index.php?action=moderation">Commentaires<span class="border border-primary rounded-circle circle-comment"><?= $pendingComment ?></span></a>
+                        <a class="nav-link color_link" href="index.php?action=moderation">Commentaires<span class="border border-primary rounded-circle circle-comment margin-left3"><?= $pendingComment ?></span></a>
 
                     <li class="nav-item active border_nav color_link">
 
-                        <a class="nav-link color_link" href="index.php?action=adminNotification">Notifications<span class="border border-primary rounded-circle circle-notif"><?= $unreadNotif ?></span></a>
+                        <a class="nav-link color_link" href="index.php?action=adminNotification">Notifications<span class="border border-primary rounded-circle circle-notif margin-left3"><?= $unreadNotif ?></span></a>
                     </li>
                     <li class="nav-item active border_nav">
 

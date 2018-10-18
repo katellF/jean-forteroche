@@ -216,6 +216,11 @@ img {
     margin-left: 15px;
 }
 
+.margin-left3{
+
+    margin-left: 3px;
+}
+
 .margin-right15 {
 
     margin-right: 15px;
@@ -315,16 +320,16 @@ img {
 
 .circle-comment {
 
-    background: orange;
-    border-color: orange !important;
-    padding: 3px;
+    /*background: #FFC45C;*/
+    border-color: #FFC45C !important;
+    padding: 3px 6px 3px 6px;
 }
 
 .circle-notif {
 
-    background: green;
-    border-color: green !important;
-    padding: 3px;
+    /*background: #73B973;*/
+    border-color: #73B973 !important;
+    padding: 3px 6px 3px 6px;
 }
 
 /* backend notif */
