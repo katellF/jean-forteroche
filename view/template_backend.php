@@ -15,28 +15,36 @@
 
 <body>
 <header class="container">
-
-    <nav class="navbar fixed-top  navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <div class="collapse navbar-collapse row justify-content-end" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php?action=addpost">Ajouter un Article <span class="sr-only">(current)</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+                    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class=" collapse navbar-collapse row justify-content-end menu_burger" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mt-2 mt-lg-0">
+                    <li class="nav-item active border_nav color_link">
+                        <a class="nav-link color_link" href="index.php?action=home">Ajouter un Article<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php?action=moderation">Commentaires <span class="border border-primary rounded-circle circle-comment"><?= $pendingComment ?></span></a>
+                    <li class="nav-item active border_nav color_link">
+
+                        <a class="nav-link color_link" href="index.php?action=writer">Commentaires</a>
+
+                    <li class="nav-item active border_nav color_link">
+
+                        <a class="nav-link color_link" href="index.php?action=listPosts">Notifications</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php?action=adminNotification">Notifications <span class="border border-primary rounded-circle circle-notif"><?= $unreadNotif ?></span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php?action=home">retour au site</a>
+                    <li class="nav-item active border_nav">
+
+                        <a class="nav-link color_link" href="index.php?action=contact">retour au site</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="index.php?action=logout">se deconnecter</a>
                     </li>
                 </ul>
             </div>
+
         </div>
     </nav>
 </header>
