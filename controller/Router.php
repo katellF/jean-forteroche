@@ -16,6 +16,7 @@ class Router
         $this->ctrlAdminComment = new ControllerAdminComment();
         $this->ctrlAdminNotification = new ControllerAdminNotification();
         $this->ctrlContact = new ControllerContact();
+        $this->ctrlAdminPassWord = new ControllerAdminPassWord();
 
     }
 
@@ -53,6 +54,9 @@ class Router
                 }elseif ($_GET['action'] == 'previewpost') {
                     $this->ctrlConnect->isUserConnected();
                     $this->ctrlAdminPost->previewPost();
+                }elseif ($_GET['action'] == 'modifypass') {
+                    $this->ctrlConnect->isUserConnected();
+                    $this->ctrlAdminPassWord->modifyFormPassword();
                 }if ($_GET['action'] == 'listPosts') {
                     $this->ctrlPost->listPosts();
                 } elseif ($_GET['action'] == 'post') {

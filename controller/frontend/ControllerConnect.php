@@ -30,7 +30,6 @@ class ControllerConnect
 
             }
 
-
             if (strlen(htmlspecialchars($_POST['password'])) < 6) {
 
                 echo 'Mdp trop court,  il faut au moins 6 chars...';
@@ -123,7 +122,7 @@ class ControllerConnect
 
         $this->UserConnect->getLogout();
 
-// add a view to improve logout
+
         if (empty($_SESSION)) {
             $view = new View("backend/logout");
             $view->generate(array(),'template_logout');
@@ -135,12 +134,8 @@ class ControllerConnect
     }
 
     function isUserConnected(){
-       // session_start();
-        //var_dump($_SESSION);
 
         if ( isset($_SESSION) && isset($_SESSION['pseudo'])){
-
-           //echo'Vous êtes connectés '.$_SESSION['pseudo'].'!';
 
             return true;
         } else {

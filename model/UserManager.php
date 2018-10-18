@@ -56,6 +56,15 @@ class UserManager extends Manager
 //        setcookie('pseudo', '');
 //        setcookie('pass', '');
     }
+
+    public function setPassword($userId , $password)
+    {
+        $db = $this->dbConnect();
+        $updatePassword = $db->prepare('UPDATE users SET  password=: password WHERE  id=:id ');
+        $modifyPassword = $updatePassword->execute(array('id' => $userId  , 'password' => $password  ));
+
+        return $modifyPassword;
+    }
 //
 //    public function connectionAuto(){
 //

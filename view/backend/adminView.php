@@ -2,6 +2,11 @@
 
 $this->title = 'tableau de bord';
 ?>
+
+<p class="margin-top50 margin-bottom25 margin-left15 d-flex justify-content-end margin-right15"><a class="btn btn-primary bg-6BC3D1"
+                                                         href="index.php?action=modifypass">Modifier le mot de passe</a></p>
+
+</div>
 <h1 class="text-center margin-top50 margin-bottom50"> Liste des Chapitres </h1>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light margin-top25 margin-bottom25 text-center justify-content-center nav-filter">
@@ -35,12 +40,10 @@ $this->title = 'tableau de bord';
             <div class="d-flex justify-content-end margin-bottom25">
 
                 <?php if ($data['status'] === 'draft' || $data['status'] === 'trash') { ?>
-                    <form class="margin-right15" method="post"
-                          action="index.php?action=admin&postid=<?= $data["id"] ?>">
+                    <form class="margin-right15" method="post" action="index.php?action=admin&postid=<?= $data["id"] ?>">
 
                         <input type="hidden" name="operation" value="published"/>
-<!--                        <input type="submit" class="btn btn-info bg-138597" id="confirmPublish_--><?//= $data["id"] ?><!--" value="publier"/>-->
-                      <input type="submit" class="btn btn-info bg-138597 publish_button" value="publier"/>
+                        <input type="submit" class="btn btn-info bg-138597 publish_button" value="publier"/>
 
                     </form>
                     <?php
@@ -48,8 +51,7 @@ $this->title = 'tableau de bord';
 
                 if ($data['status'] === 'draft' || $data['status'] === 'published') {
                     ?>
-                    <form class="margin-right15" method="post"
-                          action="index.php?action=admin&postid=<?= $data["id"] ?>">
+                    <form class="margin-right15" method="post" action="index.php?action=admin&postid=<?= $data["id"] ?>">
 
                         <input type="hidden" name="operation" value="trash"/>
                         <input type="submit" class="btn btn-primary bg-138597 trash_button" value="Corbeille"/>
@@ -100,11 +102,6 @@ $this->title = 'tableau de bord';
     ?>
 </div>
 
-<script type="javascript">
-
-
-//    $('#confirmPublish_60').click(ConfirmClass.confirmPublish);
-</script>
 
 
 
