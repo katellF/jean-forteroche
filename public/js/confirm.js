@@ -1,3 +1,3 @@
-// var conf = new ConfirmClass();
-//
-//    $('#confirmPublish_').click(conf.confirmPublish());
+var conf = new ConfirmClass();
+
+  // $('#confirmPublish_').click(conf.confirmPublish());

@@ -39,7 +39,8 @@ $this->title = 'tableau de bord';
                           action="index.php?action=admin&postid=<?= $data["id"] ?>">
 
                         <input type="hidden" name="operation" value="published"/>
-                        <input type="submit" class="btn btn-info bg-138597" id="confirmPublish_<?= $data["id"] ?>" value="publier"/>
+<!--                        <input type="submit" class="btn btn-info bg-138597" id="confirmPublish_--><?//= $data["id"] ?><!--" value="publier"/>-->
+                      <input type="submit" class="btn btn-info bg-138597 publish_button" value="publier"/>
 
                     </form>
                     <?php
