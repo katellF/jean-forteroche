@@ -42,11 +42,11 @@
 
                         <a class="nav-link color_link" href="index.php?action=contact">Contact</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php?action=logout">Se deconnecter</a>
+                    <li class="nav-item active border_nav">
+                        <a class="nav-link color_link" href="index.php?action=logout">Se deconnecter</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php?action=admin"> Tabeau de bord</a>
+                        <a class="nav-link color_link" href="index.php?action=admin"> Tabeau de bord</a>
                     </li>
                 </ul>
             </div>

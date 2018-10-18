@@ -35,7 +35,7 @@
 
                         <a class="nav-link color_link" href="index.php?action=listPosts">Chapitres</a>
                     </li>
-                    <li class="nav-item active border_nav">
+                    <li class="nav-item active">
 
                         <a class="nav-link color_link" href="index.php?action=contact">Contact</a>
                     </li>
