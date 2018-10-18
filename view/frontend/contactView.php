@@ -19,7 +19,7 @@
             <textarea class="form-control" id="content" name="content"></textarea>
         </div>
         <div class="row no-gutters justify-content-center">
-            <input type="submit" class="btn btn-primary btn-lg btn-block active button-form"" value="Envoyer"/>
+            <input type="submit" class="btn btn-primary btn-lg btn-block active button-form" value="Envoyer"/>
         </div>
     </form>
 </div>
