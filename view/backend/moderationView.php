@@ -1,7 +1,7 @@
 <?php
 $this->title = 'Commentaires';
 ?>
-<p class="margin-top25 margin-bottom25 margin-left15"><a class="btn btn-primary bg-6BC3D1"
+<p class="margin-top50 margin-bottom25 margin-left15"><a class="btn btn-primary bg-6BC3D1"
                                                          href="index.php?action=admin">Retour au tableau de bord</a></p>
 
 <h1 class="text-center margin-top50 margin-bottom50">Liste des commentaires</h1>

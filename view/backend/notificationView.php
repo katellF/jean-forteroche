@@ -32,7 +32,7 @@ $this->title = htmlspecialchars('Notifier un commentaire');
             <p> signalement : <?= htmlspecialchars($data['content']) ?> </p>
             </div>
 
-                <div class="d-flex relative justify-content-end margin-bottom25">
+                <div class="d-flex relative justify-content-end margin-bottom65">
 
                     <?php if ($data['status'] === 'unread' || $data['status'] === 'trash')  { ?>
                         <form class="margin-right15" method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
@@ -72,7 +72,6 @@ $this->title = htmlspecialchars('Notifier un commentaire');
 
                             <input type="hidden" name="operation" value="delete"/>
                             <input type="submit" class="btn btn-primary bg-138597 delete_button" value="supprimer"/>
-
 
                         </form>
                     <?php } ?>
