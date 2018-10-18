@@ -38,7 +38,7 @@ $this->title = htmlspecialchars('Notifier un commentaire');
                         <form class="margin-right15" method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
 
                             <input type="hidden" name="operation" value="archived"/>
-                            <input type="submit" class="btn btn-primary bg-138597" value="Archiver"/>
+                            <input type="submit" class="btn btn-primary bg-138597 archive_button" value="Archiver"/>
 
                         </form>
                         <?php
@@ -48,7 +48,7 @@ $this->title = htmlspecialchars('Notifier un commentaire');
                         <form  class="margin-right15" method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
 
                             <input type="hidden" name="operation" value="unread"/>
-                            <input type="submit" class="btn btn-primary bg-138597" value="non lu"/>
+                            <input type="submit" class="btn btn-primary bg-138597 unread_button" value="non lu"/>
 
 
                         </form>
@@ -71,7 +71,7 @@ $this->title = htmlspecialchars('Notifier un commentaire');
                         <form method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
 
                             <input type="hidden" name="operation" value="delete"/>
-                            <input type="submit" class="btn btn-primary bg-138597" value="supprimer"/>
+                            <input type="submit" class="btn btn-primary bg-138597 delete_button" value="supprimer"/>
 
 
                         </form>

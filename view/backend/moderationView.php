@@ -37,18 +37,28 @@ $this->title = 'Commentaires';
                       action="index.php?action=moderation&commentid=<?= $data["id"] ?>">
 
                     <input type="hidden" name="operation" value="approved"/>
-                    <input type="submit" class="btn btn-primary bg-138597" value="Approuver"/>
+                    <input type="submit" class="btn btn-primary bg-138597 approve_button" value="Approuver"/>
 
                 </form>
                 <?php
             }
-            ?>
-            <?php if ($data['status'] === 'pending' || $data['status'] === 'approved' ) { ?>
+            if ($data['status'] === 'approved' || $data['status'] === 'strash' ) { ?>
+            <form class="margin-right15" method="post"
+                  action="index.php?action=moderation&commentid=<?= $data["id"] ?>">
+
+                <input type="hidden" name="operation" value="trash"/>
+                <input type="submit" class="btn btn-primary bg-138597 pending_button" value="En attente"/>
+
+            </form>
+            <?php
+
+            }
+            if ($data['status'] === 'pending' || $data['status'] === 'approved' ) { ?>
                 <form class="margin-right15" method="post"
                       action="index.php?action=moderation&commentid=<?= $data["id"] ?>">
 
                     <input type="hidden" name="operation" value="trash"/>
-                    <input type="submit" class="btn btn-primary bg-138597" value="Corbeille"/>
+                    <input type="submit" class="btn btn-primary bg-138597 trash_button" value="Corbeille"/>
 
                 </form>
                 <?php
@@ -68,7 +78,7 @@ $this->title = 'Commentaires';
             <form method="post" action="index.php?action=moderation&commentid=<?= $data["id"] ?>">
 
                 <input type="hidden" name="operation" value="delete"/>
-                <input type="submit" class="btn btn-primary bg-138597" value="Supprimer"/>
+                <input type="submit" class="btn btn-primary bg-138597 delete_button" value="Supprimer"/>
 
             </form>
            <?php } ?>
