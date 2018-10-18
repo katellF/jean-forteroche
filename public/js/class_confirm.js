@@ -50,11 +50,6 @@ class ConfirmClass {
     confirmDraft() {
 
 
-        console.log('dsds');
-        // Alerte canvas vide
-        //var canvasSubmit = document.getElementById("sign").toDataURL();
-        //var btnPublish = document.getElementById("confirmPublish");
-
         let response = confirm("Voulez-vous sauvegarder cet article dans les brouillons? ");
 
         if (response) {
@@ -69,11 +64,6 @@ class ConfirmClass {
 
     confirmDelete() {
 
-
-        console.log('dsds');
-        // Alerte canvas vide
-        //var canvasSubmit = document.getElementById("sign").toDataURL();
-        //var btnPublish = document.getElementById("confirmPublish");
 
         let response = confirm("Etes vous sûr de vouloir le supprimer? ");
 
@@ -90,11 +80,6 @@ class ConfirmClass {
     confirmPending() {
 
 
-        console.log('dsds');
-        // Alerte canvas vide
-        //var canvasSubmit = document.getElementById("sign").toDataURL();
-        //var btnPublish = document.getElementById("confirmPublish");
-
         let response = confirm("Voulez-vous mettre ce commentaire en attente? ");
 
         if (response) {
@@ -107,31 +92,21 @@ class ConfirmClass {
     }
 
 
- confirmApprove() {
+     confirmApprove() {
 
 
-     console.log('dsds');
-     // Alerte canvas vide
-     //var canvasSubmit = document.getElementById("sign").toDataURL();
-     //var btnPublish = document.getElementById("confirmPublish");
+            let response = confirm("Voulez-vous approuver ce commentaire? ");
 
-     let response = confirm("Voulez-vous approuver ce commentaire? ");
-
-     if (response) {
-         console.log('ok');
-     } else {
-         console.log('cancel');
-         event.preventDefault();
+         if (response) {
+             console.log('ok');
+         } else {
+             console.log('cancel');
+             event.preventDefault();
+         }
      }
- }
 
         confirmArchive() {
 
-
-        console.log('dsds');
-        // Alerte canvas vide
-        //var canvasSubmit = document.getElementById("sign").toDataURL();
-        //var btnPublish = document.getElementById("confirmPublish");
 
         let response = confirm("Voulez-vous archiver ce signalement? ");
 
@@ -145,11 +120,6 @@ class ConfirmClass {
 
         confirmUnread() {
 
-
-        console.log('dsds');
-        // Alerte canvas vide
-        //var canvasSubmit = document.getElementById("sign").toDataURL();
-        //var btnPublish = document.getElementById("confirmPublish");
 
         let response = confirm("Voulez-vous remttre ce signalement en 'non lu'? ");
 
