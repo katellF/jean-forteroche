@@ -75,5 +75,5 @@ require(dirname(__FILE__) . '/includes/scripts_footer.php');
         </div>
     </nav>
 </footer>
-</div>
+
 </html>
