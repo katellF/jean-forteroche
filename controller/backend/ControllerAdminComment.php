@@ -83,6 +83,7 @@ class ControllerAdminComment
         session_start();
 
         if ($this->ctrlConnect->isUserConnected()) {
+
         $comments = $this->commentManager->getCommentsById($_GET['commentid']);
         $view = new View("backend/answerComment");
         $view->generate(array('comments' => $comments),'template_backend');
@@ -100,8 +101,11 @@ class ControllerAdminComment
         $affectedLines = $commentManager->postComment($postId, $author, $comment, 'approved');
 
         if ($affectedLines === false) {
+
             throw new Exception('Impossible d\'ajouter le commentaire !');
+
         } else {
+
             header('Location: index.php?action=post&id=' . $postId);
 
         }
