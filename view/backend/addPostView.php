@@ -2,6 +2,7 @@
 
 $this->title = 'Article';
 
+
 ?>
 
 <p class="margin-top50 margin-bottom25 margin-left15"><a class="btn btn-primary bg-6BC3D1"
@@ -17,13 +18,12 @@ $this->title = 'Article';
     <a class="margin-right15 color_white" href="index.php?action=admin&status=trash">Corbeille</a>
 </nav>
 
-
-<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=hstszmxo6o4tpu6yiycd4kh2utvdxc650zwv9j2uc3y8ylbr"></script>
 
 <script>
     tinymce.init({
         selector: '#content',
-        language_url : '/projetsoc/jean-forteroche/public/tinymce/language/fr_FR.js',
+        language_url : '/jean-forteroche/public/tinymce/language/fr_FR.js',
         language: 'fr_FR'
 
     });
@@ -33,7 +33,7 @@ $this->title = 'Article';
 
 <form method="post" action="index.php?action=addpost">
     <div class="form-group">
-        <label for="title">Titre</label> <input type="text" name="title" id="title" value="<?=isset($post) === true ? $post['title'] : "" ?>"   />
+        <label for="title">Titre</label> <input type="text" name="title" id="title" value="<?=isset($post) === true ? $post['title'] : "" ?>"/>
     </div>
     <div class="form-group color-138597 font-weight-bold">
     <?=isset($post) === true ? 'Status : '. Helpers::labelPostStatus($post['status']) : "" ?>
@@ -43,12 +43,11 @@ $this->title = 'Article';
     </div>
 
     <div class="row justify-content-between no-gutters">
-<!--        <div class="col-1"></div>-->
+
         <input type="hidden" value="<?=isset($post) === true ? $post['id'] : "" ?>" name="postid">
         <input type="submit" class="btn btn-primary bg-138597 col-3 draft_button"  name="status" value="Brouillon"/>
-<!--        <div class="col-4"></div>-->
         <input type="submit" class="btn btn-primary bg-6BC3D1 col-3 publish_button" name="status" value="Publier"/>
-<!--        <div class="col-1"></div>-->
+
     </div>
 </form>
 

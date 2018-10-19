@@ -11,7 +11,6 @@ class Router
         $this->ctrlComment = new ControllerComment();
         $this->ctrlNotification = new ControllerNotification();
         $this->ctrlConnect = new ControllerConnect();
-       // $this->ctrlDashboard = new ControllerDashboard();
         $this->ctrlAdminPost = new ControllerAdminPost();
         $this->ctrlAdminComment = new ControllerAdminComment();
         $this->ctrlAdminNotification = new ControllerAdminNotification();

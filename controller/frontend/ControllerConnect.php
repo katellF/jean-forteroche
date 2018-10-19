@@ -12,7 +12,7 @@ class ControllerConnect
 
     function registration()
     {
-//
+
         if (isset ($_POST) && !empty($_POST)) {
 
             $post_pseudo = htmlspecialchars($_POST['pseudo']);

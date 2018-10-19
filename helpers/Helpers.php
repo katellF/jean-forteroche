@@ -41,9 +41,6 @@ class Helpers
             $translated = 'Corbeille';
         }
 
-//        if ( $status == 'pending' ){
-//            $translated = 'en attente';
-//        }
 
         return $translated;
     }

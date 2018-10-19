@@ -21,6 +21,7 @@ class ControllerAdminPost
             if (isset ($_POST) && !empty($_POST)) {
 
 
+
                 if ( isset($_POST['postid'])  && $_POST['postid'] !== "" ) {
 
 
@@ -33,11 +34,17 @@ class ControllerAdminPost
                     }
 
                         $this->postManager->updatePost($_POST['postid'] , $_POST);
-                    $post = $this->postManager->getPost($_POST['postid']);
+                        $post = $this->postManager->getPost($_POST['postid']);
 
                 }  else {
 
+                    $data['title'] = $_POST['title'];
+                    $data['content'] = $_POST['content'];
+
                     $addPostId = $this->postManager->insertPost($_POST);
+
+//                    var_dump($addPostId);
+//                    die();
 
                     if ( $_POST['status'] == 'Publier') {
                         $this->postManager->setStatus($addPostId , 'published');
@@ -47,8 +54,6 @@ class ControllerAdminPost
 
                 }
 
-                //var_dump($_POST);
-
 
                 $view = new View("backend/addPost");
                 $view->generate(array('post' => $post), 'template_backend');
@@ -57,12 +62,6 @@ class ControllerAdminPost
                 $view = new View("backend/addPost");
                 $view->generate(array(),'template_backend');
             }
-
-//            if ( isset($_POST) && !empty($_POST) && isset($_GET["postid"])) {
-//                $this->statusPost();
-//            }
-
-            // header('Location: index.php?action=addpost');
 
         } else {
             throw new Exception('Vous n avez pas acces à cette page!');
@@ -77,7 +76,7 @@ class ControllerAdminPost
         if ($this->ctrlConnect->isUserConnected()) {
 
             $post = $this->postManager->getPost($_GET['id']);
-           // $comments = $this->commentManager->getApprovedComments($_GET['id']);
+
             $view = new View("backend/previewPost");
             $view->generate(array('post' => $post), "template_connect");
         } else {
@@ -92,10 +91,9 @@ class ControllerAdminPost
         if ($this->ctrlConnect->isUserConnected()) {
 
             if (isset ($_POST) && !empty($_POST)) {
-                //var_dump($_POST);
 
                 $addPost = $this->postManager->insertPost($_POST);
-                //var_dump($addPost);
+
                 $view = new View("backend/addPost");
                 $view->generate(array('addPost' => $addPost));
 
@@ -103,7 +101,6 @@ class ControllerAdminPost
 
                 if ( isset($_GET['postid']) &&  !empty($_GET['postid'])  ) {
 
-                    //we retrieve the post data
 
                     $post = $this->postManager->getPost($_GET['postid']);
                 }
@@ -111,10 +108,6 @@ class ControllerAdminPost
                 $view = new View("backend/addPost");
                 $view->generate(array('post' => $post));
             }
-
-
-
-            // header('Location: index.php?action=addpost');
 
         } else {
             throw new Exception('Vous n avez pas acces à cette page!');
@@ -150,11 +143,6 @@ class ControllerAdminPost
                 $posts= $this->postManager->getPostsByStatus('published');
 
           }
-//elseif ( isset($_GET['status']) && $_GET['status'] === 'pending'){
-//
-//                $posts= $this->postManager->getPostsByStatus('pending');
-//
-//            }
             elseif ( isset($_GET['status']) && $_GET['status'] === 'draft'){
 
                 $posts= $this->postManager->getPostsByStatus('draft');
@@ -164,22 +152,17 @@ class ControllerAdminPost
                 $posts= $this->postManager->getPostsByStatus('trash');
 
             }elseif ( isset($_GET['status']) && $_GET['status'] === 'all'){
-              // $start = 0;  $end = 10;
-               //$posts= $this->postManager->getPosts($start, $end);
-              // $posts= $this->postManager->getPosts();
+
                $posts= $this->postManager->getPosts();
             }else {
 
                 $posts= $this->postManager->getPosts();
             }
 
-            //$posts = $this->postManager->getPosts();
+
 
         $view = new View("backend/admin");
          $view->generate(array('posts' => $posts), 'template_backend');
-
-//            $view = new View("backend/moderation");
-//            $view->generate(array('comments' => $comments), 'template_backend');
 
         } else {
             throw new Exception('Vous n avez pas acces à cette page!');
@@ -195,13 +178,6 @@ class ControllerAdminPost
             $this ->postManager->setStatus($_GET['postid'] , 'published');
 
         }
-
-
-//        if ( $_POST["operation"] === "pending" ){
-//
-//            $this ->postManager->setStatus($_GET['postid'] , 'pending');
-//
-//        }
 
         if ( $_POST["operation"] === "draft" ){
 

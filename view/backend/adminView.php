@@ -27,18 +27,18 @@ $this->title = 'tableau de bord';
 
                 <div class="border-6BC3D1">
                     <div>
-                        <h3 class="margin-bottom25 margin-top25">
-                            <?= htmlspecialchars($data['title']); ?> <?= $data["id"]; ?>
+                        <h2 class="margin-bottom25 margin-top25">
+                            <?= htmlspecialchars($data['title']); ?>
                             <p class="font_size_60">le <?= $data['creation_date_fr']; ?></p>
-                            <p class="font_size_60 color-138597"><strong>statut : <?php echo Helpers::labelPostStatus('published'); ?></strong></p>
-                        </h3>
+                            <p class="font_size_60 color-138597"><strong>statut : <?php echo Helpers::labelPostStatus($data['status']); ?></strong></p>
+                        </h2>
                     </div>
 
                     <?php
 
             $content_clean = nl2br(html_entity_decode(htmlspecialchars($data['content'])));
 
-            echo helpers::substrwords($content_clean, 350, '...');
+            echo Helpers::substrwords($content_clean, 350, '...');
             ?>
             <strong class="row no-gutters justify-content-end"><a href="index.php?action=previewpost&amp;id=<?= htmlspecialchars($data['id']) ?>" class="btn btn-info btn-sm active button_list margin-bottom25" role="button" aria-pressed="true">Aperçu</a></strong>
 

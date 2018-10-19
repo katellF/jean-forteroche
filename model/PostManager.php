@@ -70,11 +70,15 @@ class PostManager extends Manager
     public function insertPost($data)
     {
         $db = $this->dbConnect();
-        $post = $db->prepare('INSERT INTO posts( title, content, creation_date) VALUES ( :title, :content, NOW())');
+        $post = $db->prepare('INSERT INTO posts ( title, content, creation_date ) VALUES ( :title, :content, NOW() )');
+
         $post->execute(array(
             'title' => $data['title'],
             'content' => $data['content'],
         ));
+
+//       $post->debugDumpParams();
+//        var_dump($db->lastInsertId());
 
         return $db->lastInsertId();
     }
@@ -82,7 +86,7 @@ class PostManager extends Manager
     public function countPosts($data)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT count(id) AS num_posts FROM posts WHERE status = :status');
+        $req = $db->prepare('SELECT count(id) AS num_posts FROM posts WHERE status =:status');
         $req->execute(array(
             'status' => $data['status']));
         $post = $req->fetch();

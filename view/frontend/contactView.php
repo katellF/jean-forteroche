@@ -23,3 +23,7 @@
         </div>
     </form>
 </div>
+<?php
+mail('katell.fracassi@gmail.com','Test Email for Katell', 'test');
+?>
+<p>Your email has been sent.</p>
