@@ -4,9 +4,9 @@ $this->title = 'tableau de bord';
 ?>
 
 <p class="margin-top50 margin-bottom25 margin-left15 d-flex justify-content-end margin-right15"><a class="btn btn-primary bg-6BC3D1"
-                                                         href="index.php?action=modifypass&id=">Modifier le mot de passe</a></p>
+                                                         href="index.php?action=modifypass">Modifier le mot de passe</a></p>
 
-</div>
+
 <h1 class="text-center margin-top50 margin-bottom50"> Liste des Chapitres </h1>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light margin-top25 margin-bottom25 text-center justify-content-center nav-filter">
@@ -18,18 +18,23 @@ $this->title = 'tableau de bord';
 <div class="container margin-top50">
 
     <?php
-    while ($data = $posts->fetch()) {
-        ?>
-        <div class="border-6BC3D1">
-            <div>
-                <h3 class="margin-bottom25 margin-top25">
-                    <?= htmlspecialchars($data['title']) ?> <?= $data["id"] ?>
-                    <p class="font_size_60">le <?= $data['creation_date_fr'] ?></p>
-                    <p class="font_size_60 color-138597"><strong>statut : <?= helpers::labelPostStatus($data['status']) ?></strong></p>
-                </h3>
-            </div>
 
-            <?php
+    while ($data = $posts->fetch()) {
+
+//        echo $data['status'];
+//
+       ?>
+
+                <div class="border-6BC3D1">
+                    <div>
+                        <h3 class="margin-bottom25 margin-top25">
+                            <?= htmlspecialchars($data['title']); ?> <?= $data["id"]; ?>
+                            <p class="font_size_60">le <?= $data['creation_date_fr']; ?></p>
+                            <p class="font_size_60 color-138597"><strong>statut : <?php echo Helpers::labelPostStatus('published'); ?></strong></p>
+                        </h3>
+                    </div>
+
+                    <?php
 
             $content_clean = nl2br(html_entity_decode(htmlspecialchars($data['content'])));
 
@@ -98,7 +103,6 @@ $this->title = 'tableau de bord';
 
 
     $posts->closeCursor();
-
     ?>
 </div>
 

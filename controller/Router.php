@@ -56,7 +56,7 @@ class Router
                     $this->ctrlAdminPost->previewPost();
                 }elseif ($_GET['action'] == 'modifypass') {
                     $this->ctrlConnect->isUserConnected();
-                    $this->ctrlAdminPassWord->modifyFormPassword();
+                    $this->ctrlAdminPassWord->modifyPassword();
                 }if ($_GET['action'] == 'listPosts') {
                     $this->ctrlPost->listPosts();
                 } elseif ($_GET['action'] == 'post') {

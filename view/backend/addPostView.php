@@ -36,7 +36,7 @@ $this->title = 'Article';
         <label for="title">Titre</label> <input type="text" name="title" id="title" value="<?=isset($post) === true ? $post['title'] : "" ?>"   />
     </div>
     <div class="form-group color-138597 font-weight-bold">
-    <?=isset($post) === true ? 'Status : '. helpers::labelPostStatus($post['status']) : "" ?>
+    <?=isset($post) === true ? 'Status : '. Helpers::labelPostStatus($post['status']) : "" ?>
     </div>
     <div class="form-group">
         <label for="content">Contenu</label><textarea name="content" id="content" value=""><?=isset($post) === true ?$post['content'] : "" ?></textarea>

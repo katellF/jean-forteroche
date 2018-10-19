@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="376cefb8-4f90-416c-aaf0-26dd7c4ed7a5" name="Gandi.net jean-forteroche" url="http://sftp.sd6.gpaas.net">
+        <fileTransfer host="sftp.sd6.gpaas.net" port="22" rootFolder="/vhosts/katellfracassi.com/htdocs/jean-forteroche" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

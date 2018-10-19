@@ -13,26 +13,47 @@ class ControllerAdminPassWord
         $this->userManager = new userManager();
     }
 
-    public function modifyFormPassword()
+    public function modifyPassword()
     {
         session_start();
 
         if ($this->ctrlConnect->isuserconnected()) {
 
-            if ( isset($_POST) && !empty($_POST) ) {
-
-//                echo 'Je change mon MDP';
-//
-//                echo $_POST['passwordConnect'];
+            if (isset($_POST) && !empty($_POST)) {
 
                 $pass_hache = password_hash($_POST['passwordConnect'], PASSWORD_DEFAULT);
-                $modifyPassword = $this->userManager->setPassword( $_SESSION['pseudo'] ,  $pass_hache) ;
+                $modifyPassword = $this->userManager->setPassword($_SESSION['pseudo'], $pass_hache);
 
-                $view = new View("backend/modifyPass");
-                $view->generate(array('password'=> $modifyPassword), 'template_backend');
+                $errorCounter = 0;
+
+                if (strlen(htmlspecialchars($_POST['passwordConnect'])) < 6) {
+
+                    echo 'Mdp trop court,  il faut au moins 6 chars...';
+                    $errorCounter++;
+                }
+//
+                if ($_POST['passwordConnect'] !== $_POST['passwordConfirm']) {
+
+                    echo 'Vos 2 mots de passe doivent etre identiques';
+                    $errorCounter++;
+                }
+
+                // A mettre dans les notifications
+//                if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
+//
+//                    echo 'ecriture email fausse';
+//                    $errorCounter++;
+//                }
+
+                if ($errorCounter === 0) {
+//                    session_start();
+
+                    $view = new View("backend/modifyPass");
+                    $view->generate(array('password' => $modifyPassword), 'template_backend');
 
 
-            } else {
+            }
+            }else {
 
                 $view = new View("backend/modifyPass");
                 $view->generate(array(), 'template_backend');
@@ -40,35 +61,34 @@ class ControllerAdminPassWord
             }
 
 
-
         } else {
             throw new Exception('Vous n avez pas acces à cette page!');
         }
     }
-
-
-        public function ChangePassword()
-    {
-        session_start();
-
-        if ($this->ctrlConnect->isuserconnected()) {
-
-            if ( isset($_POST) && !empty($_POST) ) {
-
-                echo 'Je change mon MDP';
-//                $modifyPassword=$this->userManager->setPassword();
-            }
-
-
-            $view = new View("backend/modifyPass");
-            $view->generate(array('modifyPassword' => $modifyPassword), 'template_backend');
-
-        }else {
-            throw new Exception('Vous n avez pas acces à cette page!');
-        }
-
-
-
-    }
-
 }
+
+
+//        public function ChangePassword()
+//    {
+//        session_start();
+//
+//        if ($this->ctrlConnect->isuserconnected()) {
+//
+//            if ( isset($_POST) && !empty($_POST) ) {
+//
+//                echo 'Je change mon MDP';
+////                $modifyPassword=$this->userManager->setPassword();
+//            }
+//
+//
+//            $view = new View("backend/modifyPass");
+//            $view->generate(array('modifyPassword' => $modifyPassword), 'template_backend');
+//
+//        }else {
+//            throw new Exception('Vous n avez pas acces à cette page!');
+//        }
+//
+//
+//
+//    }
+

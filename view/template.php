@@ -1,3 +1,7 @@
+<?php
+header("Cache-Control: max-age=1");
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 

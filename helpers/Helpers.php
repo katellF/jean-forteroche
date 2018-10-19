@@ -1,10 +1,9 @@
 <?php
 
-class helpers
+class Helpers
 {
 
-
-public static function substrwords($text, $maxchar, $end='...') {
+    public static function substrwords($text, $maxchar, $end='...') {
     if (strlen($text) > $maxchar || $text == '') {
         $words = preg_split('/\s/', $text);
         $output = '';

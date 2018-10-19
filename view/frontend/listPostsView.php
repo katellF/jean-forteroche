@@ -12,6 +12,7 @@
 <div class="container">
 
 <?php
+
 while ($data = $posts->fetch()) {
     ?>
 
@@ -27,7 +28,7 @@ while ($data = $posts->fetch()) {
 
     $content_clean =  nl2br(html_entity_decode(htmlspecialchars($data['content'])));
 
-    echo helpers::substrwords($content_clean , 250, '...'  );
+    echo Helpers::substrwords($content_clean , 250, '...'  );
 
        ?>
 
