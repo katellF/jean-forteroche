@@ -9,7 +9,7 @@ $this->title = 'Commentaires';
 <nav class="navbar navbar-expand-lg navbar-light bg-light margin-top25 margin-bottom25 text-center justify-content-center nav-filter">
     <a class="margin-right15 color_white" href="index.php?action=moderation&status=all">Tous</a>
     <a class="margin-right15 color_white" href="index.php?action=moderation&status=approved">Approuver</a>
-    <a class="margin-right15 color_white" href="index.php?action=moderation">En attente</a>
+    <a class="margin-right15 color_white" href="index.php?action=moderation&status=pending">En attente</a>
     <a class="margin-right15 color_white" href="index.php?action=moderation&status=trash">Corbeille</a>
 </nav>
 
@@ -21,8 +21,7 @@ $this->title = 'Commentaires';
     ?>
     <div class="border-6BC3D1">
 
-        <div>
-            <h2 class="margin-bottom25 margin-top25">
+            <h2  class="margin-bottom25 margin-top25">
                 <?= htmlspecialchars($data['author']) ?>
                 <em class="font_size_60">le <?= $data['comment_date_fr'] ?></em>
             </h2>

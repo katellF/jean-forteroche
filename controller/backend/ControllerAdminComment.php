@@ -37,9 +37,12 @@ class ControllerAdminComment
             }elseif ( isset($_GET['status']) && $_GET['status'] === 'all'){
 
                 $comments = $this->commentManager->getAllComments();
-            }else {
+            }elseif ( isset($_GET['status']) && $_GET['status'] === 'pending') {
 
                 $comments = $this->commentManager->getCommentsByStatus('pending');
+            }else{
+
+                $comments = $this->commentManager->getAllComments();
             }
 
             $view = new View("backend/moderation");
@@ -111,4 +114,24 @@ class ControllerAdminComment
         }
 
     }
+
+    function viewComment (){
+
+        session_start();
+
+        if ($this->ctrlConnect->isUserConnected()) {
+
+            $comment = $this->commentManager->getCommentsById($_GET['comment_id']);
+
+            $view = new View("backend/comment");
+
+            $view->generate(array('comment' => $comment), 'template_backend');
+        } else {
+            
+            throw new Exception('Vous n avez pas acces à cette page!');
+
+        }
+
+    }
+
 }

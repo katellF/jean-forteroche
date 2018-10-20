@@ -50,6 +50,9 @@ class Router
                 }elseif ($_GET['action'] == 'adminNotification') {
                     $this->ctrlConnect->isUserConnected();
                     $this->ctrlAdminNotification->notificationList();
+                }elseif ($_GET['action'] == 'getcomment') {
+                    $this->ctrlConnect->isUserConnected();
+                    $this->ctrlAdminComment->viewComment();
                 }elseif ($_GET['action'] == 'previewpost') {
                     $this->ctrlConnect->isUserConnected();
                     $this->ctrlAdminPost->previewPost();

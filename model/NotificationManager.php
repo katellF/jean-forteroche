@@ -14,7 +14,7 @@ class NotificationManager extends Manager
     public function getAllNotifications()
     {
         $db = $this->dbConnect();
-        $notifications = $db->prepare('SELECT id, reason, content, email, status, DATE_FORMAT(submission_date, \'%d/%m/%Y à %Hh%imin%ss\') AS notification_date_fr FROM notifications ORDER BY notification_date_fr DESC');
+        $notifications = $db->prepare('SELECT id, reason, content, comment_id, email, status, DATE_FORMAT(submission_date, \'%d/%m/%Y à %Hh%imin%ss\') AS notification_date_fr FROM notifications ORDER BY notification_date_fr DESC');
         $notifications->execute(array());
 
         return $notifications;
@@ -23,7 +23,7 @@ class NotificationManager extends Manager
     public function getNotificationsByStatus($status)
     {
         $db = $this->dbConnect();
-        $notifications = $db->prepare('SELECT id, reason, content, email, status, DATE_FORMAT(submission_date, \'%d/%m/%Y à %Hh%imin%ss\') AS notification_date_fr FROM notifications WHERE status =:status ORDER BY notification_date_fr DESC');
+        $notifications = $db->prepare('SELECT id, reason, content, comment_id, email, status, DATE_FORMAT(submission_date, \'%d/%m/%Y à %Hh%imin%ss\') AS notification_date_fr FROM notifications WHERE status =:status ORDER BY notification_date_fr DESC');
         $notifications->execute(array('status' => $status));
 
         return $notifications;

@@ -12,7 +12,7 @@ abstract class Manager
         $this->dbname = 'blog-projet4';
         $this->dbhost = 'localhost';
         $this->dbuser = 'root';
-        $this->dbpassword = 'root';
+        $this->dbpassword = '';
     }
 
     protected function dbConnect()

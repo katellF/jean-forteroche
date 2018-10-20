@@ -20,6 +20,7 @@ class ControllerAdminNotification
 
         if ($this->ctrlConnect->isUserConnected()) {
 
+           // $comments = $this->commentManager->getCommentsById($_POST['id']);
 
 
             if ( isset($_POST) && !empty($_POST) && isset($_GET["notificationid"])) {
@@ -43,7 +44,7 @@ class ControllerAdminNotification
             }
 
             $view = new View("backend/notification");
-            $view->generate(array('notifications' => $notifications),'template_backend');
+            $view->generate(array('notifications' => $notifications ),'template_backend');
 
         }
         else {

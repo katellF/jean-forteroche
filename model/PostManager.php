@@ -77,9 +77,6 @@ class PostManager extends Manager
             'content' => $data['content'],
         ));
 
-//       $post->debugDumpParams();
-//        var_dump($db->lastInsertId());
-
         return $db->lastInsertId();
     }
 

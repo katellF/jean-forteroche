@@ -22,9 +22,9 @@ $this->title = htmlspecialchars('Notifier un commentaire');
     while ($data = $notifications->fetch()) {
         ?>
         <div class="border-6BC3D1">
-
+            <p><a href="index.php?action=getcomment&comment_id=<?=$data['comment_id']?>">View Comment</a></p>
             <div>
-            <h3 class="margin-bottom25 margin-top25">
+                <h3 class="margin-bottom25 margin-top25">
                 raison : <?= htmlspecialchars($data['reason']) ?> <br/>
                 <em class="font_size_60">le <?= $data['notification_date_fr'] ?></em>
             </h3>
