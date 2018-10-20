@@ -15,24 +15,25 @@ $this->title = htmlspecialchars('Notifier un commentaire');
         <a class="color_white" href="index.php?action=adminNotification">non lu</a>
     </nav>
 
-    <div class="container margin-top50">
+
 
     <?php
 
     while ($data = $notifications->fetch()) {
         ?>
-        <div class="border-6BC3D1">
-            <p><a href="index.php?action=getcomment&comment_id=<?=$data['comment_id']?>">View Comment</a></p>
-            <div>
+        <div class="border-6BC3D1 container margin-top50">
+
                 <h3 class="margin-bottom25 margin-top25">
                 raison : <?= htmlspecialchars($data['reason']) ?> <br/>
                 <em class="font_size_60">le <?= $data['notification_date_fr'] ?></em>
-            </h3>
+                </h3>
             <p class="color-138597"><strong>statut: <?=  Helpers::labelNotifStatus($data['status']) ?></strong></p>
             <p> signalement : <?= htmlspecialchars($data['content']) ?> </p>
-            </div>
 
-                <div class="d-flex relative justify-content-end margin-bottom65">
+
+            <div class="d-flex relative justify-content-end margin-bottom25">
+
+                    <p class="margin-right15 "><a class="btn btn-primary bg-6BC3D1 " href="index.php?action=getcomment&comment_id=<?=$data['comment_id']?>">Voir le commentaire</a></p>
 
                     <?php if ($data['status'] === 'unread' || $data['status'] === 'trash')  { ?>
                         <form class="margin-right15" method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
