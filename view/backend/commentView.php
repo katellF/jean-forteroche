@@ -54,10 +54,10 @@ $comment = $comment->fetch();
             <?php
         }
 
-        if ($comment['status'] === 'approved' && isset($_GET['status']) && $_GET['status'] === 'approved') {
+        if ($comment['status'] === 'approved') {
             ?>
 
-            <a href="index.php?action=adminAnswer&commentid=<?= $comment["id"] ?>"
+            <a href="index.php?action=adminanswer&commentid=<?= $comment["id"] ?>"
                class="btn btn-primary button-modify active margin-right15 bg-138597">Répondre</a>
             <?php
         }

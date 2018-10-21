@@ -20,10 +20,7 @@ $this->title = 'tableau de bord';
     <?php
 
     while ($data = $posts->fetch()) {
-
-//        echo $data['status'];
-//
-       ?>
+        ?>
 
                 <div class="border-6BC3D1">
                     <div>

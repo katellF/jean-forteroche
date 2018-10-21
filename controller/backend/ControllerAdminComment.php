@@ -45,7 +45,7 @@ class ControllerAdminComment
                 $comments = $this->commentManager->getAllComments();
             }
 
-            $view = new View("backend/moderation");
+            $view = new View("backend/commentList");
             $view->generate(array('comments' => $comments), 'template_backend');
 
         } else {

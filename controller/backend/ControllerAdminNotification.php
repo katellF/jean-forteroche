@@ -43,7 +43,7 @@ class ControllerAdminNotification
                 $notifications = $this->notificationManager->getNotificationsByStatus('unread');
             }
 
-            $view = new View("backend/notification");
+            $view = new View("backend/adminNotification");
             $view->generate(array('notifications' => $notifications ),'template_backend');
 
         }

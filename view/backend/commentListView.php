@@ -1,6 +1,7 @@
 <?php
 $this->title = 'Commentaires';
 ?>
+<div class="relative min-height">
 <p class="margin-top50 margin-bottom25 margin-left15"><a class="btn btn-primary bg-6BC3D1"
                                                          href="index.php?action=admin">Retour au tableau de bord</a></p>
 
@@ -13,13 +14,11 @@ $this->title = 'Commentaires';
     <a class="margin-right15 color_white" href="index.php?action=moderation&status=trash">Corbeille</a>
 </nav>
 
-<div class="container margin-top50">
-
     <?php
 
     while ($data = $comments->fetch()) {
     ?>
-    <div class="border-6BC3D1">
+    <div class="border-6BC3D1 container margin-top50">
 
             <h2  class="margin-bottom25 margin-top25">
                 <?= htmlspecialchars($data['author']) ?>
@@ -28,9 +27,10 @@ $this->title = 'Commentaires';
             <p class="color-138597"><strong>statut: <?= Helpers::labelCommentStatus($data['status'])?></strong></p>
             <p><?= $data['comment'] ?></p>
 
-        </div>
+
 
         <div class="d-flex justify-content-end margin-bottom25">
+
             <?php if ($data['status'] === 'pending' || $data['status'] === 'trash') { ?>
                 <form class="margin-right15" method="post"
                       action="index.php?action=moderation&commentid=<?= $data["id"] ?>">
@@ -63,7 +63,7 @@ $this->title = 'Commentaires';
                 <?php
             }
 
-            if ($data['status'] === 'approved' && isset($_GET['status']) && $_GET['status'] === 'approved') {
+            if ($data['status'] === 'approved') {
                 ?>
 
                 <a href="index.php?action=adminAnswer&commentid=<?= $data["id"] ?>"
@@ -87,6 +87,6 @@ $this->title = 'Commentaires';
         }
         $comments->closeCursor();
         ?>
-
 </div>
+
 
