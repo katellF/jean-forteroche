@@ -20,11 +20,8 @@ class ControllerAdminNotification
 
         if ($this->ctrlConnect->isUserConnected()) {
 
-           // $comments = $this->commentManager->getCommentsById($_POST['id']);
-
-
             if ( isset($_POST) && !empty($_POST) && isset($_GET["notificationid"])) {
-                $this->Status();
+                $this->statusNotification();
             }
 
 
@@ -53,7 +50,7 @@ class ControllerAdminNotification
 
     }
 
-    public function Status()
+    public function statusNotification()
     {
 
         if ( $_POST["operation"] === "archived" ){

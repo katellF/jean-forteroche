@@ -80,7 +80,7 @@ class ControllerAdminPost
             $post = $this->postManager->getPost($_GET['id']);
 
             $view = new View("backend/previewPost");
-            $view->generate(array('post' => $post   ), "template_connect");
+            $view->generate(array('post' => $post), "template_connect");
         } else {
             throw new Exception('Vous n avez pas acces à cette page!');
         }
