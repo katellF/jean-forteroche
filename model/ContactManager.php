@@ -8,8 +8,7 @@ class ContactManager extends Manager
         $db = $this->dbConnect();
 
         $req = $db->prepare('SELECT id, lastname, firstname, email, content FROM contacts ');
-        $req->execute(array(
-            ));
+        $req->execute(array());
 
         return $req;
 

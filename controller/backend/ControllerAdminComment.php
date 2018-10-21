@@ -97,11 +97,11 @@ class ControllerAdminComment
 
     }
 
+    // A enlever
     function addComment($postId, $author, $comment)
     {
-        $commentManager = new CommentManager();
 
-        $affectedLines = $commentManager->postComment($postId, $author, $comment, 'approved');
+        $affectedLines = $this ->commentManager->postComment($postId, $author, $comment, 'approved');
 
         if ($affectedLines === false) {
 

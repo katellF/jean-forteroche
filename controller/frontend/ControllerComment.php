@@ -13,7 +13,6 @@ class ControllerComment
     public function addComment($postId, $author, $comment, $status = 'pending')
     {
 
-
         $affectedLines = $this->commentManager->postComment($postId, $author, $comment , $status);
 
         if ($affectedLines === false) {

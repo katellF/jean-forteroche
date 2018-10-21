@@ -11,7 +11,6 @@ class UserManager extends Manager
         $req->execute(array(
             'pseudo' => htmlspecialchars($pseudo)));
 
-
         return $req;
     }
 
@@ -29,6 +28,7 @@ class UserManager extends Manager
             'pseudo' => $_POST['pseudo'],
             'email' => $_POST['email'],
             'password' => $pass_hache,));
+
         return $res;
 
     }
@@ -43,18 +43,16 @@ class UserManager extends Manager
         ));
 
         $resultat = $req->fetch();
+
         return $resultat;
     }
 
     public function getLogout(){
 
-        // Suppression des variables de session et de la session
+
         $_SESSION = array();
         session_destroy();
 
-//        // Suppression des cookies de connexion automatique
-//        setcookie('pseudo', '');
-//        setcookie('pass', '');
     }
 
     public function setPassword( $pseudo , $password)
@@ -65,47 +63,6 @@ class UserManager extends Manager
 
         return $modifyPassword;
     }
-//
-//    public function connectionAuto(){
-//
-//        $db = $this->dbConnect();
-//
-//        // controle pour connexion automatique....
-//        $req = $db->prepare("SELECT id, pass FROM members WHERE pseudo = :pseudo AND pass = :pass");
-//        $req->execute(array(
-//            'pseudo' => $_COOKIE['pseudo'],
-//            'pass' => $_COOKIE['pass'],
-//        ));
-//
-//
-//        $resultat = $req->fetch();
-//        var_dump('asdasdsad ',$resultat);
-//
-//        return $resultat;
-//    }
-//
-//    public function userConnect(){
-//
-//        $db = $this->dbConnect();
-//
-//        $req = $db->prepare("SELECT id, password FROM users WHERE pseudo = :pseudo");
-//        $res = $req->execute(array(
-//            'pseudo' => $_POST['pseudo'],
-//        ));
-//
-//        $resultat = $req->fetch();
-//        return $resultat;
-//    }
-//
-//    public function getLogout(){
-//
-//        // Suppression des variables de session et de la session
-//        $_SESSION = array();
-//        session_destroy();
-//
-//        // Suppression des cookies de connexion automatique
-//        setcookie('pseudo', '');
-//        setcookie('pass', '');
-//    }
+
 
 }

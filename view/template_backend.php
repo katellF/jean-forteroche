@@ -36,6 +36,10 @@
 
                         <a class="nav-link color_link" href="index.php?action=adminNotification">Notifications<span class="border border-primary rounded-circle circle-notif margin-left3"><?= $unreadNotif ?></span></a>
                     </li>
+                    <li class="nav-item active border_nav color_link">
+
+                        <a class="nav-link color_link" href="index.php?action=admincontact">Contacts</a>
+                    </li>
                     <li class="nav-item active border_nav">
 
                         <a class="nav-link color_link" href="index.php?action=home">retour au site</a>

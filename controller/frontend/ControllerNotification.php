@@ -88,12 +88,4 @@ class ControllerNotification
         }
     }
 
-
-    // A mettre dans les notifications
-//                if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
-//
-//                    echo 'ecriture email fausse';
-//                    $errorCounter++;
-//                }
-
 }
