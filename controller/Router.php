@@ -103,6 +103,9 @@ class Router
                 } elseif ($_GET['action'] == 'contact') {
                     $this->ctrlContact->contactForm();
 
+                }elseif ($_GET['action'] == 'contactsent') {
+                    $this->ctrlContact->contactSent();
+
                 } elseif ($_GET['action'] == 'addComment') {
                     if (isset($_GET['postid']) && $_GET['postid'] > 0) {
                         if (!empty($_POST['author']) && !empty($_POST['comment'])) {
@@ -132,7 +135,14 @@ class Router
 
         } catch (Exception $e) {
 
-            echo 'Erreur : ' . $e->getMessage();
+            $this->error($e->getMessage());
         }
+    }
+
+    public function error($msgError) {
+
+
+        $view = new View("frontend/error");
+        $view->generate(array('msgError' => $msgError));
     }
 }

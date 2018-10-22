@@ -21,7 +21,7 @@ class ControllerNotification
 
                     if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
 
-                        echo 'ecriture email fausse';
+                        throw new Exception('Vous n avez pas ecrit l email correctement');
                         $errorCounter++;
                     }
 
@@ -46,7 +46,7 @@ class ControllerNotification
 
                     if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
 
-                        echo 'ecriture email fausse';
+                        throw new Exception('Vous n avez pas ecrit l email correctement');
                         $errorCounter++;
                     }
 
