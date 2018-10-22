@@ -27,17 +27,17 @@ class ControllerAdminNotification
 
             if ( isset($_GET['status']) && $_GET['status'] === 'archived'){
 
-                $notifications = $this->notificationManager->getNotificationsByStatus('archived');
+                $notifications = $this->notificationManager->getNotificationByStatus('archived');
 
             }elseif ( isset($_GET['status']) && $_GET['status'] === 'all'){
                 $notifications = $this->notificationManager->getAllNotifications();
 
             }elseif ( isset($_GET['status']) && $_GET['status'] === 'trash'){
 
-                $notifications= $this->notificationManager->getNotificationsByStatus('trash');
+                $notifications= $this->notificationManager->getNotificationByStatus('trash');
 
             }else {
-                $notifications = $this->notificationManager->getNotificationsByStatus('unread');
+                $notifications = $this->notificationManager->getNotificationByStatus('unread');
             }
 
             $view = new View("backend/adminNotification");
@@ -73,7 +73,7 @@ class ControllerAdminNotification
 
         if ( $_POST["operation"] === "delete" ){
 
-            $this ->notificationManager->Delete($_GET['notificationid']);
+            $this ->notificationManager->delete($_GET['notificationid']);
         }
     }
 
