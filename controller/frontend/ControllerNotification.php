@@ -12,7 +12,6 @@ class ControllerNotification
 
     public function notification()
     {
-
         session_start();
         if ($this->ctrlConnect->isUserConnected()) {
             if (isset ($_POST) && !empty($_POST)) {
