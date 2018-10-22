@@ -21,7 +21,7 @@ class ControllerComment
         }
         else {
 
-          header('Location: index.php?action=commentSent&postid='.$postId);
+          header('Location: index.php?action=commentsent&postid='.$postId);
 
         }
     }

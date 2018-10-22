@@ -96,23 +96,6 @@ class ControllerAdminComment
 
     }
 
-    // A enlever
-    function addComment($postId, $author, $comment)
-    {
-        $affectedLines = $this ->commentManager->postComment($postId, $author, $comment, 'approved');
-
-        if ($affectedLines === false) {
-
-            throw new Exception('Impossible d\'ajouter le commentaire !');
-
-        } else {
-
-            header('Location: index.php?action=post&id=' . $postId);
-
-        }
-
-    }
-
     public function viewComment (){
 
         session_start();

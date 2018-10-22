@@ -71,7 +71,7 @@ class Router
                     } else {
                         throw new Exception('Aucun identifiant de billet envoyé');
                     }
-                } elseif($_GET['action'] == 'commentSent'){
+                } elseif($_GET['action'] == 'commentsent'){
                     $this->ctrlComment->commentSent();
                 } elseif ($_GET['action'] == 'writer') {
                     $this->ctrlPost->writer();
