@@ -19,7 +19,7 @@
                 return;
             }
         }
-//        die();
+
     }
 
     public static function load(){

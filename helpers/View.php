@@ -7,7 +7,7 @@ class View
 
     public function __construct($action)
     {
-            $this->file = dirname(__FILE__) ."/" . $action . "View.php";
+            $this->file = dirname(__FILE__) ."/../view/" . $action . "View.php";
             $this->notificationManager = new NotificationManager();
             $this->commentManager = new CommentManager();
 
