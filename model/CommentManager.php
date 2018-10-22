@@ -50,7 +50,7 @@ class CommentManager extends Manager
         return $modifyStatus;
     }
 
-    public function Delete($commentId)
+    public function delete($commentId)
     {
         $db = $this->dbConnect();
         $deleteComment = $db->prepare('DELETE FROM comments WHERE  id=:id ');

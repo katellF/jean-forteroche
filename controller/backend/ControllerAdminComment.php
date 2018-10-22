@@ -76,7 +76,7 @@ class ControllerAdminComment
 
         if ( $_POST["operation"] === "delete" ){
 
-            $this ->commentManager->Delete($_GET['commentid']);
+            $this ->commentManager->delete($_GET['commentid']);
         }
     }
 

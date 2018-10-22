@@ -18,9 +18,9 @@ class ControllerAdminContact
 
         if ($this->ctrlConnect->isUserConnected()) {
 
-
-            $this->statusContact();
-
+            if ( isset($_POST) && !empty($_POST) && isset($_GET["contactid"])) {
+                $this->statusContact();
+            }
             if ( isset($_GET['status']) && $_GET['status'] === 'archived'){
 
                 $contacts = $this->contactManager->getContactByStatus('archived');

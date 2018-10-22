@@ -10,10 +10,10 @@ $this->title = 'Messages';
 <h1 class="text-center margin-top50 margin-bottom50"> Liste des Contacts </h1>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light margin-top25 margin-bottom25 text-center justify-content-center nav-filter">
-        <a class="margin-right15 color_white" href="index.php?action=admincontact&status=all">Toutes</a>
-        <a class="margin-right15 color_white" href="index.php?action=admincontact&status=archived">Archivees</a>
+        <a class="margin-right15 color_white" href="index.php?action=admincontact&status=all">Tous</a>
+        <a class="margin-right15 color_white" href="index.php?action=admincontact&status=archived">Archivés</a>
         <a class="margin-right15 color_white" href="index.php?action=admincontact&status=trash">Corbeille</a>
-        <a class="color_white" href="index.php?action=adminContact">non lu</a>
+        <a class="color_white" href="index.php?action=adminContact">non lus</a>
     </nav>
 
 
