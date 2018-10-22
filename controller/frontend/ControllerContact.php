@@ -35,7 +35,8 @@ class ControllerContact
 
                 if ($errorCounter === 0) {
                     $contact = $this->contactManager->insertContact();
-                    header('Location: index.php?action=contactsent');
+                    $view = new View("frontend/contactSent");
+                    $view->generate(array(), 'template_connect');
 
 
                 }
@@ -43,6 +44,7 @@ class ControllerContact
         if ($this->ctrlConnect->isUserConnected()) {
                 $view = new View("frontend/contact");
                 $view->generate(array(), "template_connect");
+
 
             } else{
 
@@ -54,6 +56,7 @@ class ControllerContact
 
     public function contactSent(){
 
+        session_start();
         $view = new View("frontend/contactSent");
         $view->generate(array());
     }

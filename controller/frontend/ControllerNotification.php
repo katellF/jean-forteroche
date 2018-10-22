@@ -9,11 +9,10 @@ class ControllerNotification
         $this->ctrlConnect = new ControllerConnect();
     }
 
-
     public function notification()
     {
         session_start();
-        if ($this->ctrlConnect->isUserConnected()) {
+
             if (isset ($_POST) && !empty($_POST)) {
                 if (!empty($_POST['email']) && !empty($_POST['reason'])) {
 
@@ -33,40 +32,17 @@ class ControllerNotification
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
 
-            } else {
+            } if ($this->ctrlConnect->isUserConnected())  {
 
                 $view = new View("frontend/notification");
                 $view->generate(array(), 'template_connect');
             }
-        } else {
-            if (isset ($_POST) && !empty($_POST)) {
-                if (!empty($_POST['email']) && !empty($_POST['reason'])) {
-
-                    $errorCounter = 0;
-
-                    if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
-
-                        throw new Exception('Vous n avez pas ecrit l email correctement');
-                        $errorCounter++;
-                    }
-
-
-                    if ($errorCounter === 0) {
-                        $this->addNotification();
-                    }
-
-                } else {
-
-                    throw new Exception('Tous les champs ne sont pas remplis !');
-                }
-
-            } else {
-
+         else{
                 $view = new View("frontend/notification");
                 $view->generate(array());
 
             }
-        }
+
     }
 
 
