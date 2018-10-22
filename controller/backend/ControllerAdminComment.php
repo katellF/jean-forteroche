@@ -7,7 +7,7 @@ class ControllerAdminComment
 
     public function __construct(){
 
-        $this->ctrlConnect = New ControllerConnect();
+        $this->ctrlConnect = new ControllerConnect();
         $this->commentManager = new CommentManager();
     }
 
@@ -56,7 +56,6 @@ class ControllerAdminComment
 
     public function statusComment()
     {
-
         if ( $_POST["operation"] === "approved" ){
 
             $this ->commentManager->setStatus($_GET['commentid'] , 'approved');
@@ -100,7 +99,6 @@ class ControllerAdminComment
     // A enlever
     function addComment($postId, $author, $comment)
     {
-
         $affectedLines = $this ->commentManager->postComment($postId, $author, $comment, 'approved');
 
         if ($affectedLines === false) {
@@ -115,7 +113,7 @@ class ControllerAdminComment
 
     }
 
-    function viewComment (){
+    public function viewComment (){
 
         session_start();
 

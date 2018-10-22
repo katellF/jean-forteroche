@@ -21,7 +21,7 @@ $comments->closeCursor();
 <div class="container">
     <h2 class="margin-bottom25 margin-top25">Ajouter un  commentaire</h2>
 
-    <form action="index.php?action=addComment&amp;id=<?= $post_id ?>" method="post">
+    <form action="index.php?action=addComment&amp;postid=<?= $post_id ?>" method="post">
         <div class="form-group">
             <label for="author" class="font-weight-bold">Auteur</label><br/>
             <?=$_SESSION['pseudo']?>

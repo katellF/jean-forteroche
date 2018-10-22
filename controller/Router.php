@@ -41,7 +41,7 @@ class Router
                    $this->ctrlAdminPost->recoverpost();}
                    elseif ($_GET['action'] == 'adminAnswer') {
                     $this->ctrlConnect->isUserConnected();
-                   $this->ctrlAdminComment->adminanswer();}
+                   $this->ctrlAdminComment->adminAnswer();}
                 elseif ($_GET['action'] == 'editpost') {
                     $this->ctrlConnect->isUserConnected();
                     $this->ctrlAdminPost->editPost();}

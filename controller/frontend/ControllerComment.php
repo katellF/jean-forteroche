@@ -7,6 +7,7 @@ class ControllerComment
     public function __construct()
     {
         $this->UserConnect = new UserManager();
+        $this->ctrlConnect = new ControllerConnect();
         $this->commentManager = new CommentManager();
 
     }
@@ -27,8 +28,13 @@ class ControllerComment
 
     public function commentSent()
     {
+        if ($this->ctrlConnect->isUserConnected()) {
         $view = new View("frontend/commentSent");
-        $view->generate(array());
+        $view->generate(array(),"template_connect");
+    }else{
+            $view = new View("frontend/commentSent");
+            $view->generate(array(),"template_connect");
+        }
 
     }
 
