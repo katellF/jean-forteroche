@@ -3,6 +3,7 @@
 class ControllerContact
 {
     private $contactManager;
+    private $ctrlConnect;
 
     public function __construct()
     {
