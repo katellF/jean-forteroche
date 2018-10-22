@@ -13,7 +13,7 @@ $this->title = 'tableau de bord';
     <a class="margin-right15 color_white" href="index.php?action=admin&status=all">Tous</a>
     <a class="margin-right15 color_white" href="index.php?action=admin&status=published">Publiés</a>
     <a class="margin-right15 color_white" href="index.php?action=admin&status=draft">Brouillons</a>
-    <a class="color_white" href="index.php?action=admin&status=trash">Dans la corbeille</a>
+    <a class="color_white" href="index.php?action=admin&status=trash">Corbeille</a>
 </nav>
 <div class="container margin-top50">
 
@@ -56,7 +56,7 @@ $this->title = 'tableau de bord';
                     <form class="margin-right15" method="post" action="index.php?action=admin&postid=<?= $data["id"] ?>">
 
                         <input type="hidden" name="operation" value="trash"/>
-                        <input type="submit" class="btn btn-primary bg-138597 trash_button" value="Corbeille"/>
+                        <input type="submit" class="btn btn-primary bg-138597 trash_button" value="Jeter dans la corbeille"/>
 
                     </form>
 

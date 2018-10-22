@@ -9,7 +9,7 @@ $this->title = 'Commentaires';
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light margin-top25 margin-bottom25 text-center justify-content-center nav-filter">
     <a class="margin-right15 color_white" href="index.php?action=moderation&status=all">Tous</a>
-    <a class="margin-right15 color_white" href="index.php?action=moderation&status=approved">Approuver</a>
+    <a class="margin-right15 color_white" href="index.php?action=moderation&status=approved">Approuvés</a>
     <a class="margin-right15 color_white" href="index.php?action=moderation&status=pending">En attente</a>
     <a class="margin-right15 color_white" href="index.php?action=moderation&status=trash">Corbeille</a>
 </nav>
@@ -46,7 +46,7 @@ $this->title = 'Commentaires';
                   action="index.php?action=moderation&commentid=<?= $data["id"] ?>">
 
                 <input type="hidden" name="operation" value="trash"/>
-                <input type="submit" class="btn btn-primary bg-138597 pending_button" value="En attente"/>
+                <input type="submit" class="btn btn-primary bg-138597 pending_button" value=" Mettre en attente"/>
 
             </form>
             <?php
@@ -57,7 +57,7 @@ $this->title = 'Commentaires';
                       action="index.php?action=moderation&commentid=<?= $data["id"] ?>">
 
                     <input type="hidden" name="operation" value="trash"/>
-                    <input type="submit" class="btn btn-primary bg-138597 trash_button" value="Corbeille"/>
+                    <input type="submit" class="btn btn-primary bg-138597 trash_button" value="Jeter dans la corbeille"/>
 
                 </form>
                 <?php

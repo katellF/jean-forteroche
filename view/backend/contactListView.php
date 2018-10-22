@@ -66,7 +66,7 @@ $this->title = 'Messages';
             <form class="margin-right15" method="post" action="index.php?action=admincontact&contactid=<?= $data["id"] ?>">
 
                 <input type="hidden" name="operation" value="trash"/>
-                <input type="submit" class="btn btn-primary bg-138597 trash_button" value="Corbeille"/>
+                <input type="submit" class="btn btn-primary bg-138597 trash_button" value="Jeter dans la corbeille"/>
 
             </form>
             <?php

@@ -10,7 +10,7 @@ $this->title = htmlspecialchars('Notifier un commentaire');
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light margin-top25 margin-bottom25 text-center justify-content-center nav-filter">
         <a class="margin-right15 color_white" href="index.php?action=adminNotification&status=all">Toutes</a>
-        <a class="margin-right15 color_white" href="index.php?action=adminNotification&status=archived">Archivees</a>
+        <a class="margin-right15 color_white" href="index.php?action=adminNotification&status=archived">Archivées</a>
         <a class="margin-right15 color_white" href="index.php?action=adminNotification&status=trash">Corbeille</a>
         <a class="color_white" href="index.php?action=adminNotification">non lu</a>
     </nav>

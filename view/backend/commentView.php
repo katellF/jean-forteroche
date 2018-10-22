@@ -11,7 +11,6 @@ $comment = $comment->fetch();
 
     ?>
     <div class="container border-6BC3D1 margin-top50">
-
         <h2  class="margin-bottom25">
             <?= htmlspecialchars($comment['author']) ?>
             <em class="font_size_60">le <?= $comment['comment_date_fr'] ?></em>
@@ -56,7 +55,6 @@ $comment = $comment->fetch();
 
         if ($comment['status'] === 'approved') {
             ?>
-
             <a href="index.php?action=adminanswer&commentid=<?= $comment["id"] ?>"
                class="btn btn-primary button-modify active margin-right15 bg-138597">Répondre</a>
             <?php
