@@ -32,7 +32,7 @@ $this->title = htmlspecialchars('Notifier un commentaire');
 
             <div class="d-flex relative justify-content-end margin-bottom25">
 
-                    <p class="margin-right15 "><a class="btn btn-primary bg-6BC3D1 " href="index.php?action=getcomment&comment_id=<?=$data['comment_id']?>">Voir le commentaire</a></p>
+                    <p class="margin-right15 "><a class="btn btn-primary bg-6BC3D1" href="index.php?action=getcomment&comment_id=<?=$data['comment_id']?>">Voir le commentaire</a></p>
 
                     <?php if ($data['status'] === 'unread' || $data['status'] === 'trash')  { ?>
                         <form class="margin-right15" method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
