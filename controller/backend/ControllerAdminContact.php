@@ -12,24 +12,6 @@ class ControllerAdminContact
 
     }
 
-//    public function contact()
-//    {
-//        session_start();
-//
-//        if ($this->ctrlConnect->isUserConnected()) {
-//
-//            $contacts = $this->contactManager->getContact();
-//            $view = new View("backend/contactList");
-//            $view->generate(array("contacts"=>$contacts), "template_backend");
-//
-//
-//        } else {
-//
-//            throw new Exception('Vous n avez pas acces à cette page!');
-//        }
-//
-//    }
-
     public function contactList()
     {
         session_start();
