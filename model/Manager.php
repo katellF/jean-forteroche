@@ -3,7 +3,7 @@
 abstract class Manager
 {
     private $dbname;
-    private $dbhost ;
+    private $dbhost;
     private $dbuser;
     private $dbpassword;
 
@@ -17,7 +17,7 @@ abstract class Manager
 
     protected function dbConnect()
     {
-        $db = new \PDO('mysql:host='.$this->dbhost.';dbname='.$this->dbname.';charset=utf8', $this->dbuser, $this->dbpassword);
+        $db = new \PDO('mysql:host=' . $this->dbhost . ';dbname=' . $this->dbname . ';charset=utf8', $this->dbuser, $this->dbpassword);
         return $db;
     }
 }

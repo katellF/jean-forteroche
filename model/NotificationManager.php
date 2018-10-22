@@ -22,20 +22,20 @@ class NotificationManager extends Manager
 
     }
 
-    public function insertNotification($commentId, $content, $notificationReason,$email)
+    public function insertNotification($commentId, $content, $notificationReason, $email)
     {
         $db = $this->dbConnect();
         $notifications = $db->prepare('INSERT INTO notifications(comment_id, reason, content, email, submission_date) VALUES(?,?, ?, ?, NOW())');
-        $affectedLines = $notifications->execute(array($commentId, $content, $notificationReason,$email));
+        $affectedLines = $notifications->execute(array($commentId, $content, $notificationReason, $email));
 
         return $affectedLines;
     }
 
-    public function setStatus($notificationId , $status)
+    public function setStatus($notificationId, $status)
     {
         $db = $this->dbConnect();
         $updateStatus = $db->prepare('UPDATE notifications SET  status=:status WHERE id=:id ');
-        $modifyStatus = $updateStatus->execute(array('id' => $notificationId  , 'status' => $status  ));
+        $modifyStatus = $updateStatus->execute(array('id' => $notificationId, 'status' => $status));
 
         return $modifyStatus;
     }
@@ -45,7 +45,7 @@ class NotificationManager extends Manager
         $db = $this->dbConnect();
         $deleteNotification = $db->prepare('DELETE FROM notifications WHERE  id=:id ');
 
-        return $deleteNotification->execute(array('id' => $notificationId ));
+        return $deleteNotification->execute(array('id' => $notificationId));
 
     }
 

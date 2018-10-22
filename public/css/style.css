@@ -1,5 +1,4 @@
 
-
 html {
 
     height: 100%;
@@ -216,7 +215,7 @@ img {
     margin-left: 15px;
 }
 
-.margin-left3{
+.margin-left3 {
 
     margin-left: 3px;
 }
@@ -288,7 +287,6 @@ img {
 
 }
 
-
 /* backend */
 .nav-filter {
 
@@ -338,8 +336,8 @@ img {
     bottom: 0;
 }
 
-.min-height{
-min-height: calc(100vh - 55px);
+.min-height {
+    min-height: calc(100vh - 55px);
 
 }
 
@@ -356,13 +354,10 @@ footer {
     left: 0;
 }
 
-
-
 /* ============================== Responsif max 992 px ============================= */
 @media (max-width: 992px) {
 
     /* ========================== header ============================== */
-
     .menu_burger {
 
         justify-content: start !important;
@@ -390,13 +385,13 @@ footer {
         display: block !important;
     }
 
-    .margin_side_autoR{
+    .margin_side_autoR {
 
-        margin-left : auto;
+        margin-left: auto;
         margin-right: auto;
     }
 
-    .margin_bottom25R{
+    .margin_bottom25R {
 
         margin-bottom: 25px;
     }
@@ -406,40 +401,31 @@ footer {
         display: none;
     }
 
-    .resize{
+    .resize {
 
         width: auto;
         height: auto;
     }
 
-
     /* ========================== footer ============================== */
-
-/*#footer{*/
-
-    /*height: 100px;*/
-/*}*/
-
-    .nav_footer{
+    
+    .nav_footer {
 
         padding-top: 50px;
     }
 
-    .flex_rowR{
+    .flex_rowR {
 
         flex-direction: row;
     }
 
-    .margin_rightR{
+    .margin_rightR {
 
         margin-right: 15px;
     }
 
     /* ============================== Responsif max 576 px ============================= */
     @media (max-width: 576px) {
-
-
-
 
         /* ============ home page ============== */
         .font_size_resp {
@@ -467,14 +453,11 @@ footer {
             display: none;
         }
 
-
         /* ============ writer page ============== */
-
         .font_size_r {
 
             font-size: 2rem;
         }
-
 
         .title_writer {
 
@@ -483,12 +466,10 @@ footer {
         }
 
         /* ============ footer ============== */
-        .nav_footer{
+        .nav_footer {
 
             padding-top: 20px;
         }
-
-
 
     }
 

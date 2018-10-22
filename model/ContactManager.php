@@ -36,11 +36,11 @@ class ContactManager extends Manager
         return $notifications;
     }
 
-    public function setStatus($contactId , $status)
+    public function setStatus($contactId, $status)
     {
         $db = $this->dbConnect();
         $updateStatus = $db->prepare('UPDATE contacts SET status=:status WHERE id=:id ');
-        $modifyStatus = $updateStatus->execute(array('id' => $contactId  , 'status' => $status  ));
+        $modifyStatus = $updateStatus->execute(array('id' => $contactId, 'status' => $status));
 
         return $modifyStatus;
     }
@@ -50,8 +50,7 @@ class ContactManager extends Manager
         $db = $this->dbConnect();
         $deleteContact = $db->prepare('DELETE FROM contacts WHERE id=:id ');
 
-        return $deleteContact->execute(array('id' => $contactId ));
+        return $deleteContact->execute(array('id' => $contactId));
 
     }
-
 }

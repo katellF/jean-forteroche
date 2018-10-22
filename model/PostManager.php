@@ -4,17 +4,17 @@
 class PostManager extends Manager
 {
     public function getPosts()
-   {
+    {
         $db = $this->dbConnect();
-       $req = $db->query('SELECT id, title, status, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date');
-       $req->execute(array());
-       return $req;
-   }
+        $req = $db->query('SELECT id, title, status, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date');
+        $req->execute(array());
+        return $req;
+    }
 
     public function getPublishedPosts($start, $end)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare(' SELECT id, title, content,status, DATE_FORMAT(creation_date, \' % d /%m /%Y à % Hh % imin % ss\') AS creation_date_fr FROM posts WHERE status=\'published\' ORDER BY creation_date LIMIT '. $start.','. $end.' ');
+        $comments = $db->prepare(' SELECT id, title, content,status, DATE_FORMAT(creation_date, \' % d /%m /%Y à % Hh % imin % ss\') AS creation_date_fr FROM posts WHERE status=\'published\' ORDER BY creation_date LIMIT ' . $start . ',' . $end . ' ');
         $comments->execute(array());
 
         return $comments;
@@ -23,7 +23,7 @@ class PostManager extends Manager
     public function getLastPost()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title, status, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC  LIMIT 1' );
+        $req = $db->query('SELECT id, title, status, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC  LIMIT 1');
         $post = $req->fetch();
         return $post;
     }
@@ -81,22 +81,21 @@ class PostManager extends Manager
         return $post;
     }
 
-    public function setStatus($postId , $status)
+    public function setStatus($postId, $status)
     {
         $db = $this->dbConnect();
         $updateStatus = $db->prepare('UPDATE posts SET  status=:status WHERE  id=:id ');
-        $modifyStatus = $updateStatus->execute(array('id' => $postId  , 'status' => $status  ));
+        $modifyStatus = $updateStatus->execute(array('id' => $postId, 'status' => $status));
 
         return $modifyStatus;
     }
 
 
-
-    public function updatePost($postId , $data)
+    public function updatePost($postId, $data)
     {
         $db = $this->dbConnect();
         $updateStatus = $db->prepare('UPDATE posts SET  title=:title , content=:content, status=:status WHERE  id=:id ');
-        $modifyStatus = $updateStatus->execute(array('id' => $postId  , 'title' => $data['title'] , 'content'=>$data['content'], 'status'=>$data['status'] ));
+        $modifyStatus = $updateStatus->execute(array('id' => $postId, 'title' => $data['title'], 'content' => $data['content'], 'status' => $data['status']));
 
         return $modifyStatus;
     }
@@ -107,9 +106,7 @@ class PostManager extends Manager
         $db = $this->dbConnect();
         $deleteComment = $db->prepare('DELETE FROM posts WHERE  id=:id ');
 
-        return $deleteComment->execute(array('id' => $postId ));
+        return $deleteComment->execute(array('id' => $postId));
 
     }
-
-
 }

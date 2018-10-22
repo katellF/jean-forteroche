@@ -7,9 +7,9 @@ class View
 
     public function __construct($action)
     {
-            $this->file = dirname(__FILE__) ."/../view/" . $action . "View.php";
-            $this->notificationManager = new NotificationManager();
-            $this->commentManager = new CommentManager();
+        $this->file = dirname(__FILE__) . "/../view/" . $action . "View.php";
+        $this->notificationManager = new NotificationManager();
+        $this->commentManager = new CommentManager();
 
     }
 
@@ -24,11 +24,10 @@ class View
         $content = $this->generateFile($this->file, $datas);
 
 
+        $view = $this->generateFile('view/' . $template . '.php',
+            array('title' => $this->title, 'content' => $content, 'unreadNotif' => $countNotif["num_unreadNotifications"], 'pendingComment' => $countComment["num_pendingComments"]));
 
-        $view = $this->generateFile('view/'.$template.'.php',
-                array('title' => $this->title, 'content' => $content, 'unreadNotif' => $countNotif["num_unreadNotifications"],'pendingComment' => $countComment["num_pendingComments"]));
-
-        print_r($view) ;
+        print_r($view);
         return $countNotif;
     }
 

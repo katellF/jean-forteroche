@@ -8,7 +8,7 @@ class CommentManager extends Manager
     {
         $db = $this->dbConnect();
         $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id=:post_id AND status=\'approved\' ORDER BY comment_date DESC');
-        $comments->execute(array('post_id'=> $postId));
+        $comments->execute(array('post_id' => $postId));
 
         return $comments;
     }
@@ -17,7 +17,7 @@ class CommentManager extends Manager
     {
         $db = $this->dbConnect();
         $comments = $db->prepare('SELECT id, author, comment, post_id, status, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE id=:id AND status=\'approved\' ORDER BY comment_date DESC');
-        $comments->execute(array('id'=> $commentId));
+        $comments->execute(array('id' => $commentId));
 
         return $comments;
     }
@@ -42,11 +42,11 @@ class CommentManager extends Manager
     }
 
 
-    public function setStatus($commentId , $status)
+    public function setStatus($commentId, $status)
     {
         $db = $this->dbConnect();
         $updateStatus = $db->prepare('UPDATE comments SET  status=:status WHERE  id=:id ');
-        $modifyStatus = $updateStatus->execute(array('id' => $commentId  , 'status' => $status  ));
+        $modifyStatus = $updateStatus->execute(array('id' => $commentId, 'status' => $status));
 
         return $modifyStatus;
     }
@@ -56,7 +56,7 @@ class CommentManager extends Manager
         $db = $this->dbConnect();
         $deleteComment = $db->prepare('DELETE FROM comments WHERE  id=:id ');
 
-        return $deleteComment->execute(array('id' => $commentId ));
+        return $deleteComment->execute(array('id' => $commentId));
 
     }
 
@@ -78,5 +78,4 @@ class CommentManager extends Manager
 
         return $countNotifications;
     }
-
 }

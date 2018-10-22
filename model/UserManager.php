@@ -3,7 +3,8 @@
 
 class UserManager extends Manager
 {
-    public function getUser($pseudo){
+    public function getUser($pseudo)
+    {
 
         $db = $this->dbConnect();
 
@@ -14,7 +15,8 @@ class UserManager extends Manager
         return $req;
     }
 
-    public function registerUser(){
+    public function registerUser()
+    {
 
         $db = $this->dbConnect();
 
@@ -30,10 +32,10 @@ class UserManager extends Manager
             'password' => $pass_hache,));
 
         return $res;
-
     }
 
-    public function userConnect($pseudo){
+    public function userConnect($pseudo)
+    {
 
         $db = $this->dbConnect();
 
@@ -47,20 +49,20 @@ class UserManager extends Manager
         return $resultat;
     }
 
-    public function getLogout(){
+    public function getLogout()
+    {
 
 
         $_SESSION = array();
         session_destroy();
-
     }
 
-    public function setPassword( $pseudo , $password)
+    public function setPassword($pseudo, $password)
     {
         $db = $this->dbConnect();
 
         $updatePassword = $db->prepare('UPDATE users SET  password=:password WHERE  pseudo=:pseudo ');
-        $modifyPassword = $updatePassword->execute(array('pseudo' => $pseudo  , 'password' => $password  ));
+        $modifyPassword = $updatePassword->execute(array('pseudo' => $pseudo, 'password' => $password));
 
         return $modifyPassword;
     }
