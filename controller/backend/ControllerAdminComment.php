@@ -5,7 +5,8 @@ class ControllerAdminComment
     private $ctrlConnect;
     private $commentManager;
 
-    public function __construct(){
+    public function __construct()
+    {
 
         $this->ctrlConnect = new ControllerConnect();
         $this->commentManager = new CommentManager();
@@ -18,29 +19,29 @@ class ControllerAdminComment
         if ($this->ctrlConnect->isUserConnected()) {
 
 
-            if ( isset($_POST) && !empty($_POST) && isset($_GET["commentid"])) {
+            if (isset($_POST) && !empty($_POST) && isset($_GET["commentid"])) {
                 $this->statusComment();
             }
 
-            if ( isset($_GET['status']) && $_GET['status'] === 'approved'){
+            if (isset($_GET['status']) && $_GET['status'] === 'approved') {
 
                 $comments = $this->commentManager->getCommentsByStatus('approved');
 
-            }elseif ( isset($_GET['status']) && $_GET['status'] === 'rejected'){
+            } elseif (isset($_GET['status']) && $_GET['status'] === 'rejected') {
 
                 $comments = $this->commentManager->getCommentsByStatus('rejected');
 
-            }elseif ( isset($_GET['status']) && $_GET['status'] === 'trash') {
+            } elseif (isset($_GET['status']) && $_GET['status'] === 'trash') {
 
                 $comments = $this->commentManager->getCommentsByStatus('trash');
 
-            }elseif ( isset($_GET['status']) && $_GET['status'] === 'all'){
+            } elseif (isset($_GET['status']) && $_GET['status'] === 'all') {
 
                 $comments = $this->commentManager->getAllComments();
-            }elseif ( isset($_GET['status']) && $_GET['status'] === 'pending') {
+            } elseif (isset($_GET['status']) && $_GET['status'] === 'pending') {
 
                 $comments = $this->commentManager->getCommentsByStatus('pending');
-            }else{
+            } else {
 
                 $comments = $this->commentManager->getAllComments();
             }
@@ -56,27 +57,27 @@ class ControllerAdminComment
 
     public function statusComment()
     {
-        if ( $_POST["operation"] === "approved" ){
+        if ($_POST["operation"] === "approved") {
 
-            $this ->commentManager->setStatus($_GET['commentid'] , 'approved');
-
-        }
-
-        if ( $_POST["operation"] === "pending" ){
-
-            $this ->commentManager->setStatus($_GET['postid'] , 'pending');
+            $this->commentManager->setStatus($_GET['commentid'], 'approved');
 
         }
 
-        if ( $_POST["operation"] === "trash" ){
+        if ($_POST["operation"] === "pending") {
 
-            $this ->commentManager->setStatus($_GET['commentid'] , 'trash');
+            $this->commentManager->setStatus($_GET['postid'], 'pending');
 
         }
 
-        if ( $_POST["operation"] === "delete" ){
+        if ($_POST["operation"] === "trash") {
 
-            $this ->commentManager->delete($_GET['commentid']);
+            $this->commentManager->setStatus($_GET['commentid'], 'trash');
+
+        }
+
+        if ($_POST["operation"] === "delete") {
+
+            $this->commentManager->delete($_GET['commentid']);
         }
     }
 
@@ -86,17 +87,18 @@ class ControllerAdminComment
 
         if ($this->ctrlConnect->isUserConnected()) {
 
-        $comments = $this->commentManager->getCommentsById($_GET['commentid']);
-        $view = new View("backend/answerComment");
-        $view->generate(array('comments' => $comments),'template_backend');
+            $comments = $this->commentManager->getCommentsById($_GET['commentid']);
+            $view = new View("backend/answerComment");
+            $view->generate(array('comments' => $comments), 'template_backend');
 
-        }else {
+        } else {
             throw new Exception('Vous n avez pas acces à cette page!');
         }
 
     }
 
-    public function viewComment (){
+    public function viewComment()
+    {
 
         session_start();
 
@@ -108,7 +110,7 @@ class ControllerAdminComment
 
             $view->generate(array('comment' => $comment), 'template_backend');
         } else {
-            
+
             throw new Exception('Vous n avez pas acces à cette page!');
 
         }

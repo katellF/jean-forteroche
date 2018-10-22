@@ -66,7 +66,6 @@ class ControllerNotification
                 $view->generate(array());
 
             }
-
         }
     }
 
@@ -86,5 +85,4 @@ class ControllerNotification
             $view->generate(array("data" => $content));
         }
     }
-
 }

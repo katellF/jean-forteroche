@@ -27,7 +27,6 @@ class ControllerConnect
 
                 echo 'On a deja ce pseudo';
                 $errorCounter++;
-
             }
 
             if (strlen(htmlspecialchars($_POST['password'])) < 6) {
@@ -60,13 +59,10 @@ class ControllerConnect
 
                 header('Location: index.php?action=admin');
             }
-
         }
 
         $view = new View("frontend/connection");
         $view->generate(array());
-
-
     }
 
     function connection()
@@ -109,7 +105,7 @@ class ControllerConnect
                 }
             }
         }
-        // }
+
 
         $view = new View("frontend/connection");
         $view->generate(array());
@@ -125,17 +121,17 @@ class ControllerConnect
 
         if (empty($_SESSION)) {
             $view = new View("backend/logout");
-            $view->generate(array(),'template_logout');
+            $view->generate(array(), 'template_logout');
 
         } else {
             header('Location: index.php?action=admin');
-
         }
     }
 
-    function isUserConnected(){
+    function isUserConnected()
+    {
 
-        if ( isset($_SESSION) && isset($_SESSION['pseudo'])){
+        if (isset($_SESSION) && isset($_SESSION['pseudo'])) {
 
             return true;
         } else {
@@ -143,6 +139,4 @@ class ControllerConnect
 
         }
     }
-
-
 }

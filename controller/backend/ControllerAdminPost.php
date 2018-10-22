@@ -23,22 +23,21 @@ class ControllerAdminPost
             if (isset ($_POST) && !empty($_POST)) {
 
 
+                if (isset($_POST['postid']) && $_POST['postid'] !== "") {
 
-                if ( isset($_POST['postid'])  && $_POST['postid'] !== "" ) {
 
-
-                    if ( $_POST['status'] == 'Publier') {
+                    if ($_POST['status'] == 'Publier') {
                         $_POST['status'] = 'published';
                     }
 
-                    if ( $_POST['status'] == 'Brouillon') {
+                    if ($_POST['status'] == 'Brouillon') {
                         $_POST['status'] = 'draft';
                     }
 
-                        $this->postManager->updatePost($_POST['postid'] , $_POST);
-                        $post = $this->postManager->getPost($_POST['postid']);
+                    $this->postManager->updatePost($_POST['postid'], $_POST);
+                    $post = $this->postManager->getPost($_POST['postid']);
 
-                }  else {
+                } else {
 
                     $data['title'] = $_POST['title'];
                     $data['content'] = $_POST['content'];
@@ -46,8 +45,8 @@ class ControllerAdminPost
                     $addPostId = $this->postManager->insertPost($_POST);
 
 
-                    if ( $_POST['status'] == 'Publier') {
-                        $this->postManager->setStatus($addPostId , 'published');
+                    if ($_POST['status'] == 'Publier') {
+                        $this->postManager->setStatus($addPostId, 'published');
                     }
 
                     $post = $this->postManager->getPost($addPostId);
@@ -60,7 +59,7 @@ class ControllerAdminPost
 
             } else {
                 $view = new View("backend/addPost");
-                $view->generate(array(),'template_backend');
+                $view->generate(array(), 'template_backend');
             }
 
         } else {
@@ -99,7 +98,7 @@ class ControllerAdminPost
 
             } else {
 
-                if ( isset($_GET['postid']) &&  !empty($_GET['postid'])  ) {
+                if (isset($_GET['postid']) && !empty($_GET['postid'])) {
 
 
                     $post = $this->postManager->getPost($_GET['postid']);
@@ -115,7 +114,8 @@ class ControllerAdminPost
 
     }
 
-    public function recoverPost(){
+    public function recoverPost()
+    {
 
         session_start();
 
@@ -134,35 +134,33 @@ class ControllerAdminPost
         if ($this->ctrlConnect->isUserConnected()) {
 
 
-            if ( isset($_POST) && !empty($_POST) && isset($_GET["postid"])) {
+            if (isset($_POST) && !empty($_POST) && isset($_GET["postid"])) {
                 $this->statusPost();
             }
 
-            if ( isset($_GET['status']) && $_GET['status'] ==='published'){
+            if (isset($_GET['status']) && $_GET['status'] === 'published') {
 
-                $posts= $this->postManager->getPostsByStatus('published');
+                $posts = $this->postManager->getPostsByStatus('published');
 
-          }
-            elseif ( isset($_GET['status']) && $_GET['status'] === 'draft'){
+            } elseif (isset($_GET['status']) && $_GET['status'] === 'draft') {
 
-                $posts= $this->postManager->getPostsByStatus('draft');
+                $posts = $this->postManager->getPostsByStatus('draft');
 
-            }elseif ( isset($_GET['status']) && $_GET['status'] === 'trash'){
+            } elseif (isset($_GET['status']) && $_GET['status'] === 'trash') {
 
-                $posts= $this->postManager->getPostsByStatus('trash');
+                $posts = $this->postManager->getPostsByStatus('trash');
 
-            }elseif ( isset($_GET['status']) && $_GET['status'] === 'all'){
+            } elseif (isset($_GET['status']) && $_GET['status'] === 'all') {
 
-               $posts= $this->postManager->getPosts();
-            }else {
+                $posts = $this->postManager->getPosts();
+            } else {
 
-                $posts= $this->postManager->getPosts();
+                $posts = $this->postManager->getPosts();
             }
 
 
-
-        $view = new View("backend/admin");
-         $view->generate(array('posts' => $posts), 'template_backend');
+            $view = new View("backend/admin");
+            $view->generate(array('posts' => $posts), 'template_backend');
 
         } else {
             throw new Exception('Vous n avez pas acces à cette page!');
@@ -173,27 +171,27 @@ class ControllerAdminPost
     public function statusPost()
     {
 
-        if ( $_POST["operation"] === "published" ){
+        if ($_POST["operation"] === "published") {
 
-            $this ->postManager->setStatus($_GET['postid'] , 'published');
-
-        }
-
-        if ( $_POST["operation"] === "draft" ){
-
-            $this ->postManager->setStatus($_GET['postid'] , 'draft');
+            $this->postManager->setStatus($_GET['postid'], 'published');
 
         }
 
-        if ( $_POST["operation"] === "trash" ){
+        if ($_POST["operation"] === "draft") {
 
-            $this ->postManager->setStatus($_GET['postid'] , 'trash');
+            $this->postManager->setStatus($_GET['postid'], 'draft');
 
         }
 
-        if ( $_POST["operation"] === "delete" ){
+        if ($_POST["operation"] === "trash") {
 
-            $this ->postManager->delete($_GET['postid']);
+            $this->postManager->setStatus($_GET['postid'], 'trash');
+
+        }
+
+        if ($_POST["operation"] === "delete") {
+
+            $this->postManager->delete($_GET['postid']);
         }
     }
 

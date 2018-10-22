@@ -22,11 +22,11 @@ class ControllerPost
         $end = 3;
         $per_page = 3;
 
-        if( isset($_GET['page']) && is_integer( (int)$_GET['page'] ) ){
+        if (isset($_GET['page']) && is_integer((int)$_GET['page'])) {
             $page = $_GET['page'];
 
 
-            if ( $page !== 1 ){
+            if ($page !== 1) {
 
                 $end = $page * $end;
                 $start = $end - $per_page;
@@ -43,12 +43,12 @@ class ControllerPost
         if ($this->ctrlConnect->isUserConnected()) {
 
             $view = new View("frontend/listPosts");
-            $view->generate(array('posts' => $posts , 'navigation' => $navigation),'template_connect');
+            $view->generate(array('posts' => $posts, 'navigation' => $navigation), 'template_connect');
 
-        } else{
+        } else {
 
             $view = new View("frontend/listPosts");
-        $view->generate(array('posts' => $posts , 'navigation' => $navigation));
+            $view->generate(array('posts' => $posts, 'navigation' => $navigation));
 
         }
 
@@ -62,14 +62,14 @@ class ControllerPost
             $post = $this->postManager->getPublishedPost($_GET['postid']);
             $comments = $this->commentManager->getApprovedComments($_GET['postid']);
             $view = new View("frontend/post");
-            $view->generate(array('post' => $post, 'comments' => $comments),'template_connect');
+            $view->generate(array('post' => $post, 'comments' => $comments), 'template_connect');
 
-        }else{
+        } else {
 
-        $post = $this->postManager->getPublishedPost($_GET['postid']);
-        $comments = $this->commentManager->getApprovedComments($_GET['postid']);
-        $view = new View("frontend/post");
-        $view->generate(array('post' => $post, 'comments' => $comments));
+            $post = $this->postManager->getPublishedPost($_GET['postid']);
+            $comments = $this->commentManager->getApprovedComments($_GET['postid']);
+            $view = new View("frontend/post");
+            $view->generate(array('post' => $post, 'comments' => $comments));
 
         }
 
@@ -79,7 +79,6 @@ class ControllerPost
     {
         $post = $this->postManager->getLastPost();
 
-        //var_dump();
         $comments = $this->commentManager->getApprovedComments($post['id']);
         $view = new View("frontend/post");
         $view->generate(array('post' => $post, 'comments' => $comments));
@@ -92,10 +91,10 @@ class ControllerPost
 
             $view = new View("frontend/writer");
             $view->generate(array(), "template_connect");
-        } else{
+        } else {
 
             $view = new View("frontend/writer");
-        $view->generate(array());
+            $view->generate(array());
         }
     }
 
@@ -108,11 +107,10 @@ class ControllerPost
             $view = new View("frontend/home");
             $view->generate(array(), "template_connect");
 
-        }else{
+        } else {
 
             $view = new View("frontend/home");
             $view->generate(array());
-
         }
     }
 
@@ -128,24 +126,20 @@ class ControllerPost
         $nav['next_page'] = 0;
         $nav['prev_page'] = 0;
 
-        if ( $current_page == 1 && $count_posts['num_posts'] > $post_per_page ) {
+        if ($current_page == 1 && $count_posts['num_posts'] > $post_per_page) {
             // Show next page
             $nav['next_page'] = 2;
         }
 
-        if ( $current_page > 1) {
+        if ($current_page > 1) {
 
             $nav['prev_page'] = $current_page - 1;
 
-            if ( $count_posts['num_posts'] > $current_page * $post_per_page) {
+            if ($count_posts['num_posts'] > $current_page * $post_per_page) {
                 $nav['next_page'] = $current_page + 1;
             }
-
-
         }
 
         return $nav;
-
     }
-
 }

@@ -6,7 +6,8 @@ class ControllerAdminNotification
     private $commentManager;
     private $notificationManager;
 
-    public function __construct(){
+    public function __construct()
+    {
 
         $this->ctrlConnect = New ControllerConnect();
         $this->commentManager = new CommentManager();
@@ -20,31 +21,30 @@ class ControllerAdminNotification
 
         if ($this->ctrlConnect->isUserConnected()) {
 
-            if ( isset($_POST) && !empty($_POST) && isset($_GET["notificationid"])) {
+            if (isset($_POST) && !empty($_POST) && isset($_GET["notificationid"])) {
                 $this->statusNotification();
             }
 
 
-            if ( isset($_GET['status']) && $_GET['status'] === 'archived'){
+            if (isset($_GET['status']) && $_GET['status'] === 'archived') {
 
                 $notifications = $this->notificationManager->getNotificationByStatus('archived');
 
-            }elseif ( isset($_GET['status']) && $_GET['status'] === 'all'){
+            } elseif (isset($_GET['status']) && $_GET['status'] === 'all') {
                 $notifications = $this->notificationManager->getAllNotifications();
 
-            }elseif ( isset($_GET['status']) && $_GET['status'] === 'trash'){
+            } elseif (isset($_GET['status']) && $_GET['status'] === 'trash') {
 
-                $notifications= $this->notificationManager->getNotificationByStatus('trash');
+                $notifications = $this->notificationManager->getNotificationByStatus('trash');
 
-            }else {
+            } else {
                 $notifications = $this->notificationManager->getNotificationByStatus('unread');
             }
 
             $view = new View("backend/adminNotification");
-            $view->generate(array('notifications' => $notifications ),'template_backend');
+            $view->generate(array('notifications' => $notifications), 'template_backend');
 
-        }
-        else {
+        } else {
             throw new Exception('Vous n avez pas acces à cette page!');
         }
 
@@ -53,31 +53,29 @@ class ControllerAdminNotification
     public function statusNotification()
     {
 
-        if ( $_POST["operation"] === "archived" ){
+        if ($_POST["operation"] === "archived") {
 
-            $this ->notificationManager->setStatus($_GET['notificationid'] , 'archived');
-
-        }
-
-        if ( $_POST["operation"] === "trash" ){
-
-            $this ->notificationManager->setStatus($_GET['notificationid'] , 'trash');
+            $this->notificationManager->setStatus($_GET['notificationid'], 'archived');
 
         }
 
-        if ( $_POST["operation"] === "unread" ){
+        if ($_POST["operation"] === "trash") {
 
-            $this ->notificationManager->setStatus($_GET['notificationid'] , 'unread');
+            $this->notificationManager->setStatus($_GET['notificationid'], 'trash');
 
         }
 
-        if ( $_POST["operation"] === "delete" ){
+        if ($_POST["operation"] === "unread") {
 
-            $this ->notificationManager->delete($_GET['notificationid']);
+            $this->notificationManager->setStatus($_GET['notificationid'], 'unread');
+
+        }
+
+        if ($_POST["operation"] === "delete") {
+
+            $this->notificationManager->delete($_GET['notificationid']);
         }
     }
-
-
 
 
 }

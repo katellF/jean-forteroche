@@ -9,8 +9,8 @@ class ControllerContact
     {
         $this->contactManager = new ContactManager();
         $this->ctrlConnect = new ControllerConnect();
-
     }
+
     public function contactForm()
     {
         session_start();
@@ -21,20 +21,20 @@ class ControllerContact
 
                 echo 'ecriture email fausse';
                 $errorCounter++;
-            } if ($errorCounter === 0) {
-                $contact=$this->contactManager->insertContact();
             }
-
-        }if ($this->ctrlConnect->isUserConnected()) {
+            if ($errorCounter === 0) {
+                $contact = $this->contactManager->insertContact();
+            }
+        }
+        if ($this->ctrlConnect->isUserConnected()) {
 
 
             $view = new View("frontend/contact");
             $view->generate(array(), "template_connect");
-        } else{
+        } else {
 
             $view = new View("frontend/contact");
             $view->generate(array());
-
         }
     }
 

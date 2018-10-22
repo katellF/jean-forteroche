@@ -44,8 +44,8 @@ class ControllerAdminPassWord
                     $view->generate(array('password' => $modifyPassword), 'template_backend');
 
 
-            }
-            }else {
+                }
+            } else {
 
                 $view = new View("backend/modifyPass");
                 $view->generate(array(), 'template_backend');

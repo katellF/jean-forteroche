@@ -4,12 +4,12 @@
 <head>
     <!--    <script src='https:https://cloud.tinymce.com/stable/tinymce.min.js'></script>-->
 
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
     <?php
-        require (dirname(__FILE__) . '/includes/scripts_head.php');
+    require(dirname(__FILE__) . '/includes/scripts_head.php');
     ?>
 
     <title><?= $title ?></title>
@@ -57,7 +57,7 @@
 <?= $content ?>
 
 <?php
-    require (dirname(__FILE__) . '/includes/scripts_footer.php');
+require(dirname(__FILE__) . '/includes/scripts_footer.php');
 ?>
 
 </body>
