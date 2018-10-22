@@ -18,8 +18,9 @@ class ControllerComment
 
         if ($affectedLines === false) {
             throw new Exception('Impossible d\'ajouter le commentaire !');
-        }
-        else {
+
+
+        }else {
 
           header('Location: index.php?action=commentsent&postid='.$postId);
 
@@ -31,7 +32,8 @@ class ControllerComment
         if ($this->ctrlConnect->isUserConnected()) {
         $view = new View("frontend/commentSent");
         $view->generate(array(),"template_connect");
-    }else{
+
+        }else{
             $view = new View("frontend/commentSent");
             $view->generate(array(),"template_connect");
         }
