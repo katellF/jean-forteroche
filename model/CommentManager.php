@@ -3,6 +3,7 @@
 
 class CommentManager extends Manager
 {
+
     public function getApprovedComments($postId)
     {
         $db = $this->dbConnect();

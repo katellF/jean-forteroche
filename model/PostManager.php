@@ -102,7 +102,7 @@ class PostManager extends Manager
     }
 
 
-    public function Delete($postId)
+    public function delete($postId)
     {
         $db = $this->dbConnect();
         $deleteComment = $db->prepare('DELETE FROM posts WHERE  id=:id ');

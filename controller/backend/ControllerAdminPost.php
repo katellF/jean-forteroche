@@ -45,8 +45,6 @@ class ControllerAdminPost
 
                     $addPostId = $this->postManager->insertPost($_POST);
 
-//                    var_dump($addPostId);
-//                    die();
 
                     if ( $_POST['status'] == 'Publier') {
                         $this->postManager->setStatus($addPostId , 'published');
@@ -195,7 +193,7 @@ class ControllerAdminPost
 
         if ( $_POST["operation"] === "delete" ){
 
-            $this ->postManager->Delete($_GET['postid']);
+            $this ->postManager->delete($_GET['postid']);
         }
     }
 
