@@ -27,10 +27,12 @@ class Router
                 if ($_GET['action'] == 'register') {
                     $this->ctrlConnect->registration();
 
-                } if ($_GET['action'] == 'connection') {
+                }
+                if ($_GET['action'] == 'connection') {
                     $this->ctrlConnect->connection();
 
-                } if ($_GET['action'] == 'admin') {
+                }
+                if ($_GET['action'] == 'admin') {
                     $this->ctrlConnect->isUserConnected();
                     $this->ctrlAdminPost->postsList();
 
@@ -77,7 +79,8 @@ class Router
                     $this->ctrlConnect->isUserConnected();
                     $this->ctrlAdminPassWord->modifyPassword();
 
-                }if ($_GET['action'] == 'listPosts') {
+                }
+                if ($_GET['action'] == 'listPosts') {
                     $this->ctrlPost->listPosts();
 
                 } elseif ($_GET['action'] == 'post') {
@@ -103,7 +106,7 @@ class Router
                 } elseif ($_GET['action'] == 'contact') {
                     $this->ctrlContact->contactForm();
 
-                }elseif ($_GET['action'] == 'contactsent') {
+                } elseif ($_GET['action'] == 'contactsent') {
                     $this->ctrlContact->contactSent();
 
                 } elseif ($_GET['action'] == 'addComment') {
@@ -139,7 +142,8 @@ class Router
         }
     }
 
-    public function error($msgError) {
+    public function error($msgError)
+    {
 
 
         $view = new View("frontend/error");
