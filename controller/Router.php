@@ -59,7 +59,7 @@ class Router
                     $this->ctrlAdminPost->previewPost();
                 }elseif ($_GET['action'] == 'admincontact') {
                     $this->ctrlConnect->isUserConnected();
-                    $this->ctrlAdminContact->contact();
+                    $this->ctrlAdminContact->contactList();
                 }elseif ($_GET['action'] == 'modifypass') {
                     $this->ctrlConnect->isUserConnected();
                     $this->ctrlAdminPassWord->modifyPassword();

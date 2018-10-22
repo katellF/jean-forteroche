@@ -23,7 +23,7 @@ class NotificationManager extends Manager
     public function getNotificationsByStatus($status)
     {
         $db = $this->dbConnect();
-        $notifications = $db->prepare('SELECT id, reason, content, comment_id, email, status, DATE_FORMAT(submission_date, \'%d/%m/%Y à %Hh%imin%ss\') AS notification_date_fr FROM notifications WHERE status =:status ORDER BY notification_date_fr DESC');
+        $notifications = $db->prepare('SELECT id, reason, content, comment_id, email, status, DATE_FORMAT(submission_date, \'%d/%m/%Y à %Hh%imin%ss\') AS notification_date_fr FROM notifications WHERE status=:status ORDER BY notification_date_fr DESC');
         $notifications->execute(array('status' => $status));
 
         return $notifications;
@@ -41,7 +41,7 @@ class NotificationManager extends Manager
     public function setStatus($notificationId , $status)
     {
         $db = $this->dbConnect();
-        $updateStatus = $db->prepare('UPDATE notifications SET  status=:status WHERE  id=:id ');
+        $updateStatus = $db->prepare('UPDATE notifications SET  status=:status WHERE id=:id ');
         $modifyStatus = $updateStatus->execute(array('id' => $notificationId  , 'status' => $status  ));
 
         return $modifyStatus;
@@ -59,7 +59,7 @@ class NotificationManager extends Manager
     public function getCountNotification($args)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT count(id) AS num_unreadNotifications FROM notifications WHERE status = :status');
+        $req = $db->prepare('SELECT count(id) AS num_unreadNotifications FROM notifications WHERE status=:status');
         $req->execute(array('status' => $args['status']));
         $countNotifications = $req->fetch();
 

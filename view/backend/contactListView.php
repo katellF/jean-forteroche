@@ -9,7 +9,15 @@ $this->title = 'Messages';
 
 <h1 class="text-center margin-top50 margin-bottom50"> Liste des Contacts </h1>
 
-<div class="container margin-top50">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light margin-top25 margin-bottom25 text-center justify-content-center nav-filter">
+        <a class="margin-right15 color_white" href="index.php?action=admincontact&status=all">Toutes</a>
+        <a class="margin-right15 color_white" href="index.php?action=admincontact&status=archived">Archivees</a>
+        <a class="margin-right15 color_white" href="index.php?action=admincontact&status=trash">Corbeille</a>
+        <a class="color_white" href="index.php?action=adminContact">non lu</a>
+    </nav>
+
+
+
 
     <?php
 
@@ -19,9 +27,10 @@ $this->title = 'Messages';
     <div class="border-6BC3D1 container margin-top50">
         <h2>
             <strong class="font-weight-bold"></strong> <?= htmlspecialchars($data['firstname']) ?>
-            <strong class="font-weight-bold"></strong> <?= htmlspecialchars($data['lastname']) ?>
+            <strong class="font-weight-bold"></strong> <?= htmlspecialchars($data['lastname']) ?> <br/>
+            <em class="font_size_60">le <?= $data['contact_date_fr'] ?></em>
         </h2>
-
+        <p class="color-138597"><strong>statut: <?=  Helpers::labelContactStatus($data['status']) ?></strong></p>
         <div>
             <strong class="font-weight-bold"> email:</strong> <?= htmlspecialchars($data['email']) ?>
         </div>
@@ -29,9 +38,8 @@ $this->title = 'Messages';
             <strong class="font-weight-bold"> Message:</strong> <?= htmlspecialchars($data['content']) ?>
         </div>
         <div class="d-flex relative justify-content-end margin-bottom25">
-        <a class="btn btn-primary bg-6BC3D1" href="mailto:<?= htmlspecialchars($data['email']) ?>">
+        <a class="btn btn-primary bg-6BC3D1 margin-right15" href="mailto:<?= htmlspecialchars($data['email']) ?>">
             Répondre</a> <br/>
-        </div>
 
         <?php if ($data['status'] === 'unread' || $data['status'] === 'trash')  { ?>
             <form class="margin-right15" method="post" action="index.php?action=admincontact&contactid=<?= $data["id"] ?>">
@@ -73,13 +81,14 @@ $this->title = 'Messages';
 
             </form>
         <?php } ?>
+        </div>
     </div>
 </div>
     <?php
     }
     $contacts->closeCursor();
     ?>
-</div>
+
 
 
 

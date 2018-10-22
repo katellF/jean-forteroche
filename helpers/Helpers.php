@@ -62,6 +62,23 @@ class Helpers
         return $translated;
     }
 
+    public static function labelContactStatus($status) {
+
+        if ( $status == 'unread' ){
+            $translated = 'non lue';
+        }
+
+        if ( $status == 'archived' ){
+            $translated = 'archivée';
+        }
+
+        if ( $status == 'trash' ){
+            $translated = 'Corbeille';
+        }
+
+        return $translated;
+    }
+
     public static function labelCommentStatus($status) {
 
         if ( $status == 'approved' ){
