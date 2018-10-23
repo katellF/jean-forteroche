@@ -15,7 +15,7 @@ $this->title = htmlspecialchars('Se connecter');
     </div>
     <div class="form-group margin-bottom25">
         <label for="password" class="margin-bottom15">Mot de passe</label>
-        <input type="password" class="form-control" id="passwordConnect" placeholder="Password" name="passwordConnect">
+        <input type="password" class="form-control" id="passwordConnect" placeholder="Password" name="passwordConnect" >
     </div>
     <div>
         <input type="submit" class="btn btn-primary btn-lg btn-block active button-form" value="se connecter"/>

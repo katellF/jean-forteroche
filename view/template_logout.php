@@ -31,7 +31,7 @@ require(dirname(__FILE__) . '/includes/scripts_footer.php');
             <div class="navbar-collapse row justify-content-center" id="navbarTogglerDemo03">
                 <ul class="navbar-nav flex_rowR">
                     <li class="nav-item active margin_rightR">
-                        <a class="nav-link" href="index.php?action=register">Admin <span
+                        <a class="nav-link" href="index.php?action=connection">Admin <span
                                     class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active margin_rightR">

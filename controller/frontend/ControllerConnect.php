@@ -35,12 +35,12 @@ class ControllerConnect
                 $errorCounter++;
             }
 
-            if ($_POST['password'] !== $_POST['confirmPassword']) {
+            if (strlen(htmlspecialchars($_POST['password'])) !== htmlspecialchars($_POST['confirmPassword'])) {
 
                 echo 'Vos 2 mots de passe doivent etre identiques';
                 $errorCounter++;
             }
-            if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
+            if (filter_var(htmlspecialchars($_POST['email']), FILTER_VALIDATE_EMAIL) === false) {
 
                 echo 'ecriture email fausse';
                 $errorCounter++;
@@ -49,10 +49,11 @@ class ControllerConnect
             if ($errorCounter === 0) {
                 session_start();
 
-                $pass_hache = password_hash($_POST['password'], PASSWORD_DEFAULT);
+//                $pass_hache = password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT);
 
-                $res = $this->UserConnect->registerUser();
+                $res = $this->UserConnect->registerUser($_POST);
                 $connect = $this->UserConnect->userConnect($_POST['pseudo']);
+
 
                 $_SESSION['id'] = $connect['id'];
                 $_SESSION['pseudo'] = $connect['pseudo'];
@@ -61,7 +62,7 @@ class ControllerConnect
             }
         }
 
-        $view = new View("frontend/connection");
+       $view = new View("backend/registration");
         $view->generate(array());
     }
 
@@ -73,13 +74,20 @@ class ControllerConnect
 
             $errorCounter = 0;
 
-            if (!isset($_POST['pseudoConnect']) || empty($_POST['pseudoConnect'])) {
-                echo 'Pseudo manquant!';
-                $errorCounter++;
-            }
+//            if (!isset($_POST['pseudoConnect']) || empty($_POST['pseudoConnect'])) {
+//
+//                throw new Exception('Pseudo manquant');
+//                $errorCounter++;
+//            }
+//
+//            if (!isset($_POST['passwordConnect']) || empty($_POST['passwordConnect'])) {
+//
+//                echo 'Pwd manquant!';
+//                $errorCounter++;
+//            }
+            if (empty (htmlspecialchars($_POST['passwordConnect'])) || empty (htmlspecialchars($_POST['pseudoConnect']))){
 
-            if (!isset($_POST['passwordConnect']) || empty($_POST['passwordConnect'])) {
-                echo 'Pwd manquant!';
+                throw new Exception('Tous les champs doivent être remplis');
                 $errorCounter++;
             }
 
@@ -87,9 +95,11 @@ class ControllerConnect
 
                 $res = $this->UserConnect->userConnect($_POST['pseudoConnect']);
 
-                $isPasswordCorrect = password_verify($_POST['passwordConnect'], $res['password']);
+                $isPasswordCorrect = password_verify(htmlspecialchars($_POST['passwordConnect']), $res['password']);
                 if (!$res) {
-                    echo 'Mauvais identifiant ou mot de passe 1!';
+                    //echo 'Mauvais identifiant ou mot de passe 1!';
+                    throw new Exception('Mauvais identifiant ou mot de passe');
+
                 } else {
                     if ($isPasswordCorrect) {
 
@@ -100,12 +110,12 @@ class ControllerConnect
                         header('Location: index.php?action=admin');
 
                     } else {
-                        echo 'Mauvais identifiant ou mot de passe !2';
+                        throw new Exception('Mauvais identifiant ou mot de passe');
+                        //echo 'Mauvais identifiant ou mot de passe !2';
                     }
                 }
             }
         }
-
 
         $view = new View("frontend/connection");
         $view->generate(array());
@@ -113,11 +123,9 @@ class ControllerConnect
 
     public function logout()
     {
-
         session_start();
 
         $this->UserConnect->getLogout();
-
 
         if (empty($_SESSION)) {
             $view = new View("backend/logout");
@@ -130,13 +138,12 @@ class ControllerConnect
 
     public function isUserConnected()
     {
-
         if (isset($_SESSION) && isset($_SESSION['pseudo'])) {
 
             return true;
+
         } else {
             return false;
-
         }
     }
 }

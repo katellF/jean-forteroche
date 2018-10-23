@@ -5,6 +5,7 @@ class ControllerPost
 
     private $postManager;
     private $commentManager;
+    private $ctrlConnect;
 
     public function __construct()
     {

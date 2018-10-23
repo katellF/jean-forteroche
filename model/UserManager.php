@@ -15,21 +15,21 @@ class UserManager extends Manager
         return $req;
     }
 
-    public function registerUser()
+    public function registerUser($data)
     {
 
         $db = $this->dbConnect();
 
-        $pass_hache = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $pass_hache = password_hash(htmlspecialchars($data['password']), PASSWORD_DEFAULT);
         $req = $db->prepare('INSERT INTO users(lastname, firstname, pseudo, email, password, registration_date) VALUES(:lastname,:firstname,:pseudo,:email,:password, CURDATE())');
 
 
         $res = $req->execute(array(
-            'lastname' => $_POST['lastname'],
-            'firstname' => $_POST['firstname'],
-            'pseudo' => $_POST['pseudo'],
-            'email' => $_POST['email'],
-            'password' => $pass_hache,));
+            'lastname'  => htmlspecialchars($data['lastname']),
+            'firstname' => htmlspecialchars($data['firstname']),
+            'pseudo'    => htmlspecialchars($data['pseudo']),
+            'email'     => htmlspecialchars($data['email']),
+            'password'  => htmlspecialchars($pass_hache),));
 
         return $res;
     }

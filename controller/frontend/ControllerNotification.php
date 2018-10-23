@@ -25,14 +25,16 @@ class ControllerNotification
                     }
 
                     if ($errorCounter === 0) {
-                        $this->addNotification();
+
+                        $this->notificationManager->insertNotification($_GET['commentid'], $_POST['reason'], $_POST['content'], $_POST['email']);
                     }
                 } else {
 
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
 
-            } if ($this->ctrlConnect->isUserConnected())  {
+            }
+            if ($this->ctrlConnect->isUserConnected())  {
 
                 $view = new View("frontend/notification");
                 $view->generate(array(), 'template_connect');
@@ -45,20 +47,4 @@ class ControllerNotification
 
     }
 
-
-    public function addNotification()
-    {
-        $content = $this->notificationManager->insertNotification($_GET['commentid'], $_POST['reason'], $_POST['content'], $_POST['email']);
-
-        if ($this->ctrlConnect->isUserConnected()) {
-
-            $view = new View("frontend/notification");
-            $view->generate(array("data" => $content), 'template_connect');
-
-        } else {
-
-            $view = new View("frontend/notification");
-            $view->generate(array("data" => $content));
-        }
-    }
 }
