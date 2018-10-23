@@ -25,21 +25,20 @@ class ControllerContact
 
             }
 
-
             if (empty ($_POST['content']) || empty ($_POST['lastname']) || empty ($_POST['firstname'])) {
 
                 throw new Exception('Nom, prénom et contenu doivent être remplis');
 
             }
 
-
-            $contact = $this->contactManager->insertContact();
+            $this->contactManager->insertContact();
             $view = new View("frontend/contactSent");
             $view->generate(array(), 'template_connect');
 
         }
 
         if ($this->ctrlConnect->isUserConnected()) {
+
             $view = new View("frontend/contact");
             $view->generate(array(), "template_connect");
 
@@ -54,7 +53,6 @@ class ControllerContact
 
     public function contactSent()
     {
-
         session_start();
         $view = new View("frontend/contactSent");
         $view->generate(array());
