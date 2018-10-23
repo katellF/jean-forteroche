@@ -51,10 +51,6 @@ class Router
                     $this->ctrlConnect->isUserConnected();
                     $this->ctrlAdminComment->adminAnswer();
 
-                } elseif ($_GET['action'] == 'editpost') {
-                    $this->ctrlConnect->isUserConnected();
-                    $this->ctrlAdminPost->editPost();
-
                 } elseif ($_GET['action'] == 'moderation') {
                     $this->ctrlConnect->isUserConnected();
                     $this->ctrlAdminComment->commentList();
@@ -142,7 +138,7 @@ class Router
         }
     }
 
-    public function error($msgError)
+    private function error($msgError)
     {
 
 

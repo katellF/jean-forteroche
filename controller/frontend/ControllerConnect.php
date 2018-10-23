@@ -10,7 +10,7 @@ class ControllerConnect
 
     }
 
-    function registration()
+    public function registration()
     {
 
         if (isset ($_POST) && !empty($_POST)) {
@@ -65,7 +65,7 @@ class ControllerConnect
         $view->generate(array());
     }
 
-    function connection()
+    public function connection()
     {
 
         if (isset ($_POST) && !empty($_POST)) {
@@ -111,7 +111,7 @@ class ControllerConnect
         $view->generate(array());
     }
 
-    function logout()
+    public function logout()
     {
 
         session_start();
@@ -128,7 +128,7 @@ class ControllerConnect
         }
     }
 
-    function isUserConnected()
+    public function isUserConnected()
     {
 
         if (isset($_SESSION) && isset($_SESSION['pseudo'])) {

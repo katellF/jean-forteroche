@@ -116,7 +116,6 @@ class ControllerPost
 
     public function navigation($current_page, $status = 'published')
     {
-        //$current_page= 1;
         $post_per_page = 3;
         $data['status'] = $status;
 
@@ -127,7 +126,7 @@ class ControllerPost
         $nav['prev_page'] = 0;
 
         if ($current_page == 1 && $count_posts['num_posts'] > $post_per_page) {
-            // Show next page
+
             $nav['next_page'] = 2;
         }
 

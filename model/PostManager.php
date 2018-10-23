@@ -84,7 +84,7 @@ class PostManager extends Manager
     public function setStatus($postId, $status)
     {
         $db = $this->dbConnect();
-        $updateStatus = $db->prepare('UPDATE posts SET  status=:status WHERE  id=:id ');
+        $updateStatus = $db->prepare('UPDATE posts SET  status=:status WHERE id=:id ');
         $modifyStatus = $updateStatus->execute(array('id' => $postId, 'status' => $status));
 
         return $modifyStatus;

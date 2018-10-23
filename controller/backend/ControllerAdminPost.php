@@ -83,36 +83,6 @@ class ControllerAdminPost
         }
     }
 
-    public function editPost()
-    {
-        session_start();
-
-        if ($this->ctrlConnect->isUserConnected()) {
-
-            if (isset ($_POST) && !empty($_POST)) {
-
-                $addPost = $this->postManager->insertPost($_POST);
-
-                $view = new View("backend/addPost");
-                $view->generate(array('addPost' => $addPost));
-
-            } else {
-
-                if (isset($_GET['postid']) && !empty($_GET['postid'])) {
-
-
-                    $post = $this->postManager->getPost($_GET['postid']);
-                }
-
-                $view = new View("backend/addPost");
-                $view->generate(array('post' => $post));
-            }
-
-        } else {
-            throw new Exception('Vous n avez pas acces à cette page!');
-        }
-
-    }
 
     public function recoverPost()
     {

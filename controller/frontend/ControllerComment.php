@@ -4,6 +4,7 @@ class ControllerComment
 {
     private $commentManager;
 
+
     public function __construct()
     {
         $this->UserConnect = new UserManager();
