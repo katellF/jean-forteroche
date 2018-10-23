@@ -28,13 +28,15 @@ class ControllerAdminPassWord
 
                 if (strlen(htmlspecialchars($_POST['passwordConnect'])) < 6) {
 
-                    echo 'Mdp trop court,  il faut au moins 6 chars...';
+                    throw new Exception('Mot de passe trop court,  il faut au moins 6 caractères...');
+                    //echo 'Mdp trop court,  il faut au moins 6 chars...';
                     $errorCounter++;
                 }
 
                 if ($_POST['passwordConnect'] !== $_POST['passwordConfirm']) {
 
-                    echo 'Vos 2 mots de passe doivent etre identiques';
+                    throw new Exception('Les 2 mots de passe doivent etre identiques');
+                   // echo 'Vos 2 mots de passe doivent etre identiques';
                     $errorCounter++;
                 }
 
