@@ -22,36 +22,37 @@ class ControllerConnect
             $errorCounter = 0;
 
             if ($user->rowCount() === 0) {
+
                 echo 'on peut ajouter pseudo';
+
             } else {
 
-                echo 'On a deja ce pseudo';
+                throw new Exception('On a dejà ce pseudo');
                 $errorCounter++;
             }
 
             if (strlen(htmlspecialchars($_POST['password'])) < 6) {
 
-                echo 'Mdp trop court,  il faut au moins 6 chars...';
+                throw new Exception('Mdp trop court,  il faut au moins 6 chars...');
                 $errorCounter++;
             }
 
             if (strlen(htmlspecialchars($_POST['password'])) !== htmlspecialchars($_POST['confirmPassword'])) {
 
-                echo 'Vos 2 mots de passe doivent etre identiques';
+                throw new Exception('Vos 2 mots de passe doivent etre identiques');
                 $errorCounter++;
             }
             if (filter_var(htmlspecialchars($_POST['email']), FILTER_VALIDATE_EMAIL) === false) {
 
-                echo 'ecriture email fausse';
+                throw new Exception('ecriture email fausse');
                 $errorCounter++;
             }
 
             if ($errorCounter === 0) {
                 session_start();
 
-//                $pass_hache = password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT);
 
-                $res = $this->UserConnect->registerUser($_POST);
+                $this->UserConnect->registerUser($_POST);
                 $connect = $this->UserConnect->userConnect($_POST['pseudo']);
 
 
@@ -62,7 +63,7 @@ class ControllerConnect
             }
         }
 
-       $view = new View("backend/registration");
+        $view = new View("backend/registration");
         $view->generate(array());
     }
 
@@ -72,47 +73,29 @@ class ControllerConnect
         if (isset ($_POST) && !empty($_POST)) {
 
 
-            $errorCounter = 0;
-
-//            if (!isset($_POST['pseudoConnect']) || empty($_POST['pseudoConnect'])) {
-//
-//                throw new Exception('Pseudo manquant');
-//                $errorCounter++;
-//            }
-//
-//            if (!isset($_POST['passwordConnect']) || empty($_POST['passwordConnect'])) {
-//
-//                echo 'Pwd manquant!';
-//                $errorCounter++;
-//            }
-            if (empty (htmlspecialchars($_POST['passwordConnect'])) || empty (htmlspecialchars($_POST['pseudoConnect']))){
+            if (empty (htmlspecialchars($_POST['passwordConnect'])) || empty (htmlspecialchars($_POST['pseudoConnect']))) {
 
                 throw new Exception('Tous les champs doivent être remplis');
-                $errorCounter++;
             }
 
-            if ($errorCounter === 0) {
+            $res = $this->UserConnect->userConnect($_POST['pseudoConnect']);
 
-                $res = $this->UserConnect->userConnect($_POST['pseudoConnect']);
+            $isPasswordCorrect = password_verify(htmlspecialchars($_POST['passwordConnect']), $res['password']);
+            if (!$res) {
 
-                $isPasswordCorrect = password_verify(htmlspecialchars($_POST['passwordConnect']), $res['password']);
-                if (!$res) {
-                    //echo 'Mauvais identifiant ou mot de passe 1!';
-                    throw new Exception('Mauvais identifiant ou mot de passe');
+                throw new Exception('Mauvais identifiant ou mot de passe');
+
+            } else {
+                if ($isPasswordCorrect) {
+
+                    session_start();
+                    $_SESSION['id'] = $res['id'];
+                    $_SESSION['pseudo'] = $_POST['pseudoConnect'];
+
+                    header('Location: index.php?action=admin');
 
                 } else {
-                    if ($isPasswordCorrect) {
-
-                        session_start();
-                        $_SESSION['id'] = $res['id'];
-                        $_SESSION['pseudo'] = $_POST['pseudoConnect'];
-
-                        header('Location: index.php?action=admin');
-
-                    } else {
-                        throw new Exception('Mauvais identifiant ou mot de passe');
-                        //echo 'Mauvais identifiant ou mot de passe !2';
-                    }
+                    throw new Exception('Mauvais identifiant ou mot de passe');
                 }
             }
         }

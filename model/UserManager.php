@@ -8,7 +8,7 @@ class UserManager extends Manager
 
         $db = $this->dbConnect();
 
-        $req = $db->prepare('SELECT id FROM users WHERE pseudo =:pseudo');
+        $req = $db->prepare('SELECT id, pseudo, password FROM users WHERE pseudo =:pseudo');
         $req->execute(array(
             'pseudo' => htmlspecialchars($pseudo)));
 
