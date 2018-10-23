@@ -69,9 +69,7 @@ class ControllerConnect
 
     public function connection()
     {
-
         if (isset ($_POST) && !empty($_POST)) {
-
 
             if (empty (htmlspecialchars($_POST['passwordConnect'])) || empty (htmlspecialchars($_POST['pseudoConnect']))) {
 
