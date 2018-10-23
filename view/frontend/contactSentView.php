@@ -9,7 +9,7 @@ $this->title = htmlspecialchars('Envoyer un message');
         <div class="container margin-top50 text-center border_notif">
             <h1 class="margin-bottom25">Message Envoyé</h1>
             <p>L'auteur a bien reçu votre message.</p>
-            <p>Merci pour votre compréhension.</p>
+            <p>Il vous répondra dans les plus brefs délais.</p>
         </div>
     </div>
 </div>

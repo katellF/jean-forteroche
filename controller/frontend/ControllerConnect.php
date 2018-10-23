@@ -27,24 +27,24 @@ class ControllerConnect
 
             } else {
 
-                throw new Exception('On a dejà ce pseudo');
+                echo('On a dejà ce pseudo');
                 $errorCounter++;
             }
 
             if (strlen(htmlspecialchars($_POST['password'])) < 6) {
 
-                throw new Exception('Mdp trop court,  il faut au moins 6 chars...');
+                echo('Mdp trop court,  il faut au moins 6 chars...');
                 $errorCounter++;
             }
 
             if (strlen(htmlspecialchars($_POST['password'])) !== htmlspecialchars($_POST['confirmPassword'])) {
 
-                throw new Exception('Vos 2 mots de passe doivent etre identiques');
+                echo('Vos 2 mots de passe doivent etre identiques');
                 $errorCounter++;
             }
             if (filter_var(htmlspecialchars($_POST['email']), FILTER_VALIDATE_EMAIL) === false) {
 
-                throw new Exception('ecriture email fausse');
+                echo('ecriture email fausse');
                 $errorCounter++;
             }
 

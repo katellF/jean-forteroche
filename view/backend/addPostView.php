@@ -2,7 +2,6 @@
 
 $this->title = 'Article';
 
-
 ?>
 
 <p class="margin-top50 margin-bottom25 margin-left15"><a class="btn btn-primary bg-6BC3D1"

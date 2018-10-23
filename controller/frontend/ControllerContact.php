@@ -17,26 +17,26 @@ class ControllerContact
         session_start();
 
         if (isset ($_POST) && !empty($_POST)) {
-            $errorCounter = 0;
+
 
             if (filter_var(htmlspecialchars($_POST['email']), FILTER_VALIDATE_EMAIL) === false) {
 
                 throw new Exception('Vous n avez pas ecrit l email correctement');
-                $errorCounter++;
+
             }
 
 
             if (empty ($_POST['content']) || empty ($_POST['lastname']) || empty ($_POST['firstname'])) {
 
                 throw new Exception('Nom, prénom et contenu doivent être remplis');
-                $errorCounter++;
+
             }
 
-            if ($errorCounter === 0) {
-                $contact = $this->contactManager->insertContact();
-                $view = new View("frontend/contactSent");
-                $view->generate(array(), 'template_connect');
-            }
+
+            $contact = $this->contactManager->insertContact();
+            $view = new View("frontend/contactSent");
+            $view->generate(array(), 'template_connect');
+
         }
 
         if ($this->ctrlConnect->isUserConnected()) {
