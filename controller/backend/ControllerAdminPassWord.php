@@ -24,29 +24,29 @@ class ControllerAdminPassWord
                 $pass_hache = password_hash($_POST['passwordConnect'], PASSWORD_DEFAULT);
                 $modifyPassword = $this->userManager->setPassword($_SESSION['pseudo'], $pass_hache);
 
-                $errorCounter = 0;
+
 
                 if (strlen(htmlspecialchars($_POST['passwordConnect'])) < 6) {
 
                     throw new Exception('Mot de passe trop court,  il faut au moins 6 caractères...');
                     //echo 'Mdp trop court,  il faut au moins 6 chars...';
-                    $errorCounter++;
+
                 }
 
                 if ($_POST['passwordConnect'] !== $_POST['passwordConfirm']) {
 
                     throw new Exception('Les 2 mots de passe doivent etre identiques');
                    // echo 'Vos 2 mots de passe doivent etre identiques';
-                    $errorCounter++;
-                }
-
-                if ($errorCounter === 0) {
-
-                    $view = new View("backend/modifyPass");
-                    $view->generate(array('password' => $modifyPassword), 'template_backend');
-
 
                 }
+
+
+
+                $view = new View("backend/modifyPass");
+                $view->generate(array('password' => $modifyPassword), 'template_backend');
+
+
+
             } else {
 
                 $view = new View("backend/modifyPass");
@@ -56,6 +56,7 @@ class ControllerAdminPassWord
 
 
         } else {
+
             throw new Exception('Vous n avez pas acces à cette page!');
         }
     }
