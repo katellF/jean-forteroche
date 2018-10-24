@@ -33,46 +33,46 @@ class Router
 
                 }
                 if ($_GET['action'] == 'admin') {
-                    //$this->ctrlConnect->isUserConnected();
+
                     $this->ctrlAdminPost->postsList();
 
                 } elseif ($_GET['action'] == 'logout') {
                     $this->ctrlConnect->logout();
 
                 } elseif ($_GET['action'] == 'addpost') {
-                    //$this->ctrlConnect->isUserConnected();
+
                     $this->ctrlAdminPost->addPost();
 
                 } elseif ($_GET['action'] == 'recoverpost') {
-                    //$this->ctrlConnect->isUserConnected();
+
                     $this->ctrlAdminPost->recoverpost();
 
                 } elseif ($_GET['action'] == 'adminAnswer') {
-                    //$this->ctrlConnect->isUserConnected();
+
                     $this->ctrlAdminComment->adminAnswer();
 
                 } elseif ($_GET['action'] == 'moderation') {
-                   // $this->ctrlConnect->isUserConnected();
+
                     $this->ctrlAdminComment->commentList();
 
                 } elseif ($_GET['action'] == 'adminNotification') {
-                   // $this->ctrlConnect->isUserConnected();
+
                     $this->ctrlAdminNotification->notificationList();
 
                 } elseif ($_GET['action'] == 'getcomment') {
-                   // $this->ctrlConnect->isUserConnected();
+
                     $this->ctrlAdminComment->viewComment();
 
                 } elseif ($_GET['action'] == 'previewpost') {
-                    //$this->ctrlConnect->isUserConnected();
+
                     $this->ctrlAdminPost->previewPost();
 
                 } elseif ($_GET['action'] == 'admincontact') {
-                    //$this->ctrlConnect->isUserConnected();
+
                     $this->ctrlAdminContact->contactList();
 
                 } elseif ($_GET['action'] == 'modifypass') {
-                    //$this->ctrlConnect->isUserConnected();
+                    
                     $this->ctrlAdminPassWord->modifyPassword();
 
                 }
