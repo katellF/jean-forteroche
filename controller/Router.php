@@ -100,7 +100,7 @@ class Router
                     $this->ctrlPost->lastPost();
 
                 } elseif ($_GET['action'] == 'contact') {
-                    $this->ctrlContact->contactForm();
+                    $this->ctrlContact->contact();
 
                 }
 //                elseif ($_GET['action'] == 'contactsent') {

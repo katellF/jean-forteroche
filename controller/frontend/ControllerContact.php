@@ -12,7 +12,7 @@ class ControllerContact
     }
 
 
-    public function contactForm()
+    public function contact()
     {
         session_start();
 
@@ -33,7 +33,6 @@ class ControllerContact
 
             $this->contactManager->insertContact();
             $view = new View("frontend/contactSent");
-//            $view->generate(array(), 'template_connect');
             $view->generate(array(), $this->ctrlConnect->selectTemplate('frontend'));
 
         } else {
@@ -42,24 +41,5 @@ class ControllerContact
             $view->generate(array(), $this->ctrlConnect->selectTemplate('frontend'));
 
         }
-
-//        elseif ($this->ctrlConnect->isUserConnected()) {
-//
-//            $view = new View("frontend/contact");
-//            $view->generate(array(), "template_connect");
-//        } else {
-//
-//            $view = new View("frontend/contact");
-//            $view->generate(array());
-//        }
     }
-
-
-//    public function contactSent()
-//    {
-//        session_start();
-//        $view = new View("frontend/contactSent");
-//        $view->generate(array());
-//    }
-
 }

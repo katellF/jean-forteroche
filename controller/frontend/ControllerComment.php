@@ -31,8 +31,7 @@ class ControllerComment
             $this->ctrlConnect->selectTemplate('frontend');
 
         }
-
-        }
+    }
 
     public function commentSent()
     {
