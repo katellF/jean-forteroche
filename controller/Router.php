@@ -4,6 +4,15 @@ class Router
 {
     private $ctrlPost;
     private $ctrlComment;
+    private $ctrlNotification;
+    private $ctrlConnect;
+    private $ctrlAdminPost;
+    private $ctrlAdminComment;
+    private $ctrlAdminNotification;
+    private $ctrlContact;
+    private $ctrlAdminPassWord;
+    private $ctrlAdminContact;
+
 
     public function __construct()
     {
@@ -20,113 +29,129 @@ class Router
 
     }
 
+
     public function routerRequest()
     {
         try {
             if (isset($_GET['action'])) {
-                if ($_GET['action'] == 'register') {
-                    $this->ctrlConnect->registration();
 
-                }
-                if ($_GET['action'] == 'connection') {
-                    $this->ctrlConnect->connection();
+                switch ($_GET['action']) {
 
-                }
-                if ($_GET['action'] == 'admin') {
+                    case 'home':
+                        $this->ctrlPost->home();
+                        break;
 
-                    $this->ctrlAdminPost->postsList();
+                    case 'writer':
+                        $this->ctrlPost->writer();
+                        break;
 
-                } elseif ($_GET['action'] == 'logout') {
-                    $this->ctrlConnect->logout();
+                    case 'listPosts':
+                        $this->ctrlPost->listPosts();
+                        break;
 
-                } elseif ($_GET['action'] == 'addpost') {
+                    case 'lastPost':
+                        $this->ctrlPost->lastPost();
+                        break;
 
-                    $this->ctrlAdminPost->addPost();
+                    case 'post':
 
-                } elseif ($_GET['action'] == 'recoverpost') {
-
-                    $this->ctrlAdminPost->recoverpost();
-
-                } elseif ($_GET['action'] == 'adminAnswer') {
-
-                    $this->ctrlAdminComment->adminAnswer();
-
-                } elseif ($_GET['action'] == 'moderation') {
-
-                    $this->ctrlAdminComment->commentList();
-
-                } elseif ($_GET['action'] == 'adminNotification') {
-
-                    $this->ctrlAdminNotification->notificationList();
-
-                } elseif ($_GET['action'] == 'getcomment') {
-
-                    $this->ctrlAdminComment->viewComment();
-
-                } elseif ($_GET['action'] == 'previewpost') {
-
-                    $this->ctrlAdminPost->previewPost();
-
-                } elseif ($_GET['action'] == 'admincontact') {
-
-                    $this->ctrlAdminContact->contactList();
-
-                } elseif ($_GET['action'] == 'modifypass') {
-                    
-                    $this->ctrlAdminPassWord->modifyPassword();
-
-                }
-                if ($_GET['action'] == 'listPosts') {
-                    $this->ctrlPost->listPosts();
-
-                } elseif ($_GET['action'] == 'post') {
-                    if (isset($_GET['postid']) && $_GET['postid'] > 0) {
-                        $this->ctrlPost->post();
-
-                    } else {
-                        throw new Exception('Aucun identifiant de billet envoyé');
-                    }
-
-                } elseif ($_GET['action'] == 'commentsent') {
-                    $this->ctrlComment->commentSent();
-
-                } elseif ($_GET['action'] == 'writer') {
-                    $this->ctrlPost->writer();
-
-                } elseif ($_GET['action'] == 'home') {
-                    $this->ctrlPost->home();
-
-                } elseif ($_GET['action'] == 'lastPost') {
-                    $this->ctrlPost->lastPost();
-
-                } elseif ($_GET['action'] == 'contact') {
-                    $this->ctrlContact->contact();
-
-                }
-                elseif ($_GET['action'] == 'addComment') {
-                    if (isset($_GET['postid']) && $_GET['postid'] > 0) {
-                        if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                            $status = 'pending';
-                            $source = 'frontend';
-
-                            if (isset($_POST['source']) && $_POST['source'] === 'admin') {
-                                $status = 'approved';
-                                $source = 'backend';
-                            }
-
-                            $this->ctrlComment->addComment($_GET['postid'], $_POST['author'], $_POST['comment'], $status , $source);
+                        if (isset($_GET['postid']) && $_GET['postid'] > 0) {
+                            $this->ctrlPost->post();
 
                         } else {
-                            throw new Exception('Tous les champs ne sont pas remplis !');
+                            throw new Exception('Aucun identifiant de billet envoyé');
                         }
+                        break;
 
-                    } else {
-                        throw new Exception('Aucun identifiant de billet envoyé');
-                    }
+                    case 'commentsent':
+                        $this->ctrlComment->commentSent();
+                        break;
 
-                } elseif ($_GET['action'] == 'notification') {
+                    case 'notification':
+                        $this->ctrlNotification->notification();
+                        break;
 
-                    $this->ctrlNotification->notification();
+                    case 'addComment':
+                        if (isset($_GET['postid']) && $_GET['postid'] > 0) {
+                            if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+                                $status = 'pending';
+                                $source = 'frontend';
+
+                                if (isset($_POST['source']) && $_POST['source'] === 'admin') {
+                                    $status = 'approved';
+                                    $source = 'backend';
+                                }
+
+                                $this->ctrlComment->addComment($_GET['postid'], $_POST['author'], $_POST['comment'], $status, $source);
+
+                            } else {
+                                throw new Exception('Tous les champs ne sont pas remplis !');
+                            }
+
+                        } else {
+                            throw new Exception('Aucun identifiant de billet envoyé');
+                        }
+                        break;
+
+                    case 'contact':
+                        $this->ctrlContact->contact();
+                        break;
+
+                    case 'register':
+                        $this->ctrlConnect->registration();
+                        break;
+
+                    case 'connection':
+                        $this->ctrlConnect->connection();
+                        break;
+
+                    case 'logout':
+                        $this->ctrlConnect->logout();
+                        break;
+
+
+                    case 'admin':
+                        $this->ctrlAdminPost->postsList();
+                        break;
+
+                    case 'previewpost':
+                        $this->ctrlAdminPost->previewpost();
+                        break;
+
+                    case 'recoverpost':
+                        $this->ctrlAdminPost->recoverpost();
+                        break;
+
+                    case 'addpost':
+                        $this->ctrlAdminPost->addPost();
+                        break;
+
+                    case 'moderation':
+                        $this->ctrlAdminComment->commentList();
+                        break;
+
+                    case 'adminAnswer':
+                        $this->ctrlAdminComment->adminAnswer();
+                        break;
+
+                    case 'adminNotification':
+                        $this->ctrlAdminNotification->notificationList();
+                        break;
+
+                    case 'getcomment':
+                        $this->ctrlAdminComment->viewComment();
+                        break;
+
+                    case 'admincontact':
+                        $this->ctrlAdminContact->contactList();
+                        break;
+
+                    case 'modifypass':
+                        $this->ctrlAdminPassWord->modifyPassword();
+                        break;
+
+                    default:
+                        $this->ctrlPost->home();
                 }
 
             } else {
@@ -141,8 +166,6 @@ class Router
 
     private function error($msgError)
     {
-
-
         $view = new View("frontend/error");
         $view->generate(array('msgError' => $msgError));
     }
