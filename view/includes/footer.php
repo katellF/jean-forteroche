@@ -12,7 +12,7 @@
                         <a class="nav-link" href="#">Mentions Légales</a>
                     </li>
                     <li class="nav-item active margin_rightR">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="index.php?action=contact">Contact</a>
                     </li>
                 </ul>
             </div>
