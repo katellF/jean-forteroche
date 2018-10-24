@@ -33,29 +33,33 @@ class ControllerContact
 
             $this->contactManager->insertContact();
             $view = new View("frontend/contactSent");
-            $view->generate(array(), 'template_connect');
-
-        }
-
-        if ($this->ctrlConnect->isUserConnected()) {
-
-            $view = new View("frontend/contact");
-            $view->generate(array(), "template_connect");
-
+//            $view->generate(array(), 'template_connect');
+            $view->generate(array(), $this->ctrlConnect->selectTemplate('frontend'));
 
         } else {
 
             $view = new View("frontend/contact");
-            $view->generate(array());
+            $view->generate(array(), $this->ctrlConnect->selectTemplate('frontend'));
+
         }
+
+//        elseif ($this->ctrlConnect->isUserConnected()) {
+//
+//            $view = new View("frontend/contact");
+//            $view->generate(array(), "template_connect");
+//        } else {
+//
+//            $view = new View("frontend/contact");
+//            $view->generate(array());
+//        }
     }
 
 
-    public function contactSent()
-    {
-        session_start();
-        $view = new View("frontend/contactSent");
-        $view->generate(array());
-    }
+//    public function contactSent()
+//    {
+//        session_start();
+//        $view = new View("frontend/contactSent");
+//        $view->generate(array());
+//    }
 
 }

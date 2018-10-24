@@ -29,7 +29,6 @@ class ControllerNotification
 
                 throw new Exception('Tous les champs ne sont pas remplis !');
             }
-
         }
         if ($this->ctrlConnect->isUserConnected()) {
 

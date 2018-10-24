@@ -127,4 +127,19 @@ class ControllerConnect
             return false;
         }
     }
+
+    public function selectTemplate($view = 'backend'){
+
+        if( $this->isUserConnected() && $view === 'backend' ){
+            return 'template_backend';
+        }
+
+        if( $this->isUserConnected() && $view === 'frontend' ){
+            return 'template_connect';
+        }
+
+        return 'template';
+
+    }
+
 }

@@ -99,7 +99,7 @@ class ControllerPost
         }
     }
 
-    public function homePage()
+    public function home()
     {
         session_start();
 

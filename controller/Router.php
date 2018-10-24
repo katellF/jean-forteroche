@@ -94,7 +94,7 @@ class Router
                     $this->ctrlPost->writer();
 
                 } elseif ($_GET['action'] == 'home') {
-                    $this->ctrlPost->homePage();
+                    $this->ctrlPost->home();
 
                 } elseif ($_GET['action'] == 'lastPost') {
                     $this->ctrlPost->lastPost();
@@ -102,18 +102,23 @@ class Router
                 } elseif ($_GET['action'] == 'contact') {
                     $this->ctrlContact->contactForm();
 
-                } elseif ($_GET['action'] == 'contactsent') {
-                    $this->ctrlContact->contactSent();
-
-                } elseif ($_GET['action'] == 'addComment') {
+                }
+//                elseif ($_GET['action'] == 'contactsent') {
+//                    $this->ctrlContact->contactSent();
+//
+//                }
+                elseif ($_GET['action'] == 'addComment') {
                     if (isset($_GET['postid']) && $_GET['postid'] > 0) {
                         if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                             $status = 'pending';
+                            $source = 'frontend';
+
                             if (isset($_POST['source']) && $_POST['source'] === 'admin') {
                                 $status = 'approved';
+                                $source = 'backend';
                             }
 
-                            $this->ctrlComment->addComment($_GET['postid'], $_POST['author'], $_POST['comment'], $status);
+                            $this->ctrlComment->addComment($_GET['postid'], $_POST['author'], $_POST['comment'], $status , $source);
 
                         } else {
                             throw new Exception('Tous les champs ne sont pas remplis !');
@@ -129,7 +134,7 @@ class Router
                 }
 
             } else {
-                $this->ctrlPost->homePage();
+                $this->ctrlPost->home();
             }
 
         } catch (Exception $e) {
