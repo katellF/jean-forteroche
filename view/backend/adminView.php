@@ -98,7 +98,6 @@ $this->title = 'tableau de bord';
         <?php
     }
 
-
     $posts->closeCursor();
     ?>
 </div>
