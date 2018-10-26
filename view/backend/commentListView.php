@@ -22,10 +22,10 @@ $this->title = 'Commentaires';
 
             <h2  class="margin-bottom25 margin-top25">
                 <?= htmlspecialchars($data['author']) ?>
-                <em class="font_size_60">le <?= $data['comment_date_fr'] ?></em>
+                <em class="font_size_60">le <?= htmlspecialchars($data['comment_date_fr']) ?></em>
             </h2>
             <p class="color-138597"><strong>Statut: <?= Helpers::labelCommentStatus(htmlspecialchars($data['status']))?></strong></p>
-            <p><?= $data['comment'] ?></p>
+            <p><?= htmlspecialchars($data['comment']) ?></p>
 
 
 
