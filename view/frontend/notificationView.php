@@ -29,8 +29,8 @@ if (isset ($_POST) && !empty($_POST)) {
             <select name="reason" id="reason" class="form-control">
                 <option value="abuse">Inapproprié</option>
                 <option value="insult">Insultant</option>
-                <option value="insult">Obscène</option>
-                <option value="insult">Autres</option>
+                <option value="obscene">Obscène</option>
+                <option value="other">Autres</option>
             </select>
         </div>
         <div class="form-group margin-bottom25">

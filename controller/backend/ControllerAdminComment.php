@@ -7,7 +7,6 @@ class ControllerAdminComment
 
     public function __construct()
     {
-
         $this->ctrlConnect = new ControllerConnect();
         $this->commentManager = new CommentManager();
     }
@@ -38,9 +37,11 @@ class ControllerAdminComment
             } elseif (isset($_GET['status']) && $_GET['status'] === 'all') {
 
                 $comments = $this->commentManager->getAllComments();
+
             } elseif (isset($_GET['status']) && $_GET['status'] === 'pending') {
 
                 $comments = $this->commentManager->getCommentsByStatus('pending');
+
             } else {
 
                 $comments = $this->commentManager->getAllComments();
@@ -52,7 +53,6 @@ class ControllerAdminComment
         } else {
             throw new Exception('Vous n avez pas acces à cette page!');
         }
-
     }
 
     public function statusComment()
@@ -65,7 +65,7 @@ class ControllerAdminComment
 
         if ($_POST["operation"] === "pending") {
 
-            $this->commentManager->setStatus($_GET['postid'], 'pending');
+            $this->commentManager->setStatus($_GET['commentid'], 'pending');
 
         }
 
@@ -94,12 +94,10 @@ class ControllerAdminComment
         } else {
             throw new Exception('Vous n avez pas acces à cette page!');
         }
-
     }
 
     public function viewComment()
     {
-
         session_start();
 
         if ($this->ctrlConnect->isUserConnected()) {
@@ -112,9 +110,6 @@ class ControllerAdminComment
         } else {
 
             throw new Exception('Vous n avez pas acces à cette page!');
-
         }
-
     }
-
 }

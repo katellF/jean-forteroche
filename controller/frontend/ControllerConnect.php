@@ -139,7 +139,6 @@ class ControllerConnect
         }
 
         return 'template';
-
     }
 
 }

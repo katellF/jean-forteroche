@@ -63,6 +63,28 @@ class Helpers
         return $translated;
     }
 
+    public static function labelNotifReason($reason)
+    {
+
+        if ($reason == 'abuse') {
+            $translated = 'Inapproprié';
+        }
+
+        if ($reason == 'insult') {
+            $translated = 'Insultant';
+        }
+
+        if ($reason == 'obscene') {
+            $translated = 'Obscène';
+        }
+
+        if ($reason == 'other') {
+            $translated = 'Autres';
+        }
+
+        return $translated;
+    }
+
     public static function labelContactStatus($status)
     {
 

@@ -45,7 +45,7 @@ $this->title = 'Commentaires';
             <form class="margin-right15" method="post"
                   action="index.php?action=moderation&commentid=<?= $data["id"] ?>">
 
-                <input type="hidden" name="operation" value="trash"/>
+                <input type="hidden" name="operation" value="pending"/>
                 <input type="submit" class="btn btn-primary bg-138597 pending_button" value=" Mettre en attente"/>
 
             </form>
@@ -65,7 +65,6 @@ $this->title = 'Commentaires';
 
             if ($data['status'] === 'approved') {
                 ?>
-
                 <a href="index.php?action=adminAnswer&commentid=<?= $data["id"] ?>"
                    class="btn btn-primary button-modify active margin-right15 bg-138597">Répondre</a>
                 <?php

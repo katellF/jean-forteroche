@@ -52,7 +52,6 @@ class UserManager extends Manager
     public function getLogout()
     {
 
-
         $_SESSION = array();
         session_destroy();
     }
