@@ -23,11 +23,11 @@ $this->title = htmlspecialchars('Notifier un commentaire');
         <div class="border-6BC3D1 container margin-top50">
 
                 <h2 class="margin-bottom25 margin-top25">
-                raison :<?=  Helpers::labelNotifReason(htmlspecialchars($data['reason'])) ?> <br/>
+                Raison : <?=  Helpers::labelNotifReason(htmlspecialchars($data['reason'])) ?> <br/>
                 <em class="font_size_60">le <?= $data['notification_date_fr'] ?></em>
                 </h2>
-            <p class="color-138597"><strong>statut: <?=  Helpers::labelNotifStatus(htmlspecialchars($data['status'])) ?></strong></p>
-            <p> signalement : <?= htmlspecialchars($data['content']) ?> </p>
+            <p class="color-138597"><strong>Statut: <?=  Helpers::labelNotifStatus(htmlspecialchars($data['status'])) ?></strong></p>
+            <p> Signalement : <?= htmlspecialchars($data['content']) ?> </p>
 
 
             <div class="d-flex relative justify-content-end margin-bottom25">
