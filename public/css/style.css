@@ -328,7 +328,6 @@ img {
     padding: 3px 6px 3px 6px;
 }
 
-
 .button-notif {
 
     bottom: 0;
@@ -339,13 +338,11 @@ img {
 
 }
 
-.trash_D{
+.trash_D {
 
     display: none !important;
 
 }
-
-
 
 /* ========== footer ========== */
 footer {
@@ -414,16 +411,13 @@ footer {
     }
 
     /* ========================== listPost ============================== */
-
     /* ======= Pagination ======= */
-
     .button-pagination {
 
         margin-bottom: 15px;
     }
 
     /* ============= post page ================== */
-
     .border-comment {
 
         width: 100%;
@@ -435,9 +429,7 @@ footer {
         width: 90%;
     }
 
-
     /* ========================== footer ============================== */
-
     .nav_footer {
 
         padding-top: 50px;
@@ -454,8 +446,7 @@ footer {
     }
 
     /* ============= Backend ================== */
-
-    .trash_D{
+    .trash_D {
 
         display: none;
 
@@ -502,23 +493,23 @@ footer {
             padding-top: 100px;
         }
 
-
         /* ============= Backend ================== */
-        .trash_R{
+        .trash_R {
 
             display: none;
 
         }
 
-        .trash_D{
+        .trash_D {
 
             display: flex !important;
         }
 
-        .margin-rightR2{
+        .margin-rightR2 {
 
             margin-right: 2px;
         }
+
         /* ============ footer ============== */
         .nav_footer {
 
