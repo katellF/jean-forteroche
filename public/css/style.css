@@ -422,6 +422,13 @@ footer {
         margin-bottom: 15px;
     }
 
+    /* ============= post page ================== */
+
+    .border-comment {
+
+        width: 100%;
+    }
+
     /* ========================== footer ============================== */
 
     .nav_footer {
@@ -487,6 +494,7 @@ footer {
             height: 200px;
             padding-top: 100px;
         }
+
 
         /* ============= Backend ================== */
         .trash_R{

@@ -46,7 +46,7 @@ while ($comment = $comments->fetch()) {
         </div>
         <div>
             <input type="hidden" name="operation" value="commentSend"/>
-            <input type="submit" class="btn btn-primary bg-138597 margin-top15" value="Envoyer"/>
+            <input type="submit" class="btn btn-primary bg-138597 margin-top15 margin-bottom15" value="Envoyer"/>
         </div>
     </form>
 </div>
