@@ -29,10 +29,11 @@ class ControllerPost
 
             if ($page !== 1) {
 
-                $end = $page * $end;
-                $start = $end - $per_page;
+                $end = $per_page;
+                $start = $per_page * ($page - 1);
 
             }
+
         } else {
             $page = 1;
         }
