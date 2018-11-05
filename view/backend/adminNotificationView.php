@@ -32,10 +32,11 @@ $this->title = htmlspecialchars('Notifier un commentaire');
 
             <div class="d-flex relative justify-content-end margin-bottom25">
 
-                    <p class="margin-right15 "><a class="btn btn-primary bg-6BC3D1" href="index.php?action=getcomment&comment_id=<?=$data['comment_id']?>">Voir le commentaire</a></p>
+                    <p class="margin-right15"><a class="btn btn-primary bg-6BC3D1 trash_R" href="index.php?action=getcomment&comment_id=<?=$data['comment_id']?>">Voir le commentaire</a></p>
+                    <p class="margin-right15 margin-rightR2"><a class="btn btn-primary bg-6BC3D1 trash_D" href="index.php?action=getcomment&comment_id=<?=$data['comment_id']?>">Commentaire</a></p>
 
                     <?php if ($data['status'] === 'unread' || $data['status'] === 'trash')  { ?>
-                        <form class="margin-right15" method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
+                        <form class="margin-right15 margin-rightR2" method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
 
                             <input type="hidden" name="operation" value="archived"/>
                             <input type="submit" class="btn btn-primary bg-138597 archive_button" value="Archiver"/>
@@ -45,10 +46,11 @@ $this->title = htmlspecialchars('Notifier un commentaire');
                     }
                     ?>
                     <?php if ($data['status'] === 'archived'|| $data['status'] === 'trash') { ?>
-                        <form  class="margin-right15" method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
+                        <form  class="margin-right15 margin-rightR2" method="post" action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
 
                             <input type="hidden" name="operation" value="unread"/>
-                            <input type="submit" class="btn btn-primary bg-138597 unread_button" value=" Mettre dans non lu"/>
+                            <input type="submit" class="btn btn-primary bg-138597 unread_button trash_R" value=" Mettre dans non lu"/>
+                            <input type="submit" class="btn btn-primary bg-138597 unread_button trash_D" value=" non lu"/>
 
 
                         </form>
@@ -56,12 +58,12 @@ $this->title = htmlspecialchars('Notifier un commentaire');
                     }
 
                     if ($data['status'] === 'unread' || $data['status'] === 'archived' ) { ?>
-                        <form class="margin-right15" method="post"
+                        <form class="margin-right15 margin-rightR2" method="post"
                               action="index.php?action=adminNotification&notificationid=<?= $data["id"] ?>">
 
                             <input type="hidden" name="operation" value="trash"/>
-                            <input type="submit" class="btn btn-primary bg-138597 trash_button" value="Jeter dans la corbeille"/>
-
+                            <input type="submit" class="btn btn-primary bg-138597 trash_button trash_R" value="Jeter dans la corbeille"/>
+                            <input type="submit" class="btn btn-primary bg-138597 trash_button trash_D" value=" Corbeille"/>
                         </form>
                         <?php
                     }

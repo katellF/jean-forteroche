@@ -513,7 +513,11 @@ footer {
         .trash_D{
 
             display: flex !important;
+        }
 
+        .margin-rightR2{
+
+            margin-right: 2px;
         }
         /* ============ footer ============== */
         .nav_footer {
