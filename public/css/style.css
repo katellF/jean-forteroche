@@ -429,6 +429,13 @@ footer {
         width: 100%;
     }
 
+    /* contact notif comment */
+    .border_notif {
+
+        width: 90%;
+    }
+
+
     /* ========================== footer ============================== */
 
     .nav_footer {
@@ -505,7 +512,7 @@ footer {
 
         .trash_D{
 
-            display: flex;
+            display: flex !important;
 
         }
         /* ============ footer ============== */
