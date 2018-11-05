@@ -417,7 +417,10 @@ footer {
 
     /* ======= Pagination ======= */
 
-    
+    .button-pagination {
+
+        margin-bottom: 15px;
+    }
 
     /* ========================== footer ============================== */
 
