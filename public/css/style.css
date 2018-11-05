@@ -287,7 +287,7 @@ img {
 
 }
 
-/* backend */
+/* ============= Backend ================== */
 .nav-filter {
 
     background-color: #6BC3D1 !important;
@@ -318,19 +318,17 @@ img {
 
 .circle-comment {
 
-    /*background: #FFC45C;*/
     border-color: #FFC45C !important;
     padding: 3px 6px 3px 6px;
 }
 
 .circle-notif {
 
-    /*background: #73B973;*/
     border-color: #73B973 !important;
     padding: 3px 6px 3px 6px;
 }
 
-/* backend notif */
+
 .button-notif {
 
     bottom: 0;
@@ -340,6 +338,14 @@ img {
     min-height: calc(100vh - 55px);
 
 }
+
+.trash_D{
+
+    display: none !important;
+
+}
+
+
 
 /* ========== footer ========== */
 footer {
@@ -407,6 +413,12 @@ footer {
         height: auto;
     }
 
+    /* ========================== listPost ============================== */
+
+    /* ======= Pagination ======= */
+
+    
+
     /* ========================== footer ============================== */
 
     .nav_footer {
@@ -422,6 +434,14 @@ footer {
     .margin_rightR {
 
         margin-right: 15px;
+    }
+
+    /* ============= Backend ================== */
+
+    .trash_D{
+
+        display: none;
+
     }
 
     /* ============================== Responsif max 576 px ============================= */
@@ -465,6 +485,18 @@ footer {
             padding-top: 100px;
         }
 
+        /* ============= Backend ================== */
+        .trash_R{
+
+            display: none;
+
+        }
+
+        .trash_D{
+
+            display: flex;
+
+        }
         /* ============ footer ============== */
         .nav_footer {
 

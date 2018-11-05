@@ -56,7 +56,8 @@ $this->title = 'tableau de bord';
                     <form class="margin-right15" method="post" action="index.php?action=admin&postid=<?= $data["id"] ?>">
 
                         <input type="hidden" name="operation" value="trash"/>
-                        <input type="submit" class="btn btn-primary bg-138597 trash_button" value="Jeter dans la corbeille"/>
+                        <input type="submit" class="btn btn-primary bg-138597 trash_button trash_R" value="Jeter dans la corbeille"/>
+                        <input type="submit" class="btn btn-primary bg-138597 trash_button trash_D" value="Corbeille"/>
 
                     </form>
 
