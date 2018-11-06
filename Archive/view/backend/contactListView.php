@@ -13,7 +13,7 @@ $this->title = 'Messages';
         <a class="margin-right15 color_white" href="index.php?action=admincontact&status=all">Tous</a>
         <a class="margin-right15 color_white" href="index.php?action=admincontact&status=archived">Archivés</a>
         <a class="margin-right15 color_white" href="index.php?action=admincontact&status=trash">Corbeille</a>
-        <a class="color_white" href="index.php?action=admincontact">non lus</a>
+        <a class="color_white" href="index.php?action=adminContact">non lus</a>
     </nav>
 
 

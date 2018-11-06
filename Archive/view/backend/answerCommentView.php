@@ -2,7 +2,7 @@
 $this->title = 'Ajouter un commentaire';
 while ($comment = $comments->fetch()) {
 ?>
-    <p class="margin-top50 margin-bottom25 margin-left15"><a class="btn btn-primary bg-6BC3D1" href="index.php?action=admin">Retour au tableau de bord</a></p>
+    <p class="margin-top25 margin-bottom25 margin-left15"><a class="btn btn-primary bg-6BC3D1" href="index.php?action=admin">Retour au tableau de bord</a></p>
 
     <h1 class="text-center margin-top50 margin-bottom50">Commentaire</h1>
 <div class="container">
