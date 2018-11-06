@@ -5,7 +5,6 @@
     <h1 class="font_size_3">Billet Simple pour l'Alaska </h1>
     <p class="font_size_1_5 color_343a40"><?= htmlspecialchars($post['title']) ?></p>
 </div>
-<!--<p><a href="index.php">Retour à la liste des articles</a></p>-->
 
         <h2 class="text-center ligne_top ligne_bottom">
             <?= htmlspecialchars($post['title']) ?> <br/>

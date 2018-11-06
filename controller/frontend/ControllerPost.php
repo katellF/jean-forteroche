@@ -79,11 +79,23 @@ class ControllerPost
 
     public function lastPost()
     {
-        $post = $this->postManager->getLastPost();
+        session_start();
 
-        $comments = $this->commentManager->getApprovedComments($post['id']);
-        $view = new View("frontend/post");
-        $view->generate(array('post' => $post, 'comments' => $comments));
+        var_dump($this->ctrlConnect->isUserConnected());
+
+        if ($this->ctrlConnect->isUserConnected()) {
+            $post = $this->postManager->getLastPost();
+            $comments = $this->commentManager->getApprovedComments($post['id']);
+            $view = new View("frontend/post");
+            $view->generate(array('post' => $post, 'comments' => $comments), "template_connect");
+
+        } else {
+
+            $post = $this->postManager->getLastPost();
+            $comments = $this->commentManager->getApprovedComments($post['id']);
+            $view = new View("frontend/post");
+            $view->generate(array('post' => $post, 'comments' => $comments));
+        }
     }
 
     public function writer()

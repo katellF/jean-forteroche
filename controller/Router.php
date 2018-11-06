@@ -49,7 +49,7 @@ class Router
                         $this->ctrlPost->listPosts();
                         break;
 
-                    case 'lastPost':
+                    case 'lastpost':
                         $this->ctrlPost->lastPost();
                         break;
 

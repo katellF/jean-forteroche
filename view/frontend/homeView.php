@@ -8,7 +8,7 @@
 
     <div class="container">
     <a href="index.php?action=listPosts"class="text-center btn btn-info btn-lg active button_book">Découvrez le livre</a>
-    <a href="index.php?action=lastPost"class="text-center btn btn-info btn-lg active button_chapter">Lire le dernier chapitre</a>
+    <a href="index.php?action=lastpost"class="text-center btn btn-info btn-lg active button_chapter">Lire le dernier chapitre</a>
     </div>
 
 </div>
